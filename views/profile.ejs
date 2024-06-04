@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ragilly Technologies - User Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!--- favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+  <!--- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
+    rel="stylesheet" />
+
+  <!--- material icon font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
+
+  <!--- preload images-->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /* Header Styles */
+    body {
+      padding-top: 70px;
+      /* Adjust this value as needed */
+      padding-bottom: 70px;
+      /* Adjust this value as needed */
+    }
+
+    .header {
+      background-color: hsl(222, 44%, 18%);
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header .logo {
+      display: block;
+    }
+
+    .header .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .navbar-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .header .navbar-list li {
+      margin-right: 20px;
+    }
+
+    .header .navbar-list li:last-child {
+      margin-right: 0;
+    }
+
+    .header .navbar-link {
+      color: #e8e1e1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .header .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .header .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .header .nav-toggle-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 100%;
+        z-index: 999;
+      }
+
+      .header .navbar.active {
+        display: flex;
+      }
+
+      .header .navbar-list li {
+        margin: 10px 0;
+      }
+
+      .header .nav-toggle-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .header .nav-toggle-icon {
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        margin-bottom: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .header .nav-toggle-icon.active {
+        transform: rotate(45deg);
+      }
+
+      .header .nav-toggle-icon:nth-child(2) {
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        transition: opacity 0.3s ease;
+      }
+
+      .header .nav-toggle-icon:nth-child(3) {
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        margin-top: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .header .nav-toggle-icon.active:nth-child(1) {
+        transform: rotate(-45deg);
+      }
+
+      .header .nav-toggle-icon.active:nth-child(2) {
+        opacity: 0;
+      }
+
+      .header .nav-toggle-icon.active:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+    #userDetails {
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+  background-color: #f9f9f9; /* Soft gray background */
+  padding: 20px;
+  font-size: large;
+  min-height: 80vh;
+}
+
+.user-details {
+  padding: 20px; /* Even padding inside the details */
+  border-radius: 8px;
+  border: 1px solid #ddd; /* Light border for separation */
+  margin-bottom: 20px;
+  position: relative;
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.user-details:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Increased shadow on hover */
+}
+
+.user-details:last-child {
+  margin-bottom: 0;
+}
+
+.user-title {
+  margin-top: 1rem;
+  color: #333;
+}
+
+    .edit-icon,
+    .delete-icon {
+      position: absolute;
+      top: 10px;
+      cursor: pointer;
+    }
+
+    .edit-icon {
+      right: 40px;
+      /* Adjust the right distance for edit icon */
+    }
+
+    .delete-icon {
+      right: 10px;
+      /* Keep delete icon closer to the edge */
+    }
+
+    .edit-icon:hover,
+    .delete-icon:hover {
+      color: #007bff;
+      /* Change color on hover */
+    }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      /* Include Material Icons font */
+      font-size: 24px;
+      /* Adjust icon size */
+    }
+
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <!-- - #HEADER -->
+
+  <header class="header">
+    <div class="container">
+      <a href="/dashboard" class="logo">
+        <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li>
+            <a href="#" class="navbar-link">About</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Menu</a>
+          </li>
+
+          <li>
+            <a href="/orderdetail" class="navbar-link">Order</a>
+          </li>
+
+          <li>
+            <a href="/" class="navbar-link">Logout</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <span class="nav-toggle-icon icon-1"></span>
+        <span class="nav-toggle-icon icon-2"></span>
+        <span class="nav-toggle-icon icon-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="col-md-6 offset-md-3 mt-5">
+      <!-- Container to display order details -->
+      <h2 class="user-title text-center mb-4">User Details</h2>
+      <div id="userDetails" class="mt-4"></div>
+    </div>
+  </div>
+
+  <!--- #FOOTER-->
+  <footer class="footer">
+    <div class="footer-top section">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+          </a>
+
+          <p class="footer-text">
+            Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
+            sint et molestiae non recusandae.
+          </p>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/instagram.svg" alt="instagram" />
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Opening Hours</p>
+          </li>
+
+          <li>
+            <p class="p">Monday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+
+          <li>
+            <p class="p">Sunday – Thursday</p>
+
+            <span class="span">17.30 – 00.00</span>
+          </li>
+
+          <li>
+            <p class="p">Friday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Contact Info</p>
+          </li>
+
+          <li>
+            <a href="tel:+01234567890" class="footer-link">
+              <span class="material-symbols-rounded">call</span>
+
+              <span class="span">+01 2 3456 7890</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:info@autofix.com" class="footer-link">
+              <span class="material-symbols-rounded">mail</span>
+
+              <span class="span">info@Ragilly.com</span>
+            </a>
+          </li>
+
+          <li>
+            <address class="footer-link address">
+              <span class="material-symbols-rounded">location_on</span>
+
+              <span class="span">21 King Street Melbourne, 3000, Australia</span>
+            </address>
+          </li>
+        </ul>
+      </div>
+
+      <img src="./assets/images/footer-shape-3.png" width="637" height="173" loading="lazy" alt="Shape"
+        class="shape shape-3 move-anim" />
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          Copyright 2024, Ragilly All Rights Reserved.
+        </p>
+
+        <img src="./assets/images/footer-shape-2.png" width="778" height="335" loading="lazy" alt="Shape"
+          class="shape shape-2" />
+
+        <img src="./assets/images/footer-shape-1.png" width="805" height="652" loading="lazy" alt="Red Car"
+          class="shape shape-1 move-anim" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetch the mobile number of the logged-in user
+      fetchCookie().then(loggedInUserMobile => {
+        // Call fetchOrderDetails with the mobile number of the logged-in user
+        fetchUserDetails(loggedInUserMobile);
+      });
+    });
+
+    async function fetchCookie() {
+      try {
+        const response = await fetch('/getcookie');
+        const data = await response.json();
+        console.log('Cookie:', data);
+        if (data && Object.keys(data).length !== 0) {
+          return parseJwt(data.jwt).mobile;
+        }
+      } catch (error) {
+        console.error('Error fetching cookie:', error);
+        return null;
+      }
+    }
+
+    function parseJwt(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+
+      return JSON.parse(jsonPayload);
+    }
+
+    function fetchUserDetails(mobile) {
+      fetch(`/userdetails?mobile=${mobile}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (!data || data.length === 0) {
+            alert("User not found");
+            return;
+          }
+          renderUserDetails(data);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("User not found");
+        })
+    }
+
+    <!-- Inside the renderUserDetails function -->
+    function renderUserDetails(userData) {
+      const userDetailsContainer = document.getElementById("userDetails");
+      userDetailsContainer.innerHTML = "";
+
+      if (userData.length === 0) {
+        alert("No user details found");
+        return;
+      }
+
+      userData.forEach(user => {
+        const userDetailsDiv = document.createElement("div");
+        userDetailsDiv.classList.add("user-details");
+
+        // Define the fields you want to display
+        const fieldsToDisplay = ["name", "email", "mobile"];
+
+        fieldsToDisplay.forEach(key => {
+          const detailItem = document.createElement("div");
+          detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${user[key]}`;
+          userDetailsDiv.appendChild(detailItem);
+        });
+
+        // Create icons for edit and delete actions
+        const editIcon = document.createElement("span");
+        editIcon.classList.add("material-icons", "edit-icon");
+        editIcon.textContent = "edit";
+        editIcon.addEventListener("click", function () {
+          renderEditableUserDetails(user);
+        });
+
+        const deleteIcon = document.createElement("span");
+        deleteIcon.classList.add("material-icons", "delete-icon");
+        deleteIcon.textContent = "delete";
+        deleteIcon.addEventListener("click", function () {
+          deleteUser(user.mobile);
+        });
+
+        // Add icons to the user details card
+        userDetailsDiv.appendChild(editIcon);
+        userDetailsDiv.appendChild(deleteIcon);
+
+        userDetailsContainer.appendChild(userDetailsDiv);
+      });
+    }
+
+    function renderEditableUserDetails(userData) {
+      const userDetailsContainer = document.getElementById("userDetails");
+      userDetailsContainer.innerHTML = "";
+
+      const form = document.createElement("form");
+      form.id = "editUserForm";
+
+      // Define the fields you want to display and edit
+      const allowedFields = ["name", "email", "mobile"];
+
+      allowedFields.forEach(key => {
+        if (userData[key] !== undefined) {
+          const inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.name = key;
+          inputField.value = userData[key];
+          const label = document.createElement("label");
+          label.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+
+          const fieldDiv = document.createElement("div");
+          fieldDiv.classList.add("form-group");
+          fieldDiv.appendChild(label);
+          fieldDiv.appendChild(inputField);
+
+          form.appendChild(fieldDiv);
+        }
+      });
+
+      const submitButton = document.createElement("button");
+      submitButton.type = "submit";
+      submitButton.textContent = "Save Changes";
+      submitButton.classList.add("btn", "btn-primary");
+
+      form.appendChild(submitButton);
+
+      userDetailsContainer.appendChild(form);
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const editedUserData = {};
+        formData.forEach((value, key) => {
+          editedUserData[key] = value;
+        });
+
+        fetch("/edituser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedUserData)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            fetchUserDetails(editedUserData.mobile);
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while saving changes");
+          });
+      });
+    }
+
+
+    function deleteUser(mobile) { // changed from userId to mobile
+      if (confirm("Are you sure you want to delete this user?")) {
+        fetch(`/deleteuser?mobile=${mobile}`, {
+          method: "DELETE"
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            alert(data.message);
+            document.getElementById("userDetails").innerHTML = "";
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting user");
+          });
+      }
+    }
+
+  </script>
+</body>
+
+</html>

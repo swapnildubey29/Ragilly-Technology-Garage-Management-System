@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ragilly Technologies - Order Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!--- favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+  <!--- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
+    rel="stylesheet" />
+
+  <!--- material icon font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
+
+  <!--- preload images-->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
+
+  <style>
+    /* Header Styles */
+
+    .header {
+      background-color: hsl(222, 44%, 18%);
+      padding: 20px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header .logo {
+      display: block;
+    }
+
+    .header .navbar {
+      display: flex;
+      align-items: center;
+    }
+
+    .header .navbar-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .header .navbar-list li {
+      margin-right: 20px;
+    }
+
+    .header .navbar-list li:last-child {
+      margin-right: 0;
+    }
+
+    .header .navbar-link {
+      color: #e8e1e1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .header .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .header .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .header .nav-toggle-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        width: 100%;
+        z-index: 999;
+      }
+
+      .header .navbar.active {
+        display: flex;
+      }
+
+      .header .navbar-list li {
+        margin: 10px 0;
+      }
+
+      .header .nav-toggle-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .header .nav-toggle-icon {
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        margin-bottom: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .header .nav-toggle-icon.active {
+        transform: rotate(45deg);
+      }
+
+      .header .nav-toggle-icon:nth-child(2) {
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        transition: opacity 0.3s ease;
+      }
+
+      .header .nav-toggle-icon:nth-child(3) {
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        display: block;
+        margin-top: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .header .nav-toggle-icon.active:nth-child(1) {
+        transform: rotate(-45deg);
+      }
+
+      .header .nav-toggle-icon.active:nth-child(2) {
+        opacity: 0;
+      }
+
+      .header .nav-toggle-icon.active:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+
+    #orderDetails {
+      margin-top: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      padding: 20px;
+      min-height: 80vh;
+      position: relative;
+      font-size: large;
+    }
+
+    .order-details {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .order-details:last-child {
+      margin-bottom: 0;
+    }
+
+    .order-title {
+      margin-top: 10rem;
+      color: black;
+    }
+
+    .edit-icon,
+    .delete-icon {
+      display: inline-block;
+      margin-top: 10px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #000;
+      font-size: 20px;
+      position: absolute;
+      top: 10px;
+    }
+
+    .edit-icon {
+      right: 40px;
+    }
+
+    .delete-icon {
+      right: 10px;
+    }
+
+    .edit-icon:hover,
+    .delete-icon:hover {
+      color: #007bff;
+    }
+
+    /* Styles for the editable order details form */
+
+    form#editOrderForm {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    form#editOrderForm .form-group {
+      margin-bottom: 15px;
+    }
+
+    form#editOrderForm label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    form#editOrderForm input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    form#editOrderForm button[type="submit"] {
+      display: inline-block;
+      margin-top: 10px;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      color: #fff;
+      background-color: #007bff;
+      font-size: 14px;
+    }
+
+    form#editOrderForm button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <!-- - #HEADER -->
+
+  <header class="header">
+    <div class="container">
+      <a href="/dashboard" class="logo">
+        <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li>
+            <a href="#" class="navbar-link">About</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Menu</a>
+          </li>
+
+          <li>
+            <a href="/orderdetail" class="navbar-link">Order</a>
+          </li>
+
+          <li>
+            <a href="/profile" class="navbar-link">Profile</a>
+          </li>
+
+          <li>
+            <a href="/" class="navbar-link">Logout</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <span class="nav-toggle-icon icon-1"></span>
+        <span class="nav-toggle-icon icon-2"></span>
+        <span class="nav-toggle-icon icon-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="col-md-6 offset-md-3 mt-5">
+      <!-- Container to display order details -->
+      <h2 class="order-title text-center mb-4">Order Details</h2>
+      <div id="orderDetails" class="mt-4"></div>
+    </div>
+  </div>
+
+  <!--- #FOOTER-->
+
+  <footer class="footer">
+    <div class="footer-top section">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+          </a>
+
+          <p class="footer-text">
+            Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
+            sint et molestiae non recusandae.
+          </p>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/instagram.svg" alt="instagram" />
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Opening Hours</p>
+          </li>
+
+          <li>
+            <p class="p">Monday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+
+          <li>
+            <p class="p">Sunday – Thursday</p>
+
+            <span class="span">17.30 – 00.00</span>
+          </li>
+
+          <li>
+            <p class="p">Friday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Contact Info</p>
+          </li>
+
+          <li>
+            <a href="tel:+01234567890" class="footer-link">
+              <span class="material-symbols-rounded">call</span>
+
+              <span class="span">+01 2 3456 7890</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:info@autofix.com" class="footer-link">
+              <span class="material-symbols-rounded">mail</span>
+
+              <span class="span">info@Ragilly.com</span>
+            </a>
+          </li>
+
+          <li>
+            <address class="footer-link address">
+              <span class="material-symbols-rounded">location_on</span>
+
+              <span class="span">21 King Street Melbourne, 3000, Australia</span>
+            </address>
+          </li>
+        </ul>
+      </div>
+
+      <img src="./assets/images/footer-shape-3.png" width="637" height="173" loading="lazy" alt="Shape"
+        class="shape shape-3 move-anim" />
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          Copyright 2024, Ragilly All Rights Reserved.
+        </p>
+
+        <img src="./assets/images/footer-shape-2.png" width="778" height="335" loading="lazy" alt="Shape"
+          class="shape shape-2" />
+
+        <img src="./assets/images/footer-shape-1.png" width="805" height="652" loading="lazy" alt="Red Car"
+          class="shape shape-1 move-anim" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const orderDetailsDiv = document.getElementById("orderDetails");
+
+      if (params.has('name')) {
+        const name = params.get('name');
+        const mobile = params.get('mobile');
+        const location = params.get('location');
+        const vehicleType = params.get('vehicle_type');
+        const description = params.get('description');
+        const vehicleBrand = params.get('vehicle_brand');
+        const vehicleModel = params.get('vehicle_model');
+        const fuelType = params.get('fuel_type');
+        const carYear = params.get('car_year');
+        const serviceType = params.get('service_type');
+        const servicePlaceType = params.get('service_place_type');
+        const address = params.get('address');
+        const serviceDate = params.get('service_date');
+        const serviceTime = params.get('service_time');
+
+        const editIcon = document.createElement("span");
+        editIcon.classList.add("material-symbols-rounded", "edit-icon");
+        editIcon.textContent = "edit";
+        editIcon.addEventListener("click", function () {
+          renderEditableOrderDetails(orderData);
+        });
+
+        const deleteIcon = document.createElement("span");
+        deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
+        deleteIcon.textContent = "delete";
+        deleteIcon.addEventListener("click", function () {
+          deleteOrder(orderData.mobile);
+        });
+
+        // Append the icons to the order details div
+        orderDetailsDiv.appendChild(editIcon);
+        orderDetailsDiv.appendChild(deleteIcon);
+
+        // Display form data
+        orderDetailsDiv.innerHTML = `
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Mobile:</strong> ${mobile}</p>
+                    <p><strong>Location:</strong> ${location}</p>
+                    <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
+                    <p><strong>Description:</strong> ${description}</p>
+                    <p><strong>Vehicle Brand:</strong> ${vehicleBrand}</p>
+                    <p><strong>Vehicle Model:</strong> ${vehicleModel}</p>
+                    <p><strong>Fuel Type:</strong> ${fuelType}</p>
+                    <p><strong>Car Year:</strong> ${carYear}</p>
+                    <p><strong>Service Type:</strong> ${serviceType}</p>
+                    <p><strong>Service Place Type:</strong> ${servicePlaceType}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    <p><strong>Service Date:</strong> ${new Date(serviceDate).toLocaleDateString()}</p>
+                    <p><strong>Service Time:</strong> ${serviceTime}</p>
+                    <!-- Add more fields as needed -->
+                `;
+      } else {
+        orderDetailsDiv.textContent = "No order details found.";
+      }
+    });
+
+    function renderEditableOrderDetails(orderData) {
+      const orderDetailsContainer = document.getElementById("orderDetails");
+      orderDetailsContainer.innerHTML = "";
+
+      const form = document.createElement("form");
+      form.id = "editOrderForm";
+
+      const excludedOptions = ["_id", "Pending", "price", "discount", "payable_price", "status", "__v", "quotation"];
+
+      for (const key in orderData) {
+        if (!excludedOptions.includes(key)) {
+          const inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.name = key;
+          inputField.value = orderData[key];
+          const label = document.createElement("label");
+          label.textContent = key;
+
+          const fieldDiv = document.createElement("div");
+          fieldDiv.classList.add("form-group");
+          fieldDiv.appendChild(label);
+          fieldDiv.appendChild(inputField);
+
+          form.appendChild(fieldDiv);
+        }
+      }
+
+      const submitButton = document.createElement("button");
+      submitButton.type = "submit";
+      submitButton.textContent = "Save Changes";
+      submitButton.classList.add("btn", "btn-primary");
+
+      form.appendChild(submitButton);
+
+      orderDetailsContainer.appendChild(form);
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const editedOrderData = {};
+        formData.forEach((value, key) => {
+          editedOrderData[key] = value;
+        });
+
+        fetch("/editorder", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedOrderData)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            fetchOrderDetails(editedOrderData.mobile);
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while saving changes");
+          });
+      });
+    }
+
+    function deleteOrder(mobile) {
+      if (confirm("Are you sure you want to delete this order?")) {
+        fetch(`/deleteorder?mobile=${mobile}`, {
+          method: "DELETE"
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then(data => {
+            alert(data.message);
+            fetchOrderDetails(mobile);
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting order");
+          });
+      }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="tel"],
+        input[type="text"],
+        button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .otp-container {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-center">Login Form</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="tel" id="mobile" class="form-control" placeholder="Mobile Number" required>
+            </div>
+            <div class="otp-container" id="otpContainer">
+                <div class="form-group">
+                    <input type="text" id="otp" class="form-control" placeholder="Enter 4-digit OTP" required
+                        pattern="[0-9]{4}">
+                </div>
+            </div>
+            <button type="button" id="loginButton" class="btn btn-primary btn-block">Login</button>
+            <button type="button" id="resendOTPButton" class="btn btn-secondary btn-block">Resend OTP</button>
+        </form>
+    </div>
+
+    <script>
+
+        document.getElementById("loginButton").addEventListener("click", function () {
+            const mobile = document.getElementById("mobile").value;
+            const otp = document.getElementById("otp").value;
+            if (!mobile) {
+                alert("Please enter your mobile number.");
+                return;
+            }
+            if (!otp) {
+                sendOTP(mobile);
+            } else {
+                verifyOTP(mobile, otp);
+            }
+        });
+
+        document.getElementById("resendOTPButton").addEventListener("click", function () {
+            const mobile = document.getElementById("mobile").value;
+            if (!mobile) {
+                alert("Please enter your mobile number.");
+                return;
+            }
+            sendOTP(mobile);
+        });
+
+
+
+        function sendOTP(mobile) {
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile: mobile }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("OTP sent successfully. Please check your mobile.");
+                        document.getElementById("otpContainer").style.display = "block";
+                    } else {
+                        alert("User not found. Please sign up.");
+                        window.location.href = "/signup";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending OTP:', error);
+                    alert("Error sending OTP. Please try again later.");
+                });
+        }
+
+        function verifyOTP(mobile, otp) {
+            fetch('/verify-login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile: mobile, otp: otp }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Login successful. Redirecting to dashboard.");
+                        window.location.href = data.redirect;
+                    } else {
+                        alert("Invalid OTP. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error verifying OTP:', error);
+                    alert("Error verifying OTP. Please try again later.");
+                });
+        }
+    </script>
+</body>
+
+</html>

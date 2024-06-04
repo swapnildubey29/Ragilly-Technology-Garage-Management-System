@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Admin user order</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>A<span>DMIN</span></h3>
+        </div>
+        <div class="side-content">
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="/admin" class="active">
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-user-alt"></span>
+                            <small>Profile</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-envelope"></span>
+                            <small>Mailbox</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-clipboard-list"></span>
+                            <small>Projects</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-shopping-cart"></span>
+                            <small>Orders</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-tasks"></span>
+                            <small>Tasks</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+                    <label for="">
+                        <span class="las la-search"></span>
+                    </label>
+
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="containerr">
+                <h2 class="order-title text-center mb-4">Order Details</h2>
+                <div id="orderDetails" class="order-details mt-4"></div>
+                <!-- Form to add quotation details -->
+                <div class="mt-5">
+                    <h2 class="order-title text-center">Add Quotation</h2>
+                    <form id="quotationForm" class="quotation-form">
+                        <div class="form-group">
+                            <label for="quotation">Quotation:</label> <!-- Changed from "description" to "quotation" -->
+                            <textarea id="description" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="discount">Discount (%):</label>
+                            <input type="number" id="discount" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="payablePrice">Payable Price:</label>
+                            <input type="number" id="payablePrice" class="form-control" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit Quotation</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mobileQueryParam = new URLSearchParams(window.location.search).get('mobile');
+            if (mobileQueryParam) {
+                UserorderDetail(mobileQueryParam);
+            } else {
+                console.error('Mobile number not provided in query parameter');
+            }
+
+            // Calculate payable price on input changes
+            const priceInput = document.getElementById('price');
+            const discountInput = document.getElementById('discount');
+            const payablePriceInput = document.getElementById('payablePrice');
+
+            function calculatePayablePrice() {
+                const price = parseFloat(priceInput.value) || 0;
+                const discount = parseFloat(discountInput.value) || 0;
+                const payablePrice = price - (price * (discount / 100));
+                payablePriceInput.value = payablePrice.toFixed(2);
+            }
+
+            priceInput.addEventListener('input', calculatePayablePrice);
+            discountInput.addEventListener('input', calculatePayablePrice);
+
+            // Handle quotation form submission
+            const quotationForm = document.getElementById('quotationForm');
+            quotationForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const quotation = document.getElementById('description').value;
+                const price = parseFloat(priceInput.value);
+                const discount = parseFloat(discountInput.value);
+                const payablePrice = parseFloat(payablePriceInput.value);
+
+                if (!quotation || isNaN(price) || isNaN(discount) || isNaN(payablePrice)) {
+                    alert('Please fill in all fields correctly.');
+                    return;
+                }
+
+                const quotationData = {
+                    mobile: mobileQueryParam,
+                    quotation: quotation, // Changed from "description" to "quotation"
+                    price: price,
+                    discount: discount,
+                    payable_price: payablePrice,
+                    status: "Offered"
+                };
+
+                fetch('/addquotation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(quotationData)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ' + response.statusText);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        alert('Quotation added successfully!')
+                        quotationForm.reset();
+                        calculatePayablePrice();
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+            });
+        });
+
+        function UserorderDetail(mobile) {
+            fetch(`/userorder?mobile=${mobile}`, {
+                method: 'GET',
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayOrderDetails(data);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        function displayOrderDetails(orderData) {
+            const orderDetailsDiv = document.getElementById('orderDetails');
+            // Create HTML structure for order details
+            let orderHTML = '<ul>';
+            orderData.forEach(order => {
+                orderHTML += `
+            <li>
+                <p>Name: ${order.name}</p>
+                <p>Mobile: ${order.mobile}</p>
+                <p>Location: ${order.location}</p>
+                <p>Vehicle Type: ${order.vehicle_type}</p>
+                <p>Description: ${order.description}</p>
+                <p>Vehicle Brand: ${order.vehicle_brand}</p>
+                <p>Vehicle Model: ${order.vehicle_model}</p>
+                <p>Fuel Type: ${order.fuel_type}</p>
+                <p>Car Year: ${order.car_year}</p>
+                <p>Service Type: ${order.service_type}</p>
+                <p>Service Place Type: ${order.service_place_type}</p>
+                <p>Address: ${order.address}</p>
+                <p>Service Date: ${new Date(order.service_date).toLocaleDateString()}</p>
+                <p>Service Time: ${order.service_time}</p>
+                <p>Status: ${order.status}</p>
+            </li>
+        `;
+            });
+            orderHTML += '</ul>';
+            orderDetailsDiv.innerHTML = orderHTML;
+        }
+    </script>
+</body>
+
+</html>
+

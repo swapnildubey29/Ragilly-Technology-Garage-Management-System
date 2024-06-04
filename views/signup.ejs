@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-block {
+            display: block;
+        }
+
+        #otpContainer {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-center">Registration Form</h1>
+        <form id="registrationForm" method="post" action="/signup" onsubmit="return validateForm()">
+            <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="mobile" class="form-control" placeholder="Mobile Number" required>
+            </div>
+            <input type="hidden" id="otpId" name="otpId">
+            <button type="button" class="btn btn-primary btn-block" onclick="sendOTP()">Get OTP</button>
+            <div id="otpContainer">
+                <div class="form-group">
+                    <input type="text" id="otp" class="form-control" placeholder="Enter 4-digit OTP" required
+                        pattern="[0-9]{4}">
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="verifyOTP()">Verify OTP</button>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const mobile = document.getElementById("mobile").value;
+
+            if (!name || !email || !mobile) {
+                document.getElementById("errorMessage").innerText = "Please fill in all the fields.";
+                return false;
+            }
+
+            return true;
+        }
+
+        function sendOTP() {
+            const name = document.getElementById("name").value
+            const email = document.getElementById("email").value
+            const mobile = document.getElementById("mobile").value
+
+            if (!validateForm()) {
+                return;
+            }
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: name, email: email, mobile: mobile }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const otpId = data.otpId;
+                        document.getElementById("otpContainer").style.display = "block"
+                        document.getElementById("otpId").value = otpId
+                        document.getElementById("errorMessage").innerText = ""
+                    } else {
+                        document.getElementById("errorMessage").innerText = "User Already Exist.";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending OTP and adding user data:', error);
+                    document.getElementById("errorMessage").innerText = "Error sending OTP and adding user data to the database. Please try again later.";
+                });
+        }
+
+        function verifyOTP() {
+            const otp = document.getElementById("otp").value
+            const otpId = document.getElementById("otpId").value
+            const mobile = document.getElementById("mobile").value
+            if (!otp) {
+                document.getElementById("errorMessage").innerText = "Please enter OTP!"
+                return;
+            }
+            fetch('/verify-otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile: mobile, otpId: otpId, otp: otp }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("OTP verified successfully");
+                        // Redirect to dashboard page after successful OTP verification
+                        window.location.href = "/dashboard";
+                    } else {
+                        document.getElementById("errorMessage").innerText = "Invalid OTP. Please try again.";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error verifying OTP:', error)
+                    document.getElementById("errorMessage").innerText = "Error verifying OTP. Please try again later.";
+                });
+        }
+    </script>
+</body>
+
+</html>
