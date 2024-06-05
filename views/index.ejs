@@ -1,267 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>Ragilly Technology</title>
-    <meta
-      name="title"
-      content="Ragilly Technology - Auto Maintenance & Repair Service"
-    />
-    <meta
-      name="description"
-      content="This is a vehicle repair html template made by codewithsadee"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+  <!-- Primary Meta Tags -->
+  <title>Ragilly Technology</title>
+  <meta name="title" content="Ragilly Technology - Auto Maintenance & Repair Service" />
+  <meta name="description" content="This is a vehicle repair html template made by codewithsadee" />
 
-    <!-- Google Font Link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
 
-    <!-- Material Icon Font -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0"
-    />
+  <!-- Google Font Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
+    rel="stylesheet" />
 
-    <!-- Custom CSS Link -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- Material Icon Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
 
-    <!-- Preload Images -->
-    <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
-    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
+  <!-- Custom CSS Link -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <style>
-      /* Form container */
-      .form-container {
-        max-width: 500px;
-        margin: auto;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
+  <!-- Preload Images -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
 
-      /* Center the form content */
-      #orderForm {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+  <style>
+    /* Form container */
+    /* Form container */
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-      /* Adjust form fields */
-      .form-group {
-        margin-bottom: 20px;
-      }
+    /* Center the form content */
+    #orderForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
+    /* Adjust form fields */
+    .form-group {
+      margin-bottom: 20px;
+    }
 
-      /* Adjust button size */
-      .btn {
-        padding: 12px 24px;
-      }
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
 
-      .btn-block {
-        width: 100%;
-        background-color: #981717;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
+    /* Style for the datalist */
+    datalist {
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
 
-      .btn-block:hover {
-        background-color: #743131;
-      }
+    /* Style for the options */
+    datalist option {
+      padding: 5px;
+      cursor: pointer;
+      background-color: #ffffff;
+      color: #000000;
+      /* Update text color for better visibility */
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
 
-      .step {
-        display: none;
-        flex-direction: row;
-      }
-      .step:first-child {
-        display: block;
-      }
-    </style>
-  </head>
+    /* Placeholder text color */
+    ::placeholder {
+      color: #666;
+    }
 
-  <body>
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container">
-        <a href="/" class="logo">
-          <img
-            src="./assets/images/ragilly-logo.png"
-            width="128"
-            height="63"
-            alt="Ragilly Technology home"
-          />
-        </a>
-        <nav class="navbar" data-navbar>
-          <ul class="navbar-list">
-            <li><a href="#" class="navbar-link">About</a></li>
-            <li><a href="#" class="navbar-link">Menu</a></li>
-            <li><a href="/login" class="navbar-link">Login</a></li>
-            <li><a href="/signup" class="navbar-link">Signup</a></li>
-          </ul>
-        </nav>
-        <a href="#orderForm" class="btn btn-primary">
-          <span class="span">Get a Quote</span>
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </a>
-        <button
-          class="nav-toggle-btn"
-          aria-label="toggle menu"
-          data-nav-toggler
-        >
-          <span class="nav-toggle-icon icon-1"></span>
-          <span class="nav-toggle-icon icon-2"></span>
-          <span class="nav-toggle-icon icon-3"></span>
-        </button>
-      </div>
-    </header>
+    /* Hover effect for options */
+    datalist option:hover {
+      background-color: #f0f0f0;
+    }
 
-    <main>
-      <article>
-        <!-- HERO SECTION -->
-        <section
-          class="hero has-bg-image"
-          aria-label="home"
-          style="background-image: url('./assets/images/hero-bg.jpg')"
-        >
-          <div class="container">
-            <div class="hero-content">
-              <p class="section-subtitle :dark">
-                We have talented engineers & mechanics
-              </p>
-              <h1 class="h1 section-title">
-                Auto Maintenance & Repair Service
-              </h1>
-              <p class="section-text">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                Excepteur sint occaecat cupidatat non proident.
-              </p>
-              <a href="#" class="btn">
-                <span class="span">Our Services</span>
-                <span class="material-symbols-rounded">arrow_forward</span>
-              </a>
-            </div>
-            <figure class="hero-banner" style="--width: 1228; --height: 789">
-              <img
-                src="./assets/images/hero-banner.png"
-                width="1228"
-                height="789"
-                alt="red motor vehicle"
-                class="move-anim"
-              />
-            </figure>
+    .btn {
+      padding: 12px 24px;
+    }
+
+    .btn-block {
+      width: 100%;
+      background-color: #981717;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-block:hover {
+      background-color: #743131;
+    }
+
+    .step {
+      display: none;
+      flex-direction: row;
+    }
+
+    .step:first-child {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="Ragilly Technology home" />
+      </a>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="#" class="navbar-link">About</a></li>
+          <li><a href="#" class="navbar-link">Menu</a></li>
+          <li><a href="/login" class="navbar-link">Login</a></li>
+          <li><a href="/signup" class="navbar-link">Signup</a></li>
+        </ul>
+      </nav>
+      <a href="#orderForm" class="btn btn-primary">
+        <span class="span">Get a Quote</span>
+        <span class="material-symbols-rounded">arrow_forward</span>
+      </a>
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <span class="nav-toggle-icon icon-1"></span>
+        <span class="nav-toggle-icon icon-2"></span>
+        <span class="nav-toggle-icon icon-3"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- HERO SECTION -->
+      <section class="hero has-bg-image" aria-label="home" style="background-image: url('./assets/images/hero-bg.jpg')">
+        <div class="container">
+          <div class="hero-content">
+            <p class="section-subtitle :dark">
+              We have talented engineers & mechanics
+            </p>
+            <h1 class="h1 section-title">
+              Auto Maintenance & Repair Service
+            </h1>
+            <p class="section-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              Excepteur sint occaecat cupidatat non proident.
+            </p>
+            <a href="#" class="btn">
+              <span class="span">Our Services</span>
+              <span class="material-symbols-rounded">arrow_forward</span>
+            </a>
           </div>
-        </section>
+          <figure class="hero-banner" style="--width: 1228; --height: 789">
+            <img src="./assets/images/hero-banner.png" width="1228" height="789" alt="red motor vehicle"
+              class="move-anim" />
+          </figure>
+        </div>
+      </section>
 
-        <!-- ORDER FORM SECTION -->
-        <div class="container" style="padding: 4rem;">
-          <div id="orderForm" class="form-container">
-            <form id="createOrderForm" method="post">
-              <!-- Step 1: Personal Information -->
-              <div class="step">
-                <h2 class="mb-4 text-center">Personal Information</h2>
-                <div class="form-row">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="name"
-                      placeholder="Name"
-                      required
-                      aria-label="Name"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <input
-                      type="tel"
-                      class="form-control"
-                      name="mobile"
-                      placeholder="Mobile"
-                      required
-                      aria-label="Mobile"
-                    />
-                  </div>
+      <!-- ORDER FORM SECTION -->
+      <div class="container" style="padding: 4rem">
+        <div id="orderForm" class="form-container">
+          <form id="createOrderForm" method="post">
+            <!-- Step 1: Personal Information -->
+            <div class="step">
+              <h2 class="mb-4 text-center">Personal Information</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" placeholder="Name" required aria-label="Name" />
                 </div>
                 <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="location"
-                    placeholder="Location"
-                    required
-                    aria-label="Location"
-                  />
+                  <input type="tel" class="form-control" name="mobile" placeholder="Mobile" required
+                    aria-label="Mobile" />
                 </div>
-                <button type="button" class="btn btn-primary next">Next</button>
               </div>
-              <!-- Step 2: Vehicle Information -->
-              <div class="step">
-                <h2 class="mb-4 text-center">Vehicle Information</h2>
-                <div class="form-row">
-                  <div class="form-group">
-                    <select
-                      class="form-control"
-                      name="vehicle_type"
-                      required
-                      aria-label="Vehicle Type"
-                    >
-                      <option value="" disabled selected>
-                        Select Vehicle Type
-                      </option>
-                      <option value="Sedan">Sedan</option>
-                      <option value="SUV">SUV</option>
-                      <option value="Truck">Truck</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <select
-                      class="form-control"
-                      name="vehicle_brand"
-                      required
-                      aria-label="Vehicle Brand"
-                    >
-                      <option value="" disabled selected>
-                        Select Vehicle Brand
-                      </option>
-                      <option value="Toyota">Toyota</option>
-                      <option value="Honda">Honda</option>
-                      <option value="Ford">Ford</option>
-                    </select>
-                  </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="location" placeholder="Location" required
+                  aria-label="Location" />
+              </div>
+              <button type="button" class="btn btn-primary next">Next</button>
+            </div>
+            <!-- Step 2: Vehicle Information -->
+            <div class="step">
+              <h2 class="mb-4 text-center">Vehicle Information</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <select class="form-control" name="vehicle_type" required aria-label="Vehicle Type">
+                    <option value="" disabled selected>
+                      Select Vehicle Type
+                    </option>
+                    <option type_id="1" value="Two-whiller">Two Wheeler</option>
+                    <option type_id="2" value="four-whiller">four Wheeler</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <select
-                    class="form-control"
-                    name="vehicle_model"
-                    required
-                    aria-label="Vehicle Model"
-                  >
-                    <option value="" disabled selected>
-                      Select Vehicle Model
-                    </option>
-                    <option value="Corolla">Corolla</option>
-                    <option value="Civic">Civic</option>
-                    <option value="F-150">F-150</option>
+                  <input id="vehicle-brand-input" type="text" name="vehicle_brand" aria-label="Vehicle Brand"
+                    placeholder="Search Vehicle Brand">
+                  <datalist id="vehicle-brands-datalist"></datalist>
+                </div>
+
+                <div class="form-group">
+                  <input id="vehicle-model-input" type="text" name="vehicle_model" aria-label="Vehicle Model"
+                    placeholder="Search Vehicle Model">
+                  <datalist id="vehicle-models-datalist"></datalist>
+                </div>
+
+                <div class="form-group">
+                  <select class="form-control" name="fuel_type" required aria-label="fuel_type">
+                    <option value="" disabled selected>Select Fuel Type</option>
+                    <option value="desel">Desel</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Electric">Electric</option>
                   </select>
+                </div>
+                <div class="form-group">
+                  <input type="tel" class="form-control" name="car_year:" placeholder="Year" required
+                    aria-label="car_year:" />
                 </div>
                 <div style="display: flex">
                   <button type="button" class="btn btn-primary prev">
@@ -277,12 +247,7 @@
                 <h2 class="mb-4 text-center">Service Information</h2>
                 <div class="form-row">
                   <div class="form-group">
-                    <select
-                      class="form-control"
-                      name="service_type"
-                      required
-                      aria-label="Service Type"
-                    >
+                    <select class="form-control" name="service_type" required aria-label="Service Type">
                       <option value="" disabled selected>
                         Select Service Type
                       </option>
@@ -295,22 +260,12 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group">
-                      <textarea
-                        class="form-control"
-                        name="description"
-                        rows="3"
-                        placeholder="Description"
-                        aria-label="Description"
-                      ></textarea>
+                      <textarea class="form-control" name="description" rows="3" placeholder="Description"
+                        aria-label="Description"></textarea>
                     </div>
                   </div>
                   <div class="form-group">
-                    <select
-                      class="form-control"
-                      name="service_place_type"
-                      required
-                      aria-label="Service Place Type"
-                    >
+                    <select class="form-control" name="service_place_type" required aria-label="Service Place Type">
                       <option value="" disabled selected>
                         Select Service Place Type
                       </option>
@@ -321,34 +276,16 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="address"
-                      placeholder="Address"
-                      required
-                      aria-label="Address"
-                    />
+                    <input type="text" class="form-control" name="address" placeholder="Address" required
+                      aria-label="Address" />
                   </div>
                   <div class="form-group">
-                    <input
-                      type="date"
-                      class="form-control"
-                      name="service_date"
-                      required
-                      aria-label="Service Date"
-                    />
+                    <input type="date" class="form-control" name="service_date" required aria-label="Service Date" />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <input
-                      type="time"
-                      class="form-control"
-                      name="service_time"
-                      required
-                      aria-label="Service Time"
-                    />
+                    <input type="time" class="form-control" name="service_time" required aria-label="Service Time" />
                   </div>
                 </div>
                 <input type="hidden" name="quotation" value="Pending" />
@@ -356,7 +293,7 @@
                 <input type="hidden" name="discount" />
                 <input type="hidden" name="payable_price" />
                 <input type="hidden" name="status" value="Pending" />
-                <div style="display: flex; gap: 2;">
+                <div style="display: flex; gap: 2">
                   <button type="button" class="btn btn-primary prev">
                     Previous
                   </button>
@@ -365,619 +302,541 @@
                   </button>
                 </div>
               </div>
-            </form>
-          </div>
+          </form>
         </div>
+      </div>
 
-        <!-- SERVICES SECTION -->
-        <section
-          class="section service has-bg-image"
-          aria-labelledby="service-label"
-          style="background-image: url('./assets/images/service-bg.jpg')"
-        >
-          <div class="container">
-            <p class="section-subtitle :light" id="service-label">
-              Our services
-            </p>
+      <!-- SERVICES SECTION -->
+      <section class="section service has-bg-image" aria-labelledby="service-label"
+        style="background-image: url('./assets/images/service-bg.jpg')">
+        <div class="container">
+          <p class="section-subtitle :light" id="service-label">
+            Our services
+          </p>
+
+          <h2 class="h2 section-title">
+            We Provide Great Services For your Vehicle
+          </h2>
+
+          <ul class="service-list">
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/services-1.png" width="110" height="110" loading="lazy"
+                    alt="Engine Repair" />
+                </figure>
+
+                <h3 class="h3 card-title">Engine Repair</h3>
+
+                <p class="card-text">
+                  Autem velaum iure reare aenderit rui in ea roluptate esse
+                  ruam moles
+                </p>
+
+                <a href="#" class="btn-link">Read more</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/services-2.png" width="110" height="110" loading="lazy"
+                    alt="Brake Repair" />
+                </figure>
+
+                <h3 class="h3 card-title">Brake Repair</h3>
+
+                <p class="card-text">
+                  Autem velaum iure reare aenderit rui in ea roluptate esse
+                  ruam moles
+                </p>
+
+                <a href="#" class="btn-link">Read more</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/services-3.png" width="110" height="110" loading="lazy" alt="Tire Repair" />
+                </figure>
+
+                <h3 class="h3 card-title">Tire Repair</h3>
+
+                <p class="card-text">
+                  Autem velaum iure reare aenderit rui in ea roluptate esse
+                  ruam moles
+                </p>
+
+                <a href="#" class="btn-link">Read more</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/services-4.png" width="110" height="110" loading="lazy"
+                    alt="Battery Repair" />
+                </figure>
+
+                <h3 class="h3 card-title">Battery Repair</h3>
+
+                <p class="card-text">
+                  Autem velaum iure reare aenderit rui in ea roluptate esse
+                  ruam moles
+                </p>
+
+                <a href="#" class="btn-link">Read more</a>
+              </div>
+            </li>
+
+            <li class="service-banner">
+              <img src="./assets/images/services-5.png" width="646" height="380" loading="lazy" alt="Red Car"
+                class="move-anim" />
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/services-6.png" width="110" height="110" loading="lazy"
+                    alt="Steering Repair" />
+                </figure>
+
+                <h3 class="h3 card-title">Steering Repair</h3>
+
+                <p class="card-text">
+                  Autem velaum iure reare aenderit rui in ea roluptate esse
+                  ruam moles
+                </p>
+
+                <a href="#" class="btn-link">Read more</a>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#" class="btn">
+            <span class="span">View All Services</span>
+
+            <span class="material-symbols-rounded">arrow_forward</span>
+          </a>
+        </div>
+      </section>
+      <!-- - #ABOUT  -->
+
+      <section class="section about has-before" aria-labelledby="about-label">
+        <div class="container">
+          <figure class="about-banner">
+            <img src="./assets/images/about-banner.png" width="540" height="540" loading="lazy"
+              alt="vehicle repire equipments" class="w-100" />
+          </figure>
+
+          <div class="about-content">
+            <p class="section-subtitle :dark">About Us</p>
 
             <h2 class="h2 section-title">
-              We Provide Great Services For your Vehicle
+              We’re Commited to Meet the quality
             </h2>
 
-            <ul class="service-list">
-              <li>
-                <div class="service-card">
-                  <figure class="card-icon">
-                    <img
-                      src="./assets/images/services-1.png"
-                      width="110"
-                      height="110"
-                      loading="lazy"
-                      alt="Engine Repair"
-                    />
-                  </figure>
+            <p class="section-text">
+              Quis autem vel eum iure reprehenderit qui in ea volu velit esse
+              quam nihil molestiae consequatur, vel illum eui dolorem eum
+              fugiat ruo.
+            </p>
+
+            <p class="section-text">
+              Reprehenderit qui in ea volu velit esse quam nihil moe stiae
+              consequatur, vel illum eui.
+            </p>
+
+            <ul class="about-list">
+              <li class="about-item">
+                <p>
+                  <strong class="display-1 strong">8K+</strong> Happy Clients
+                </p>
+              </li>
+
+              <li class="about-item">
+                <p>
+                  <strong class="display-1 strong">22+</strong> Instruments
+                </p>
+              </li>
+
+              <li class="about-item">
+                <p>
+                  <strong class="display-1 strong">50+</strong> Years in
+                  market
+                </p>
+              </li>
+
+              <li class="about-item">
+                <p>
+                  <strong class="display-1 strong">99%</strong> Projects
+                  completed
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--- #WORK-->
+
+      <section class="section work" aria-labelledby="work-label">
+        <div class="container">
+          <p class="section-subtitle :light" id="work-label">Our Work</p>
+
+          <h2 class="h2 section-title">Latest projects we have done</h2>
+
+          <ul class="has-scrollbar">
+            <li class="scrollbar-item">
+              <div class="work-card">
+                <figure class="card-banner img-holder" style="--width: 350; --height: 406">
+                  <img src="./assets/images/work-1.jpg" width="350" height="406" loading="lazy" alt="Engine Repair"
+                    class="img-cover" />
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Auto Repair</p>
 
                   <h3 class="h3 card-title">Engine Repair</h3>
 
-                  <p class="card-text">
-                    Autem velaum iure reare aenderit rui in ea roluptate esse
-                    ruam moles
-                  </p>
-
-                  <a href="#" class="btn-link">Read more</a>
+                  <a href="#" class="card-btn">
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                  </a>
                 </div>
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <figure class="card-icon">
-                    <img
-                      src="./assets/images/services-2.png"
-                      width="110"
-                      height="110"
-                      loading="lazy"
-                      alt="Brake Repair"
-                    />
-                  </figure>
-
-                  <h3 class="h3 card-title">Brake Repair</h3>
-
-                  <p class="card-text">
-                    Autem velaum iure reare aenderit rui in ea roluptate esse
-                    ruam moles
-                  </p>
-
-                  <a href="#" class="btn-link">Read more</a>
-                </div>
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <figure class="card-icon">
-                    <img
-                      src="./assets/images/services-3.png"
-                      width="110"
-                      height="110"
-                      loading="lazy"
-                      alt="Tire Repair"
-                    />
-                  </figure>
-
-                  <h3 class="h3 card-title">Tire Repair</h3>
-
-                  <p class="card-text">
-                    Autem velaum iure reare aenderit rui in ea roluptate esse
-                    ruam moles
-                  </p>
-
-                  <a href="#" class="btn-link">Read more</a>
-                </div>
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <figure class="card-icon">
-                    <img
-                      src="./assets/images/services-4.png"
-                      width="110"
-                      height="110"
-                      loading="lazy"
-                      alt="Battery Repair"
-                    />
-                  </figure>
-
-                  <h3 class="h3 card-title">Battery Repair</h3>
-
-                  <p class="card-text">
-                    Autem velaum iure reare aenderit rui in ea roluptate esse
-                    ruam moles
-                  </p>
-
-                  <a href="#" class="btn-link">Read more</a>
-                </div>
-              </li>
-
-              <li class="service-banner">
-                <img
-                  src="./assets/images/services-5.png"
-                  width="646"
-                  height="380"
-                  loading="lazy"
-                  alt="Red Car"
-                  class="move-anim"
-                />
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <figure class="card-icon">
-                    <img
-                      src="./assets/images/services-6.png"
-                      width="110"
-                      height="110"
-                      loading="lazy"
-                      alt="Steering Repair"
-                    />
-                  </figure>
-
-                  <h3 class="h3 card-title">Steering Repair</h3>
-
-                  <p class="card-text">
-                    Autem velaum iure reare aenderit rui in ea roluptate esse
-                    ruam moles
-                  </p>
-
-                  <a href="#" class="btn-link">Read more</a>
-                </div>
-              </li>
-            </ul>
-
-            <a href="#" class="btn">
-              <span class="span">View All Services</span>
-
-              <span class="material-symbols-rounded">arrow_forward</span>
-            </a>
-          </div>
-        </section>
-        <!-- - #ABOUT  -->
-
-        <section class="section about has-before" aria-labelledby="about-label">
-          <div class="container">
-            <figure class="about-banner">
-              <img
-                src="./assets/images/about-banner.png"
-                width="540"
-                height="540"
-                loading="lazy"
-                alt="vehicle repire equipments"
-                class="w-100"
-              />
-            </figure>
-
-            <div class="about-content">
-              <p class="section-subtitle :dark">About Us</p>
-
-              <h2 class="h2 section-title">
-                We’re Commited to Meet the quality
-              </h2>
-
-              <p class="section-text">
-                Quis autem vel eum iure reprehenderit qui in ea volu velit esse
-                quam nihil molestiae consequatur, vel illum eui dolorem eum
-                fugiat ruo.
-              </p>
-
-              <p class="section-text">
-                Reprehenderit qui in ea volu velit esse quam nihil moe stiae
-                consequatur, vel illum eui.
-              </p>
-
-              <ul class="about-list">
-                <li class="about-item">
-                  <p>
-                    <strong class="display-1 strong">8K+</strong> Happy Clients
-                  </p>
-                </li>
-
-                <li class="about-item">
-                  <p>
-                    <strong class="display-1 strong">22+</strong> Instruments
-                  </p>
-                </li>
-
-                <li class="about-item">
-                  <p>
-                    <strong class="display-1 strong">50+</strong> Years in
-                    market
-                  </p>
-                </li>
-
-                <li class="about-item">
-                  <p>
-                    <strong class="display-1 strong">99%</strong> Projects
-                    completed
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!--- #WORK-->
-
-        <section class="section work" aria-labelledby="work-label">
-          <div class="container">
-            <p class="section-subtitle :light" id="work-label">Our Work</p>
-
-            <h2 class="h2 section-title">Latest projects we have done</h2>
-
-            <ul class="has-scrollbar">
-              <li class="scrollbar-item">
-                <div class="work-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 350; --height: 406"
-                  >
-                    <img
-                      src="./assets/images/work-1.jpg"
-                      width="350"
-                      height="406"
-                      loading="lazy"
-                      alt="Engine Repair"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <p class="card-subtitle">Auto Repair</p>
-
-                    <h3 class="h3 card-title">Engine Repair</h3>
-
-                    <a href="#" class="card-btn">
-                      <span class="material-symbols-rounded"
-                        >arrow_forward</span
-                      >
-                    </a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="work-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 350; --height: 406"
-                  >
-                    <img
-                      src="./assets/images/work-2.jpg"
-                      width="350"
-                      height="406"
-                      loading="lazy"
-                      alt="Car Tyre change"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <p class="card-subtitle">Auto Repair</p>
-
-                    <h3 class="h3 card-title">Car Tyre change</h3>
-
-                    <a href="#" class="card-btn">
-                      <span class="material-symbols-rounded"
-                        >arrow_forward</span
-                      >
-                    </a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="work-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 350; --height: 406"
-                  >
-                    <img
-                      src="./assets/images/work-3.jpg"
-                      width="350"
-                      height="406"
-                      loading="lazy"
-                      alt="Battery Adjust"
-                      class="img-cover"
-                    />
-                  </figure>
-                  <div class="card-content">
-                    <p class="card-subtitle">Auto Repair</p>
-
-                    <h3 class="h3 card-title">Battery Adjust</h3>
-
-                    <a href="#" class="card-btn">
-                      <span class="material-symbols-rounded"
-                        >arrow_forward</span
-                      >
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </article>
-    </main>
-
-    <!--- #FOOTER-->
-    <footer class="footer">
-      <div class="footer-top section">
-        <div class="container">
-          <div class="footer-brand">
-            <a href="#" class="logo">
-              <img
-                src="./assets/images/ragilly-logo.png"
-                width="128"
-                height="63"
-                alt="autofix home"
-              />
-            </a>
-
-            <p class="footer-text">
-              Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
-              sint et molestiae non recusandae.
-            </p>
-
-            <ul class="social-list">
-              <li>
-                <a href="#" class="social-link">
-                  <img src="./assets/images/facebook.svg" alt="facebook" />
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <img src="./assets/images/instagram.svg" alt="instagram" />
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <img src="./assets/images/twitter.svg" alt="twitter" />
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <ul class="footer-list">
-            <li>
-              <p class="h3">Opening Hours</p>
+              </div>
             </li>
 
-            <li>
-              <p class="p">Monday – Saturday</p>
+            <li class="scrollbar-item">
+              <div class="work-card">
+                <figure class="card-banner img-holder" style="--width: 350; --height: 406">
+                  <img src="./assets/images/work-2.jpg" width="350" height="406" loading="lazy" alt="Car Tyre change"
+                    class="img-cover" />
+                </figure>
 
-              <span class="span">12.00 – 14.45</span>
+                <div class="card-content">
+                  <p class="card-subtitle">Auto Repair</p>
+
+                  <h3 class="h3 card-title">Car Tyre change</h3>
+
+                  <a href="#" class="card-btn">
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
             </li>
 
-            <li>
-              <p class="p">Sunday – Thursday</p>
+            <li class="scrollbar-item">
+              <div class="work-card">
+                <figure class="card-banner img-holder" style="--width: 350; --height: 406">
+                  <img src="./assets/images/work-3.jpg" width="350" height="406" loading="lazy" alt="Battery Adjust"
+                    class="img-cover" />
+                </figure>
+                <div class="card-content">
+                  <p class="card-subtitle">Auto Repair</p>
 
-              <span class="span">17.30 – 00.00</span>
-            </li>
+                  <h3 class="h3 card-title">Battery Adjust</h3>
 
-            <li>
-              <p class="p">Friday – Saturday</p>
-
-              <span class="span">12.00 – 14.45</span>
+                  <a href="#" class="card-btn">
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
             </li>
           </ul>
+        </div>
+      </section>
+    </article>
+  </main>
 
-          <ul class="footer-list">
+  <!--- #FOOTER-->
+  <footer class="footer">
+    <div class="footer-top section">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+          </a>
+
+          <p class="footer-text">
+            Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
+            sint et molestiae non recusandae.
+          </p>
+
+          <ul class="social-list">
             <li>
-              <p class="h3">Contact Info</p>
-            </li>
-
-            <li>
-              <a href="tel:+01234567890" class="footer-link">
-                <span class="material-symbols-rounded">call</span>
-
-                <span class="span">+01 2 3456 7890</span>
+              <a href="#" class="social-link">
+                <img src="./assets/images/facebook.svg" alt="facebook" />
               </a>
             </li>
 
             <li>
-              <a href="mailto:info@autofix.com" class="footer-link">
-                <span class="material-symbols-rounded">mail</span>
-
-                <span class="span">info@Ragilly.com</span>
+              <a href="#" class="social-link">
+                <img src="./assets/images/instagram.svg" alt="instagram" />
               </a>
             </li>
 
             <li>
-              <address class="footer-link address">
-                <span class="material-symbols-rounded">location_on</span>
-
-                <span class="span"
-                  >21 King Street Melbourne, 3000, Australia</span
-                >
-              </address>
+              <a href="#" class="social-link">
+                <img src="./assets/images/twitter.svg" alt="twitter" />
+              </a>
             </li>
           </ul>
         </div>
 
-        <img
-          src="./assets/images/footer-shape-3.png"
-          width="637"
-          height="173"
-          loading="lazy"
-          alt="Shape"
-          class="shape shape-3 move-anim"
-        />
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Opening Hours</p>
+          </li>
+
+          <li>
+            <p class="p">Monday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+
+          <li>
+            <p class="p">Sunday – Thursday</p>
+
+            <span class="span">17.30 – 00.00</span>
+          </li>
+
+          <li>
+            <p class="p">Friday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Contact Info</p>
+          </li>
+
+          <li>
+            <a href="tel:+01234567890" class="footer-link">
+              <span class="material-symbols-rounded">call</span>
+
+              <span class="span">+01 2 3456 7890</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:info@autofix.com" class="footer-link">
+              <span class="material-symbols-rounded">mail</span>
+
+              <span class="span">info@Ragilly.com</span>
+            </a>
+          </li>
+
+          <li>
+            <address class="footer-link address">
+              <span class="material-symbols-rounded">location_on</span>
+
+              <span class="span">21 King Street Melbourne, 3000, Australia</span>
+            </address>
+          </li>
+        </ul>
       </div>
 
-      <div class="footer-bottom">
-        <div class="container">
-          <p class="copyright">Copyright 2024, Ragilly All Rights Reserved.</p>
+      <img src="./assets/images/footer-shape-3.png" width="637" height="173" loading="lazy" alt="Shape"
+        class="shape shape-3 move-anim" />
+    </div>
 
-          <img
-            src="./assets/images/footer-shape-2.png"
-            width="778"
-            height="335"
-            loading="lazy"
-            alt="Shape"
-            class="shape shape-2"
-          />
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">Copyright 2024, Ragilly All Rights Reserved.</p>
 
-          <img
-            src="./assets/images/footer-shape-1.png"
-            width="805"
-            height="652"
-            loading="lazy"
-            alt="Red Car"
-            class="shape shape-1 move-anim"
-          />
-        </div>
+        <img src="./assets/images/footer-shape-2.png" width="778" height="335" loading="lazy" alt="Shape"
+          class="shape shape-2" />
+
+        <img src="./assets/images/footer-shape-1.png" width="805" height="652" loading="lazy" alt="Red Car"
+          class="shape shape-1 move-anim" />
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const nextButtons = document.querySelectorAll(".next");
-          const prevButtons = document.querySelectorAll(".prev");
-          const steps = document.querySelectorAll(".step");
-      
-          nextButtons.forEach((button) => {
-            button.addEventListener("click", function () {
-              if (validateForm()) {
-                const currentStep = this.closest(".step");
-                const nextStep = currentStep.nextElementSibling;
-                if (nextStep !== null) {
-                  currentStep.style.display = "none";
-                  nextStep.style.display = "block";
-                }
-              } else {
-                alert("Please fill in all the required fields.");
-              }
-            });
-          });
-      
-          prevButtons.forEach((button) => {
-            button.addEventListener("click", function () {
-              const currentStep = this.closest(".step");
-              const prevStep = currentStep.previousElementSibling;
-              if (prevStep !== null) {
-                currentStep.style.display = "none";
-                prevStep.style.display = "block";
-              }
-            });
-          });
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const nextButtons = document.querySelectorAll(".next");
+      const prevButtons = document.querySelectorAll(".prev");
+      const steps = document.querySelectorAll(".step");
+
+      console.log("Next buttons found:", nextButtons.length);
+      console.log("Previous buttons found:", prevButtons.length);
+      console.log("Steps found:", steps.length);
+
+      nextButtons.forEach((button) => {
+        console.log("Attaching event listener to Next button");
+        button.addEventListener("click", function () {
+          console.log("Next button clicked");
+          const currentStep = this.closest(".step");
+          const nextStep = currentStep.nextElementSibling;
+          console.log("Hiding current step and showing next step");
+          if (nextStep !== null) {
+            currentStep.style.display = "none";
+            nextStep.style.display = "block"; // Ensure that the next step is displayed
+          }
         });
-      
-        function validateForm() {
-          const inputs = document.querySelectorAll(".step input[required], .step select[required], .step textarea[required]");
-          let isValid = true;
-          inputs.forEach((input) => {
-            if (input.value.trim() === "") {
-              isValid = false;
-            }
-          });
-          return isValid;
-        }
-        
-      function fetchCookie() {
-        fetch("/getcookie")
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Cookie:", data);
-            if (data && Object.keys(data).length !== 0) {
-              verifyJWT(data);
-            }
-          })
-          .catch((error) => {
-            console.error("Error fetching cookie:", error);
-          });
-      }
-
-      window.addEventListener("load", function () {
-        fetchCookie();
-        const jwtToken = Cookies.get("jwt");
-        if (
-          jwtToken !== null &&
-          jwtToken !== undefined &&
-          typeof jwtToken === "string"
-        ) {
-          verifyJWT(jwtToken.toString());
-        }
-
-        document
-          .getElementById("createOrderForm")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const formData = {
-              name: document.querySelector('input[name="name"]').value,
-              mobile: document.querySelector('input[name="mobile"]').value,
-              location: document.querySelector('input[name="location"]').value,
-              vehicle_type: document.querySelector(
-                'select[name="vehicle_type"]'
-              ).value,
-              description: document.querySelector(
-                'textarea[name="description"]'
-              ).value,
-              vehicle_brand: document.querySelector(
-                'select[name="vehicle_brand"]'
-              ).value,
-              vehicle_model: document.querySelector(
-                'select[name="vehicle_model"]'
-              ).value,
-              fuel_type: document.querySelector('select[name="fuel_type"]')
-                .value,
-              car_year: document.querySelector('input[name="car_year"]').value,
-              service_type: document.querySelector(
-                'select[name="service_type"]'
-              ).value,
-              service_place_type: document.querySelector(
-                'select[name="service_place_type"]'
-              ).value,
-              address: document.querySelector('input[name="address"]').value,
-              service_date: document.querySelector('input[name="service_date"]')
-                .value,
-              service_time: document.querySelector('input[name="service_time"]')
-                .value,
-              quotation: "Pending",
-              price: "",
-              discount: "",
-              payable_price: "",
-              status: "Requested",
-            };
-
-            fetch("/job", {
-              method: "POST",
-              body: JSON.stringify(formData),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Network response was not ok");
-                }
-                return response.json();
-              })
-              .then((data) => {
-                if (data.success) {
-                  window.location.href = data.redirect; // Redirect to the signup page
-                } else {
-                  alert("Order created successfully");
-                }
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-                alert("An error occurred while creating the order");
-              });
-          });
       });
 
-      function verifyJWT(token) {
-        if (
-          typeof token === "object" &&
-          token.jwt &&
-          typeof token.jwt === "string"
-        ) {
-          token = token.jwt;
-        }
-        if (typeof token !== "string" || token.trim() === "") {
-          console.error(
-            "Error verifying JWT token: Token must be a non-empty string"
-          );
-          return;
-        }
-        fetch("/verify-jwt", {
+      prevButtons.forEach((button) => {
+        console.log("Attaching event listener to Previous button");
+        button.addEventListener("click", function () {
+          console.log("Previous button clicked");
+          const currentStep = this.closest(".step");
+          const prevStep = currentStep.previousElementSibling;
+          if (prevStep !== null) {
+            currentStep.style.display = "none";
+            prevStep.style.display = "block"; // Ensure that the previous step is displayed
+          }
+        });
+      });
+    });
+
+    function fetchCookie() {
+      fetch("/getcookie")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Cookie:", data);
+          if (data && Object.keys(data).length !== 0) {
+            verifyJWT(data);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching cookie:", error);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log("DOM content loaded.");
+
+      // Function to update the datalist options
+      function updateDatalist(datalistId, options) {
+        const datalist = document.getElementById(datalistId);
+        datalist.innerHTML = '';
+
+        // Iterate through options and create new option elements
+        options.forEach(option => {
+          const optionElement = document.createElement('option');
+          optionElement.value = option;
+          optionElement.text = option.charAt(0).toUpperCase() + option.slice(1); // capitalize the first letter
+          optionElement.label = option.charAt(0).toUpperCase() + option.slice(1);
+          datalist.appendChild(optionElement); // Append the new option to the datalist
+        });
+      }
+
+      // Fetch vehicle data from the server
+      fetch('/vehicleData')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+          if (!data || !data.vehicleBrands || !data.vehicleModels) {
+            throw new Error('Invalid data format');
+          }
+
+          // Convert brand and model names to lowercase for case-insensitive matching
+          const vehicleBrands = data.vehicleBrands.map(brand => brand.name.toLowerCase());
+          const vehicleModels = data.vehicleModels.map(model => model.name.toLowerCase());
+
+          // Event listener for brand input field
+          document.getElementById('vehicle-brand-input').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const filteredBrands = vehicleBrands.filter(brand => brand.includes(filter));
+            updateDatalist('vehicle-brands-datalist', filteredBrands); // Update datalist options
+          });
+
+          // Event listener for model input field
+          document.getElementById('vehicle-model-input').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const filteredModels = vehicleModels.filter(model => model.includes(filter));
+            updateDatalist('vehicle-models-datalist', filteredModels); // Update datalist options
+          });
+
+          document.getElementById('vehicle-brands-datalist').addEventListener('mousedown', function (event) {
+            const inputId = 'vehicle-brand-input';
+            const inputField = document.getElementById(inputId);
+            if (inputField && event.target.tagName === 'OPTION') {
+              inputField.value = event.target.value; // Update the input field value with the clicked option's value
+              this.innerHTML = ''; // Remove all other options from the datalist
+            }
+          });
+
+          document.getElementById('vehicle-models-datalist').addEventListener('mousedown', function (event) {
+            const inputId = 'vehicle-model-input';
+            const inputField = document.getElementById(inputId);
+            if (inputField && event.target.tagName === 'OPTION') {
+              inputField.value = event.target.value; 
+              this.innerHTML = ''; // Remove all other options from the datalist
+            }
+          });
+
+        })
+        .catch(error => console.error('Error fetching JSON data:', error)); 
+    });
+
+    window.addEventListener("load", function () {
+      fetchCookie();
+      const jwtToken = Cookies.get("jwt");
+      if (
+        jwtToken !== null &&
+        jwtToken !== undefined &&
+        typeof jwtToken === "string"
+      ) {
+        verifyJWT(jwtToken.toString());
+      }
+
+      document.getElementById("createOrderForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = {
+          name: document.querySelector('input[name="name"]').value,
+          mobile: document.querySelector('input[name="mobile"]').value,
+          location: document.querySelector('input[name="location"]').value,
+          vehicle_type: document.querySelector(
+            'select[name="vehicle_type"]'
+          ).value,
+          description: document.querySelector(
+            'textarea[name="description"]'
+          ).value,
+          vehicle_brand: document.querySelector(
+            'select[name="vehicle_brand"]'
+          ).value,
+          vehicle_model: document.querySelector(
+            'select[name="vehicle_model"]'
+          ).value,
+          fuel_type: document.querySelector('select[name="fuel_type"]')
+            .value,
+          // car_year: document.querySelector('input[name="car_year"]').value,
+          service_type: document.querySelector(
+            'select[name="service_type"]'
+          ).value,
+          service_place_type: document.querySelector(
+            'select[name="service_place_type"]'
+          ).value,
+          address: document.querySelector('input[name="address"]').value,
+          service_date: document.querySelector('input[name="service_date"]')
+            .value,
+          service_time: document.querySelector('input[name="service_time"]')
+            .value,
+          quotation: "Pending",
+          price: "",
+          discount: "",
+          payable_price: "",
+          status: "Requested",
+        };
+
+        fetch("/job", {
           method: "POST",
+          body: JSON.stringify(formData),
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ token: token }),
         })
           .then((response) => {
             if (!response.ok) {
@@ -989,16 +848,59 @@
             if (data.success) {
               window.location.href = data.redirect;
             } else {
-              console.error("Error verifying JWT token:", data.error);
+              alert("Order created successfully");
             }
           })
           .catch((error) => {
-            console.error("Error verifying JWT token:", error);
+            console.error("Error:", error);
+            alert("An error occurred while creating the order");
           });
+      });
+    });
+
+    function verifyJWT(token) {
+      if (
+        typeof token === "object" &&
+        token.jwt &&
+        typeof token.jwt === "string"
+      ) {
+        token = token.jwt;
       }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
+      if (typeof token !== "string" || token.trim() === "") {
+        console.error(
+          "Error verifying JWT token: Token must be a non-empty string"
+        );
+        return;
+      }
+      fetch("/verify-jwt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: token }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            window.location.href = data.redirect;
+          } else {
+            console.error("Error verifying JWT token:", data.error);
+          }
+        })
+        .catch((error) => {
+          console.error("Error verifying JWT token:", error);
+        });
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>

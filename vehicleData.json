@@ -1,0 +1,5271 @@
+{
+  "vehicleTypes": [
+    {
+      "type_id": "1",
+      "type": "Two Wheeler",
+      "slug": "two-wheeler",
+      "image": "mYVdN27904.png"
+    },
+    {
+      "type_id": "2",
+      "type": "Four Wheeler",
+      "slug": "four-wheeler",
+      "image": "gN0oI27304.png"
+    }
+  ],
+  "vehicleBrands": [
+    {
+      "id": "3",
+      "type_id": "1",
+      "name": "Harley Davidson",
+      "slug": "harley-davidson",
+      "logo": "5zckN16706.png"
+    },
+    {
+      "id": "4",
+      "type_id": "2",
+      "name": "Honda",
+      "slug": "honda",
+      "logo": "nlOiO16406.jpeg"
+    },
+    {
+      "id": "5",
+      "type_id": "2",
+      "name": "Maruti Suzuki",
+      "slug": "maruti-suzuki",
+      "logo": "UaAhH16406.jpeg"
+    },
+    {
+      "id": "6",
+      "type_id": "1",
+      "name": "TVS",
+      "slug": "tvs",
+      "logo": "Tjs1S16606.png"
+    },
+    {
+      "id": "7",
+      "type_id": "2",
+      "name": "Jeep",
+      "slug": "jeep",
+      "logo": "nXLeg21503.jpeg"
+    },
+    {
+      "id": "8",
+      "type_id": "2",
+      "name": "Audi",
+      "slug": "audi",
+      "logo": "Keb1A21603.jpeg"
+    },
+    {
+      "id": "9",
+      "type_id": "2",
+      "name": "Bentley",
+      "slug": "bentley",
+      "logo": "AnB4f21803.jpeg"
+    },
+    {
+      "id": "10",
+      "type_id": "2",
+      "name": "BMW",
+      "slug": "bmw",
+      "logo": "GCQPw21903.jpeg"
+    },
+    {
+      "id": "11",
+      "type_id": "2",
+      "name": "Chevrolet",
+      "slug": "chevrolet",
+      "logo": "Rn7jW21203.jpeg"
+    },
+    {
+      "id": "12",
+      "type_id": "2",
+      "name": "Citroen",
+      "slug": "citroen",
+      "logo": "iDThm21803.jpeg"
+    },
+    {
+      "id": "13",
+      "type_id": "2",
+      "name": "Daewoo",
+      "slug": "daewoo",
+      "logo": "yESKi21503.jpeg"
+    },
+    {
+      "id": "14",
+      "type_id": "2",
+      "name": "Datsun",
+      "slug": "datsun",
+      "logo": "WlQud21103.jpeg"
+    },
+    {
+      "id": "15",
+      "type_id": "2",
+      "name": "DC",
+      "slug": "dc",
+      "logo": "fWuEO21303.jpeg"
+    },
+    {
+      "id": "16",
+      "type_id": "2",
+      "name": "Ferrari",
+      "slug": "ferrari",
+      "logo": "VKc2221803.jpeg"
+    },
+    {
+      "id": "17",
+      "type_id": "2",
+      "name": "Fiat",
+      "slug": "fiat",
+      "logo": "kSA4521503.jpeg"
+    },
+    {
+      "id": "18",
+      "type_id": "2",
+      "name": "Force",
+      "slug": "force",
+      "logo": "HVFRh21303.jpeg"
+    },
+    {
+      "id": "19",
+      "type_id": "2",
+      "name": "Ford",
+      "slug": "ford",
+      "logo": "4ZGjH21803.jpeg"
+    },
+    {
+      "id": "20",
+      "type_id": "2",
+      "name": "Foton",
+      "slug": "foton",
+      "logo": "coYZo21303.jpeg"
+    },
+    {
+      "id": "21",
+      "type_id": "2",
+      "name": "Hindustan Motors",
+      "slug": "hindustan-motors",
+      "logo": "phRRA21503.jpeg"
+    },
+    {
+      "id": "22",
+      "type_id": "2",
+      "name": "Hyundai",
+      "slug": "hyundai",
+      "logo": "Db50021903.jpeg"
+    },
+    {
+      "id": "23",
+      "type_id": "2",
+      "name": "Isuzu",
+      "slug": "isuzu",
+      "logo": "AjKYN21803.jpeg"
+    },
+    {
+      "id": "24",
+      "type_id": "2",
+      "name": "Jaguar",
+      "slug": "jaguar",
+      "logo": "aRQIE21503.jpeg"
+    },
+    {
+      "id": "25",
+      "type_id": "2",
+      "name": "Jayem",
+      "slug": "jayem",
+      "logo": "fUzid21803.jpeg"
+    },
+    {
+      "id": "26",
+      "type_id": "2",
+      "name": "Kia",
+      "slug": "kia",
+      "logo": "4UmAA21303.jpeg"
+    },
+    {
+      "id": "27",
+      "type_id": "2",
+      "name": "Lamborghini",
+      "slug": "lamborghini",
+      "logo": "TxYX521503.jpeg"
+    },
+    {
+      "id": "28",
+      "type_id": "2",
+      "name": "Land Rover",
+      "slug": "land-rover",
+      "logo": "kxeQA21203.jpeg"
+    },
+    {
+      "id": "29",
+      "type_id": "2",
+      "name": "Lexus",
+      "slug": "lexus",
+      "logo": "CBlHY21103.jpeg"
+    },
+    {
+      "id": "30",
+      "type_id": "2",
+      "name": "Mahindra",
+      "slug": "mahindra",
+      "logo": "eZmo121803.jpeg"
+    },
+    {
+      "id": "31",
+      "type_id": "2",
+      "name": "Maserati",
+      "slug": "maserati",
+      "logo": "CSWjQ21103.jpeg"
+    },
+    {
+      "id": "32",
+      "type_id": "2",
+      "name": "Mercedes",
+      "slug": "mercedes",
+      "logo": "rq3sb21403.jpeg"
+    },
+    {
+      "id": "33",
+      "type_id": "2",
+      "name": "MG",
+      "slug": "mg",
+      "logo": "xCmSp21703.jpeg"
+    },
+    {
+      "id": "34",
+      "type_id": "2",
+      "name": "Mini",
+      "slug": "mini",
+      "logo": "6rSsz21603.jpeg"
+    },
+    {
+      "id": "35",
+      "type_id": "2",
+      "name": "Mitsubishi",
+      "slug": "mitsubishi",
+      "logo": "Lc3Pm21903.jpeg"
+    },
+    {
+      "id": "36",
+      "type_id": "2",
+      "name": "Nissan",
+      "slug": "nissan",
+      "logo": "22crg21903.jpeg"
+    },
+    {
+      "id": "37",
+      "type_id": "2",
+      "name": "Opel",
+      "slug": "opel",
+      "logo": "mxFIi21703.jpeg"
+    },
+    {
+      "id": "38",
+      "type_id": "2",
+      "name": "Porsche",
+      "slug": "porsche",
+      "logo": "pevFe21103.jpeg"
+    },
+    {
+      "id": "39",
+      "type_id": "2",
+      "name": "Renault",
+      "slug": "renault",
+      "logo": "IsJv921203.jpeg"
+    },
+    {
+      "id": "40",
+      "type_id": "2",
+      "name": "Rolls Royce",
+      "slug": "rolls-royce",
+      "logo": "FBqcw21703.jpeg"
+    },
+    {
+      "id": "41",
+      "type_id": "2",
+      "name": "Skoda",
+      "slug": "skoda",
+      "logo": "6mtGH21703.jpeg"
+    },
+    {
+      "id": "42",
+      "type_id": "2",
+      "name": "TATA",
+      "slug": "tata",
+      "logo": "si9p321603.jpeg"
+    },
+    {
+      "id": "43",
+      "type_id": "2",
+      "name": "Toyota",
+      "slug": "toyota",
+      "logo": "iFVjk21603.jpeg"
+    },
+    {
+      "id": "44",
+      "type_id": "2",
+      "name": "Volkswagen",
+      "slug": "volkswagen",
+      "logo": "0le0j21303.jpeg"
+    },
+    {
+      "id": "45",
+      "type_id": "2",
+      "name": "Volvo",
+      "slug": "volvo",
+      "logo": "plFUs21603.jpeg"
+    },
+    {
+      "id": "46",
+      "type_id": "1",
+      "name": "Bajaj",
+      "slug": "bajaj",
+      "logo": "Z1Kvm21803.png"
+    },
+    {
+      "id": "47",
+      "type_id": "1",
+      "name": "Aprilia",
+      "slug": "aprilia",
+      "logo": "aUD4p21903.png"
+    },
+    {
+      "id": "48",
+      "type_id": "1",
+      "name": "Benelli",
+      "slug": "benelli",
+      "logo": "XMKBn21803.jpg"
+    },
+    {
+      "id": "49",
+      "type_id": "1",
+      "name": "Ducati",
+      "slug": "ducati",
+      "logo": "0ow3B21403.png"
+    },
+    {
+      "id": "50",
+      "type_id": "1",
+      "name": "Eider",
+      "slug": "eider",
+      "logo": "FjR8W21803.png"
+    },
+    {
+      "id": "51",
+      "type_id": "1",
+      "name": "Hero",
+      "slug": "hero",
+      "logo": "W4xGH21303.png"
+    },
+    {
+      "id": "52",
+      "type_id": "1",
+      "name": "Hero Electric",
+      "slug": "hero-electric",
+      "logo": "5MWdo21703.png"
+    },
+    {
+      "id": "53",
+      "type_id": "1",
+      "name": "Indian Motorcycle",
+      "slug": "indian-motorcycle",
+      "logo": "6Gvbe21603.png"
+    },
+    {
+      "id": "54",
+      "type_id": "1",
+      "name": "Jawa",
+      "slug": "jawa",
+      "logo": "jt5I321803.png"
+    },
+    {
+      "id": "55",
+      "type_id": "1",
+      "name": "Kawasaki",
+      "slug": "kawasaki",
+      "logo": "g2R8I21303.png"
+    },
+    {
+      "id": "56",
+      "type_id": "1",
+      "name": "KTM",
+      "slug": "ktm",
+      "logo": "sQMrF21103.png"
+    },
+    {
+      "id": "57",
+      "type_id": "1",
+      "name": "Royal Enfield",
+      "slug": "royal-enfield",
+      "logo": "3XDmy21303.png"
+    },
+    {
+      "id": "58",
+      "type_id": "1",
+      "name": "Suzuki",
+      "slug": "suzuki",
+      "logo": "FzFS521103.png"
+    },
+    {
+      "id": "59",
+      "type_id": "1",
+      "name": "Triumph",
+      "slug": "triumph",
+      "logo": "uUT9l21903.png"
+    },
+    {
+      "id": "60",
+      "type_id": "1",
+      "name": "Vespa",
+      "slug": "vespa",
+      "logo": "7B3Gh21903.png"
+    },
+    {
+      "id": "61",
+      "type_id": "1",
+      "name": "Yamaha",
+      "slug": "yamaha",
+      "logo": "wQACS21903.png"
+    },
+    {
+      "id": "62",
+      "type_id": "2",
+      "name": "Aston Martin",
+      "slug": "aston-martin",
+      "logo": "3uSdv22305.jpeg"
+    },
+    {
+      "id": "63",
+      "type_id": "2",
+      "name": "Ssangyong",
+      "slug": "ssangyong",
+      "logo": "ABM0I26502.jpeg"
+    }
+  ],
+  "vehicleModels": [
+    {
+      "id": "3",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "CRV",
+      "slug": "crv",
+      "image": "TwLJ616706.jpeg"
+    },
+    {
+      "id": "4",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Fat Bob 114",
+      "slug": "fat-bob-114",
+      "image": "BECHr16606.jpg"
+    },
+    {
+      "id": "5",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Electra Glide Standard",
+      "slug": "electra-glide-standard",
+      "image": "idmz121404.jpg"
+    },
+    {
+      "id": "6",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Fatboy 114",
+      "slug": "fatboy-114",
+      "image": "6ggYf21504.jpg"
+    },
+    {
+      "id": "7",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Forty Eight",
+      "slug": "forty-eight",
+      "image": "D4xJG21104.jpg"
+    },
+    {
+      "id": "8",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Heritage Classic",
+      "slug": "heritage-classic",
+      "image": "hK0jR21504.jpg"
+    },
+    {
+      "id": "9",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Iron 883",
+      "slug": "iron-883",
+      "image": "4qF1l21404.jpg"
+    },
+    {
+      "id": "10",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Low Rider S",
+      "slug": "low-rider-s",
+      "image": "jLjMs21404.jpg"
+    },
+    {
+      "id": "11",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Pan America 1250",
+      "slug": "pan-america-1250",
+      "image": "LuJQH21604.jpg"
+    },
+    {
+      "id": "12",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Road Glide Special",
+      "slug": "road-glide-special",
+      "image": "wtuFF21704.jpg"
+    },
+    {
+      "id": "13",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Road King",
+      "slug": "road-king",
+      "image": "bZutO21204.jpg"
+    },
+    {
+      "id": "14",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Softail",
+      "slug": "softail",
+      "image": "mw49p21704.jpg"
+    },
+    {
+      "id": "15",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Sportster S",
+      "slug": "sportster-s",
+      "image": "G4JWc21904.jpg"
+    },
+    {
+      "id": "16",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Street Bob",
+      "slug": "street-bob",
+      "image": "KdM9F21304.jpg"
+    },
+    {
+      "id": "17",
+      "brand_id": "1",
+      "type_id": "3",
+      "name": "Street Glide Special",
+      "slug": "street-glide-special",
+      "image": "nW3tm21704.jpg"
+    },
+    {
+      "id": "18",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Avenger Cruise",
+      "slug": "avenger-cruise",
+      "image": "cr9pz21404.jpg"
+    },
+    {
+      "id": "19",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Avenger Street",
+      "slug": "avenger-street",
+      "image": "B02Vm21304.jpg"
+    },
+    {
+      "id": "20",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Chetak",
+      "slug": "chetak",
+      "image": "rZWsN21504.jpg"
+    },
+    {
+      "id": "21",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Bajaj CT",
+      "slug": "bajaj-ct",
+      "image": "ZSs5u21804.jpg"
+    },
+    {
+      "id": "22",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Discover",
+      "slug": "discover",
+      "image": "NdobB21104.jpg"
+    },
+    {
+      "id": "23",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Dominar",
+      "slug": "dominar",
+      "image": "KFZM921604.jpg"
+    },
+    {
+      "id": "24",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Platina",
+      "slug": "platina",
+      "image": "gM8di21804.jpg"
+    },
+    {
+      "id": "25",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Bajaj V15",
+      "slug": "bajaj-v15",
+      "image": "TFyBu21304.jpg"
+    },
+    {
+      "id": "26",
+      "brand_id": "1",
+      "type_id": "46",
+      "name": "Pulsar",
+      "slug": "pulsar",
+      "image": "2bexP21604.jpg"
+    },
+    {
+      "id": "27",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "RS 660",
+      "slug": "rs-660",
+      "image": "tKSd721404.jpg"
+    },
+    {
+      "id": "28",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "RSV4 1100 Factory",
+      "slug": "rsv4-1100-factory",
+      "image": "tV3xh21904.jpg"
+    },
+    {
+      "id": "29",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "SR 125",
+      "slug": "sr-125",
+      "image": "aEOmr21104.jpg"
+    },
+    {
+      "id": "30",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "SR 160",
+      "slug": "sr-160",
+      "image": "DiNZD21204.jpg"
+    },
+    {
+      "id": "31",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "SXR 125",
+      "slug": "sxr-125",
+      "image": "yx0Qk21904.jpg"
+    },
+    {
+      "id": "32",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "SXR 160",
+      "slug": "sxr-160",
+      "image": "e0ByC21104.jpg"
+    },
+    {
+      "id": "33",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "Tuono 660",
+      "slug": "tuono-660",
+      "image": "zxtl721507.jpg"
+    },
+    {
+      "id": "34",
+      "brand_id": "1",
+      "type_id": "47",
+      "name": "Tuono Factory",
+      "slug": "tuono-factory",
+      "image": "XBe1w21407.jpg"
+    },
+    {
+      "id": "35",
+      "brand_id": "1",
+      "type_id": "48",
+      "name": "502 C",
+      "slug": "502-c",
+      "image": "ZOH4k21308.jpg"
+    },
+    {
+      "id": "36",
+      "brand_id": "1",
+      "type_id": "48",
+      "name": "Imperiale 400",
+      "slug": "imperiale-400",
+      "image": "Q7lh421508.jpg"
+    },
+    {
+      "id": "37",
+      "brand_id": "1",
+      "type_id": "48",
+      "name": "Leoncino 500",
+      "slug": "leoncino-500",
+      "image": "dyaWF21508.jpg"
+    },
+    {
+      "id": "38",
+      "brand_id": "1",
+      "type_id": "48",
+      "name": "TRK 251",
+      "slug": "trk-251",
+      "image": "77v6221508.jpg"
+    },
+    {
+      "id": "39",
+      "brand_id": "1",
+      "type_id": "48",
+      "name": "TRK 502",
+      "slug": "trk-502",
+      "image": "xDIUw21308.jpg"
+    },
+    {
+      "id": "40",
+      "brand_id": "1",
+      "type_id": "48",
+      "name": "TRK 502X",
+      "slug": "trk-502x",
+      "image": "XVa9R21408.jpg"
+    },
+    {
+      "id": "41",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Diavel 1260",
+      "slug": "diavel-1260",
+      "image": "evuVG21508.jpg"
+    },
+    {
+      "id": "42",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Hypermotard 950",
+      "slug": "hypermotard-950",
+      "image": "XKr4M21908.jpg"
+    },
+    {
+      "id": "43",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Monster",
+      "slug": "monster",
+      "image": "reBUl21208.jpg"
+    },
+    {
+      "id": "44",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Multistrada 950",
+      "slug": "multistrada-950",
+      "image": "vo27D21908.jpg"
+    },
+    {
+      "id": "45",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Multistrada V2",
+      "slug": "multistrada-v2",
+      "image": "fwGQT21408.jpg"
+    },
+    {
+      "id": "46",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Multistrada V4",
+      "slug": "multistrada-v4",
+      "image": "D734P21908.jpg"
+    },
+    {
+      "id": "47",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Panigale V2",
+      "slug": "panigale-v2",
+      "image": "TAn0J21208.jpg"
+    },
+    {
+      "id": "48",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Panigale V4",
+      "slug": "panigale-v4",
+      "image": "AXK1921408.jpg"
+    },
+    {
+      "id": "49",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Scrambler 800",
+      "slug": "scrambler-800",
+      "image": "NQDXX21708.jpg"
+    },
+    {
+      "id": "50",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Scrambler 1100",
+      "slug": "scrambler-1100",
+      "image": "KKMqo21108.jpg"
+    },
+    {
+      "id": "51",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Scrambler Desert Sled",
+      "slug": "scrambler-desert-sled",
+      "image": "03Cl521608.jpg"
+    },
+    {
+      "id": "52",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Streetfighter V4",
+      "slug": "streetfighter-v4",
+      "image": "Jkpte21708.jpg"
+    },
+    {
+      "id": "53",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Supersport 950",
+      "slug": "supersport-950",
+      "image": "N9QeZ21408.jpg"
+    },
+    {
+      "id": "54",
+      "brand_id": "1",
+      "type_id": "49",
+      "name": "Xdiavel",
+      "slug": "xdiavel",
+      "image": "b0jAf21808.jpg"
+    },
+    {
+      "id": "55",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "650 NK",
+      "slug": "650-nk",
+      "image": "bdcx122602.jpg"
+    },
+    {
+      "id": "56",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Dave 150",
+      "slug": "dave-150",
+      "image": "gdwCf22602.jpg"
+    },
+    {
+      "id": "57",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Dronzer 150",
+      "slug": "dronzer-150",
+      "image": "6P3hm22202.jpg"
+    },
+    {
+      "id": "58",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Etania 150",
+      "slug": "etania-150",
+      "image": "HXyjR22502.jpg"
+    },
+    {
+      "id": "59",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Leora 125",
+      "slug": "leora-125",
+      "image": "pSSYp22102.jpg"
+    },
+    {
+      "id": "60",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Police 650",
+      "slug": "police-650",
+      "image": "Vs0R122402.jpg"
+    },
+    {
+      "id": "61",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Ruddy 150",
+      "slug": "ruddy-150",
+      "image": "385jG22102.jpg"
+    },
+    {
+      "id": "62",
+      "brand_id": "1",
+      "type_id": "50",
+      "name": "Stoic 110",
+      "slug": "stoic-110",
+      "image": "1vxsW22402.jpg"
+    },
+    {
+      "id": "63",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Destini 125",
+      "slug": "destini-125",
+      "image": "TGT4b22703.jpg"
+    },
+    {
+      "id": "64",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Glamour",
+      "slug": "glamour",
+      "image": "wYacq22603.jpg"
+    },
+    {
+      "id": "65",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "HF 100",
+      "slug": "hf-100",
+      "image": "Iqqiw22103.jpg"
+    },
+    {
+      "id": "66",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "HF Deluxe",
+      "slug": "hf-deluxe",
+      "image": "iQxU222503.jpg"
+    },
+    {
+      "id": "67",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Maestro",
+      "slug": "maestro",
+      "image": "uFoxC22703.jpg"
+    },
+    {
+      "id": "68",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Passion Pro",
+      "slug": "passion-pro",
+      "image": "PbApr22903.jpg"
+    },
+    {
+      "id": "69",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Pleasure Plus",
+      "slug": "pleasure-plus",
+      "image": "Erp4E22903.jpg"
+    },
+    {
+      "id": "70",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Splendor iSmart",
+      "slug": "splendor-ismart",
+      "image": "LhC6X22903.jpg"
+    },
+    {
+      "id": "71",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Splendor Plus",
+      "slug": "splendor-plus",
+      "image": "eiXrG22203.jpg"
+    },
+    {
+      "id": "72",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Super Splendor",
+      "slug": "super-splendor",
+      "image": "qqXQS22603.jpg"
+    },
+    {
+      "id": "73",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Xpulse 200",
+      "slug": "xpulse-200",
+      "image": "SrgWh22103.jpg"
+    },
+    {
+      "id": "74",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Xtreme 160R",
+      "slug": "xtreme-160r",
+      "image": "oEN7k22703.jpg"
+    },
+    {
+      "id": "75",
+      "brand_id": "1",
+      "type_id": "51",
+      "name": "Xtreme 200S",
+      "slug": "xtreme-200s",
+      "image": "VZxWg22203.jpg"
+    },
+    {
+      "id": "76",
+      "brand_id": "1",
+      "type_id": "52",
+      "name": "Atria",
+      "slug": "atria",
+      "image": "Syv0N22603.jpg"
+    },
+    {
+      "id": "77",
+      "brand_id": "1",
+      "type_id": "52",
+      "name": "Eddy",
+      "slug": "eddy",
+      "image": "yzjC222603.jpg"
+    },
+    {
+      "id": "78",
+      "brand_id": "1",
+      "type_id": "52",
+      "name": "Flash",
+      "slug": "flash",
+      "image": "UgayG22403.jpg"
+    },
+    {
+      "id": "79",
+      "brand_id": "1",
+      "type_id": "52",
+      "name": "NYX HX",
+      "slug": "nyx-hx",
+      "image": "2baB822303.jpg"
+    },
+    {
+      "id": "80",
+      "brand_id": "1",
+      "type_id": "52",
+      "name": "Optima CX",
+      "slug": "optima-cx",
+      "image": "0T8jy22303.jpg"
+    },
+    {
+      "id": "81",
+      "brand_id": "1",
+      "type_id": "52",
+      "name": "Photon",
+      "slug": "photon",
+      "image": "Xq4IL22203.jpg"
+    },
+    {
+      "id": "82",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Activa",
+      "slug": "activa",
+      "image": "Amoun22203.jpg"
+    },
+    {
+      "id": "83",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Africa Twin",
+      "slug": "africa-twin",
+      "image": "o7FH222103.jpg"
+    },
+    {
+      "id": "84",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CB200X",
+      "slug": "cb200x",
+      "image": "DgbgE22403.jpg"
+    },
+    {
+      "id": "85",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CB300R",
+      "slug": "cb300r",
+      "image": "Xleva22503.jpg"
+    },
+    {
+      "id": "86",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CB350RS",
+      "slug": "cb350rs",
+      "image": "5tHVT22403.jpg"
+    },
+    {
+      "id": "87",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CB500X",
+      "slug": "cb500x",
+      "image": "VEk8K22103.jpg"
+    },
+    {
+      "id": "88",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CB650R",
+      "slug": "cb650r",
+      "image": "FPqaK22703.jpg"
+    },
+    {
+      "id": "89",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CBR650R",
+      "slug": "cbr650r",
+      "image": "pUW7S22703.jpg"
+    },
+    {
+      "id": "90",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CBR1000RR-R Fireblade",
+      "slug": "cbr1000rr-r-fireblade",
+      "image": "avE2p22303.jpg"
+    },
+    {
+      "id": "91",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "CD 110 Dream",
+      "slug": "cd-110-dream",
+      "image": "MzDqW22103.jpg"
+    },
+    {
+      "id": "92",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Dio",
+      "slug": "dio",
+      "image": "FXBgm22703.jpg"
+    },
+    {
+      "id": "93",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Goldwing",
+      "slug": "goldwing",
+      "image": "1JNUq22503.jpg"
+    },
+    {
+      "id": "94",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Grazia",
+      "slug": "grazia",
+      "image": "X7wt122203.jpg"
+    },
+    {
+      "id": "95",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Hness CB350",
+      "slug": "hness-cb350",
+      "image": "sPsnY22903.jpg"
+    },
+    {
+      "id": "96",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Hornet 2.0",
+      "slug": "hornet-20",
+      "image": "L8d9022403.jpg"
+    },
+    {
+      "id": "97",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Livo",
+      "slug": "livo",
+      "image": "dWAJ322103.jpg"
+    },
+    {
+      "id": "98",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Shine",
+      "slug": "shine",
+      "image": "3UY2F22603.jpg"
+    },
+    {
+      "id": "99",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "SP 125",
+      "slug": "sp-125",
+      "image": "DE1St22303.jpg"
+    },
+    {
+      "id": "100",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "Unicorn",
+      "slug": "unicorn",
+      "image": "sDRlJ22303.jpg"
+    },
+    {
+      "id": "101",
+      "brand_id": "1",
+      "type_id": "4",
+      "name": "X-Blade",
+      "slug": "x-blade",
+      "image": "k6lID22203.jpg"
+    },
+    {
+      "id": "102",
+      "brand_id": "1",
+      "type_id": "53",
+      "name": "Indian Chief Bobber Dark Horse",
+      "slug": "indian-chief-bobber-dark-horse",
+      "image": "QJd2Y22103.jpg"
+    },
+    {
+      "id": "103",
+      "brand_id": "1",
+      "type_id": "53",
+      "name": "Indian Chief Dark Horse",
+      "slug": "indian-chief-dark-horse",
+      "image": "TlDCw22203.jpg"
+    },
+    {
+      "id": "104",
+      "brand_id": "1",
+      "type_id": "53",
+      "name": "Indian Springfield Dark Horse",
+      "slug": "indian-springfield-dark-horse",
+      "image": "8JxmJ22903.jpg"
+    },
+    {
+      "id": "105",
+      "brand_id": "1",
+      "type_id": "53",
+      "name": "Indian Super Chief Limited",
+      "slug": "indian-super-chief-limited",
+      "image": "XZFTZ22903.jpg"
+    },
+    {
+      "id": "106",
+      "brand_id": "1",
+      "type_id": "54",
+      "name": "42",
+      "slug": "42",
+      "image": "lFA7R22303.jpg"
+    },
+    {
+      "id": "107",
+      "brand_id": "1",
+      "type_id": "54",
+      "name": "Jawa",
+      "slug": "jawa",
+      "image": "kt59R22303.jpg"
+    },
+    {
+      "id": "108",
+      "brand_id": "1",
+      "type_id": "54",
+      "name": "Perak",
+      "slug": "perak",
+      "image": "mHzhQ22703.jpg"
+    },
+    {
+      "id": "109",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "KLX450R",
+      "slug": "klx450r",
+      "image": "z9f5m22503.jpg"
+    },
+    {
+      "id": "110",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "KX250",
+      "slug": "kx250",
+      "image": "0L0mG22603.jpg"
+    },
+    {
+      "id": "111",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "KX450",
+      "slug": "kx450",
+      "image": "Ur6I222803.jpg"
+    },
+    {
+      "id": "112",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Ninja 300",
+      "slug": "ninja-300",
+      "image": "5kd2m22703.jpg"
+    },
+    {
+      "id": "113",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Ninja 400",
+      "slug": "ninja-400",
+      "image": "7qZYl22903.jpg"
+    },
+    {
+      "id": "114",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Ninja 650",
+      "slug": "ninja-650",
+      "image": "ffMNv22203.jpg"
+    },
+    {
+      "id": "115",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Ninja 1000",
+      "slug": "ninja-1000",
+      "image": "sRXpQ22203.jpg"
+    },
+    {
+      "id": "116",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Ninja H2R",
+      "slug": "ninja-h2r",
+      "image": "3207Z22103.jpg"
+    },
+    {
+      "id": "117",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Ninja ZX-10R",
+      "slug": "ninja-zx-10r",
+      "image": "F3tHW22403.jpg"
+    },
+    {
+      "id": "118",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Versys 650",
+      "slug": "versys-650",
+      "image": "HOdLc22603.jpg"
+    },
+    {
+      "id": "119",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Versys 1000",
+      "slug": "versys-1000",
+      "image": "xsaIh22203.jpg"
+    },
+    {
+      "id": "120",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Vulcan S",
+      "slug": "vulcan-s",
+      "image": "XTALD22703.jpg"
+    },
+    {
+      "id": "121",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "W800",
+      "slug": "w800",
+      "image": "ce47H22803.jpg"
+    },
+    {
+      "id": "122",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Z H2",
+      "slug": "z-h2",
+      "image": "SkhPS22403.jpg"
+    },
+    {
+      "id": "123",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Z650",
+      "slug": "z650",
+      "image": "uNNZQ22903.jpg"
+    },
+    {
+      "id": "124",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Z650RS",
+      "slug": "z650rs",
+      "image": "a04NO22103.jpg"
+    },
+    {
+      "id": "125",
+      "brand_id": "1",
+      "type_id": "55",
+      "name": "Z900",
+      "slug": "z900",
+      "image": "L6jtC22603.jpg"
+    },
+    {
+      "id": "126",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "125 Duke",
+      "slug": "125-duke",
+      "image": "6DANS22503.jpg"
+    },
+    {
+      "id": "127",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "200 Duke",
+      "slug": "200-duke",
+      "image": "v2ppt22403.jpg"
+    },
+    {
+      "id": "128",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "250 Adventure",
+      "slug": "250-adventure",
+      "image": "Bj38L22803.jpg"
+    },
+    {
+      "id": "129",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "250 Duke",
+      "slug": "250-duke",
+      "image": "x2T9K22703.jpg"
+    },
+    {
+      "id": "130",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "390 Adventure",
+      "slug": "390-adventure",
+      "image": "GCkP222304.jpg"
+    },
+    {
+      "id": "131",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "390 Duke",
+      "slug": "390-duke",
+      "image": "rV7yk22804.jpg"
+    },
+    {
+      "id": "132",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "RC 125",
+      "slug": "rc-125",
+      "image": "N2mgE22404.jpg"
+    },
+    {
+      "id": "133",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "RC 200",
+      "slug": "rc-200",
+      "image": "zzpr522904.jpg"
+    },
+    {
+      "id": "134",
+      "brand_id": "1",
+      "type_id": "56",
+      "name": "RC 390",
+      "slug": "rc-390",
+      "image": "KusIP22704.jpg"
+    },
+    {
+      "id": "135",
+      "brand_id": "1",
+      "type_id": "30",
+      "name": "Centuro",
+      "slug": "centuro",
+      "image": "aIVW422604.jpg"
+    },
+    {
+      "id": "136",
+      "brand_id": "1",
+      "type_id": "30",
+      "name": "Duro DZ",
+      "slug": "duro-dz",
+      "image": "bFR8D22304.jpg"
+    },
+    {
+      "id": "137",
+      "brand_id": "1",
+      "type_id": "30",
+      "name": "Gusto",
+      "slug": "gusto",
+      "image": "qQfrY22504.jpg"
+    },
+    {
+      "id": "138",
+      "brand_id": "1",
+      "type_id": "30",
+      "name": "Mojo",
+      "slug": "mojo",
+      "image": "aDoka22504.jpg"
+    },
+    {
+      "id": "139",
+      "brand_id": "1",
+      "type_id": "30",
+      "name": "Rodeo",
+      "slug": "rodeo",
+      "image": "Wfu5S22504.jpg"
+    },
+    {
+      "id": "140",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Bullet 350",
+      "slug": "bullet-350",
+      "image": "vhjWU22504.jpg"
+    },
+    {
+      "id": "141",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Classic 350",
+      "slug": "classic-350",
+      "image": "jnsr122204.jpg"
+    },
+    {
+      "id": "142",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Continental GT 650",
+      "slug": "continental-gt-650",
+      "image": "04HVH22604.jpg"
+    },
+    {
+      "id": "143",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Himalayan",
+      "slug": "himalayan",
+      "image": "8Xy5p22904.jpg"
+    },
+    {
+      "id": "144",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Interceptor 650",
+      "slug": "interceptor-650",
+      "image": "RRy9S22104.jpg"
+    },
+    {
+      "id": "145",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Meteor 350",
+      "slug": "meteor-350",
+      "image": "iLgPQ22504.jpg"
+    },
+    {
+      "id": "146",
+      "brand_id": "1",
+      "type_id": "57",
+      "name": "Scram 411",
+      "slug": "scram-411",
+      "image": "ZW6Qu22704.jpg"
+    },
+    {
+      "id": "147",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Access 125",
+      "slug": "access-125",
+      "image": "VhuOE22204.jpg"
+    },
+    {
+      "id": "148",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Avenis 125",
+      "slug": "avenis-125",
+      "image": "Jy30K22804.jpg"
+    },
+    {
+      "id": "149",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Burgman Street 125",
+      "slug": "burgman-street-125",
+      "image": "FxDHi22604.jpg"
+    },
+    {
+      "id": "150",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Gixxer 250",
+      "slug": "gixxer-250",
+      "image": "swTjA22604.jpg"
+    },
+    {
+      "id": "151",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Gixxer SF 250",
+      "slug": "gixxer-sf-250",
+      "image": "2Z8nT22404.jpg"
+    },
+    {
+      "id": "152",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Gixxer SF",
+      "slug": "gixxer-sf",
+      "image": "w0jrg22504.jpg"
+    },
+    {
+      "id": "153",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Gixxer",
+      "slug": "gixxer",
+      "image": "ueZjz22404.jpg"
+    },
+    {
+      "id": "154",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Hayabusa",
+      "slug": "hayabusa",
+      "image": "KHKS622104.jpg"
+    },
+    {
+      "id": "155",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "Katana",
+      "slug": "katana",
+      "image": "beqbF22104.jpg"
+    },
+    {
+      "id": "156",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "V Strom 650 XT",
+      "slug": "v-strom-650-xt",
+      "image": "W4XwR22404.jpg"
+    },
+    {
+      "id": "157",
+      "brand_id": "1",
+      "type_id": "58",
+      "name": "V Strom SX",
+      "slug": "v-strom-sx",
+      "image": "9hrqF22104.jpg"
+    },
+    {
+      "id": "158",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Bonneville Bobber",
+      "slug": "bonneville-bobber",
+      "image": "3L0h022104.jpg"
+    },
+    {
+      "id": "159",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Bonneville Speedmaster",
+      "slug": "bonneville-speedmaster",
+      "image": "tpT9T22104.jpg"
+    },
+    {
+      "id": "160",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Bonneville T100",
+      "slug": "bonneville-t100",
+      "image": "EIy7K22404.jpg"
+    },
+    {
+      "id": "161",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Bonneville T120",
+      "slug": "bonneville-t120",
+      "image": "BhMaD22404.jpg"
+    },
+    {
+      "id": "162",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Rocket 3",
+      "slug": "rocket-3",
+      "image": "Xvi7P22104.jpg"
+    },
+    {
+      "id": "163",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Speed Triple 1200",
+      "slug": "speed-triple-1200",
+      "image": "tZvku22904.jpg"
+    },
+    {
+      "id": "164",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Speed Twin",
+      "slug": "speed-twin",
+      "image": "GeQjH22604.jpg"
+    },
+    {
+      "id": "165",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Street Scrambler 900",
+      "slug": "street-scrambler-900",
+      "image": "dBXw522104.jpg"
+    },
+    {
+      "id": "166",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Street Triple",
+      "slug": "street-triple",
+      "image": "dWTK222904.jpg"
+    },
+    {
+      "id": "167",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Street Twin",
+      "slug": "street-twin",
+      "image": "4ICgc22104.jpg"
+    },
+    {
+      "id": "168",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Tiger 850 Sport",
+      "slug": "tiger-850-sport",
+      "image": "D8VSk22704.jpg"
+    },
+    {
+      "id": "169",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Tiger 900",
+      "slug": "tiger-900",
+      "image": "fchIK22904.jpg"
+    },
+    {
+      "id": "170",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Tiger 1200",
+      "slug": "tiger-1200",
+      "image": "nFeQq22204.jpg"
+    },
+    {
+      "id": "171",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Tiger Sport 660",
+      "slug": "tiger-sport-660",
+      "image": "UBFbv22904.jpg"
+    },
+    {
+      "id": "172",
+      "brand_id": "1",
+      "type_id": "59",
+      "name": "Trident 660",
+      "slug": "trident-660",
+      "image": "U5vSm22704.jpg"
+    },
+    {
+      "id": "173",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Apache RR310",
+      "slug": "apache-rr310",
+      "image": "JqHpu22404.jpg"
+    },
+    {
+      "id": "174",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Apache RTR 160 4V",
+      "slug": "apache-rtr-160-4v",
+      "image": "1Oh8a22904.jpg"
+    },
+    {
+      "id": "175",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Apache RTR 160",
+      "slug": "apache-rtr-160",
+      "image": "IMXNn22104.jpg"
+    },
+    {
+      "id": "176",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Apache RTR 180",
+      "slug": "apache-rtr-180",
+      "image": "cQaZQ22704.jpg"
+    },
+    {
+      "id": "177",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Apache RTR 200 4V",
+      "slug": "apache-rtr-200-4v",
+      "image": "LhWue22204.jpg"
+    },
+    {
+      "id": "178",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Iqube",
+      "slug": "iqube",
+      "image": "uOMzO22904.jpg"
+    },
+    {
+      "id": "179",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Jupiter",
+      "slug": "jupiter",
+      "image": "ZU7uB22904.jpg"
+    },
+    {
+      "id": "180",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Ntorq 125",
+      "slug": "ntorq-125",
+      "image": "YmZNM22304.jpg"
+    },
+    {
+      "id": "181",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Radeon",
+      "slug": "radeon",
+      "image": "h4k8u22804.jpg"
+    },
+    {
+      "id": "182",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Raider 125",
+      "slug": "raider-125",
+      "image": "lfJ9p22304.jpg"
+    },
+    {
+      "id": "183",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Ronin",
+      "slug": "ronin",
+      "image": "NLaIy22204.jpg"
+    },
+    {
+      "id": "184",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Scooty Pep Plus",
+      "slug": "scooty-pep-plus",
+      "image": "pRw6w22204.jpg"
+    },
+    {
+      "id": "185",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Scooty Zest 110",
+      "slug": "scooty-zest-110",
+      "image": "fFcr222704.jpg"
+    },
+    {
+      "id": "186",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Sport",
+      "slug": "sport",
+      "image": "R6p1O22804.jpg"
+    },
+    {
+      "id": "187",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "Star City Plus",
+      "slug": "star-city-plus",
+      "image": "PpcME22204.jpg"
+    },
+    {
+      "id": "188",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "XL 100 Comfort",
+      "slug": "xl-100-comfort",
+      "image": "g7wf322104.jpg"
+    },
+    {
+      "id": "189",
+      "brand_id": "1",
+      "type_id": "6",
+      "name": "XL 100 Heavy Duty",
+      "slug": "xl-100-heavy-duty",
+      "image": "GBMwy22404.jpg"
+    },
+    {
+      "id": "190",
+      "brand_id": "1",
+      "type_id": "60",
+      "name": "Elegante 150",
+      "slug": "elegante-150",
+      "image": "Q5Iam22504.jpg"
+    },
+    {
+      "id": "191",
+      "brand_id": "1",
+      "type_id": "60",
+      "name": "SXL 125",
+      "slug": "sxl-125",
+      "image": "gc3uP22704.jpg"
+    },
+    {
+      "id": "192",
+      "brand_id": "1",
+      "type_id": "60",
+      "name": "SXL 150",
+      "slug": "sxl-150",
+      "image": "WGts822804.jpg"
+    },
+    {
+      "id": "193",
+      "brand_id": "1",
+      "type_id": "60",
+      "name": "VXL 125",
+      "slug": "vxl-125",
+      "image": "7SiRu22805.jpg"
+    },
+    {
+      "id": "194",
+      "brand_id": "1",
+      "type_id": "60",
+      "name": "VXL 150",
+      "slug": "vxl-150",
+      "image": "wrqgr22705.jpg"
+    },
+    {
+      "id": "195",
+      "brand_id": "1",
+      "type_id": "60",
+      "name": "ZX 125",
+      "slug": "zx-125",
+      "image": "sf2S722105.jpg"
+    },
+    {
+      "id": "196",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "Aerox 155",
+      "slug": "aerox-155",
+      "image": "flMbe22505.jpg"
+    },
+    {
+      "id": "197",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "Fascino 125",
+      "slug": "fascino-125",
+      "image": "I1Hv622505.jpg"
+    },
+    {
+      "id": "198",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "FZ 25",
+      "slug": "fz-25",
+      "image": "S9ihp22905.jpg"
+    },
+    {
+      "id": "199",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "FZ FI V3",
+      "slug": "fz-fi-v3",
+      "image": "zwgHD22305.jpg"
+    },
+    {
+      "id": "200",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "FZ-X",
+      "slug": "fz-x",
+      "image": "bLSud22405.jpg"
+    },
+    {
+      "id": "201",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "FZS 25",
+      "slug": "fzs-25",
+      "image": "LtYKY22605.jpg"
+    },
+    {
+      "id": "202",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "FZS FI V3",
+      "slug": "fzs-fi-v3",
+      "image": "ehpVs22905.jpg"
+    },
+    {
+      "id": "203",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "MT 15 Version 2.0",
+      "slug": "mt-15-version-20",
+      "image": "HkkOJ22405.jpg"
+    },
+    {
+      "id": "204",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "R15 S",
+      "slug": "r15-s",
+      "image": "Thh0z22605.jpg"
+    },
+    {
+      "id": "205",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "R15 V4",
+      "slug": "r15-v4",
+      "image": "cIvlH22105.jpg"
+    },
+    {
+      "id": "206",
+      "brand_id": "1",
+      "type_id": "61",
+      "name": "Ray-ZR 125",
+      "slug": "ray-zr-125",
+      "image": "LZUzf22105.jpg"
+    },
+    {
+      "id": "207",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A3",
+      "slug": "a3",
+      "image": "\\\"3\\\""
+    },
+    {
+      "id": "208",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A4",
+      "slug": "a4",
+      "image": "1395"
+    },
+    {
+      "id": "209",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A5",
+      "slug": "a5",
+      "image": "1968"
+    },
+    {
+      "id": "210",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A6",
+      "slug": "a6",
+      "image": "1984"
+    },
+    {
+      "id": "211",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A7",
+      "slug": "a7",
+      "image": "2967"
+    },
+    {
+      "id": "212",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A8 L",
+      "slug": "a8-l",
+      "image": "2995"
+    },
+    {
+      "id": "213",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "A8",
+      "slug": "a8",
+      "image": "2995"
+    },
+    {
+      "id": "214",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "Q2",
+      "slug": "q2",
+      "image": "EBWru22105.jpeg"
+    },
+    {
+      "id": "215",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "Q3",
+      "slug": "q3",
+      "image": "JtlX022705.jpeg"
+    },
+    {
+      "id": "216",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "Q5",
+      "slug": "q5",
+      "image": "1984"
+    },
+    {
+      "id": "217",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "Q7",
+      "slug": "q7",
+      "image": "2995"
+    },
+    {
+      "id": "218",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "Q8",
+      "slug": "q8",
+      "image": "rOXxB22905.jpeg"
+    },
+    {
+      "id": "219",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "R8",
+      "slug": "r8",
+      "image": "cW6E922805.jpeg"
+    },
+    {
+      "id": "220",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "RS3",
+      "slug": "rs3",
+      "image": "3flPX22305.jpeg"
+    },
+    {
+      "id": "221",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "RS5",
+      "slug": "rs5",
+      "image": "YjtUG22905.jpeg"
+    },
+    {
+      "id": "222",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "S4",
+      "slug": "s4",
+      "image": "zJoaf22405.jpeg"
+    },
+    {
+      "id": "223",
+      "brand_id": "2",
+      "type_id": "8",
+      "name": "TT",
+      "slug": "tt",
+      "image": "3VvTO22405.jpeg"
+    },
+    {
+      "id": "224",
+      "brand_id": "2",
+      "type_id": "62",
+      "name": "DB9",
+      "slug": "db9",
+      "image": "uKE9722805.jpeg"
+    },
+    {
+      "id": "225",
+      "brand_id": "2",
+      "type_id": "62",
+      "name": "Rapide",
+      "slug": "rapide",
+      "image": "Nakoz22105.jpeg"
+    },
+    {
+      "id": "226",
+      "brand_id": "2",
+      "type_id": "62",
+      "name": "Vanquish",
+      "slug": "vanquish",
+      "image": "5Dm0922605.jpeg"
+    },
+    {
+      "id": "227",
+      "brand_id": "2",
+      "type_id": "62",
+      "name": "Vantage",
+      "slug": "vantage",
+      "image": "iGd8z22205.jpeg"
+    },
+    {
+      "id": "228",
+      "brand_id": "2",
+      "type_id": "9",
+      "name": "Continental",
+      "slug": "continental",
+      "image": "jQHOP22605.jpeg"
+    },
+    {
+      "id": "229",
+      "brand_id": "2",
+      "type_id": "9",
+      "name": "Flying Spur",
+      "slug": "flying-spur",
+      "image": "KEWjg22905.jpeg"
+    },
+    {
+      "id": "230",
+      "brand_id": "2",
+      "type_id": "9",
+      "name": "Mulsanne",
+      "slug": "mulsanne",
+      "image": "FvMfG22205.jpeg"
+    },
+    {
+      "id": "231",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "1 series",
+      "slug": "1-series",
+      "image": "1995"
+    },
+    {
+      "id": "232",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "2 series",
+      "slug": "2-series",
+      "image": "1995"
+    },
+    {
+      "id": "233",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "3 Series GT",
+      "slug": "3-series-gt",
+      "image": "1995"
+    },
+    {
+      "id": "234",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "3 Series",
+      "slug": "3-series",
+      "image": "2998"
+    },
+    {
+      "id": "235",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "5 Series GT",
+      "slug": "5-series-gt",
+      "image": "1995"
+    },
+    {
+      "id": "236",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "6 Series GT",
+      "slug": "6-series-gt",
+      "image": "2993"
+    },
+    {
+      "id": "237",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "6 Series",
+      "slug": "6-series",
+      "image": "2993"
+    },
+    {
+      "id": "238",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "7 Series",
+      "slug": "7-series",
+      "image": "2993"
+    },
+    {
+      "id": "239",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "M3",
+      "slug": "m3",
+      "image": "vxlcW22905.jpeg"
+    },
+    {
+      "id": "240",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "M5",
+      "slug": "m5",
+      "image": "F5KLm22205.jpeg"
+    },
+    {
+      "id": "241",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "X1",
+      "slug": "x1",
+      "image": "1995"
+    },
+    {
+      "id": "242",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "X3",
+      "slug": "x3",
+      "image": "1998"
+    },
+    {
+      "id": "243",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "X4",
+      "slug": "x4",
+      "image": "2993"
+    },
+    {
+      "id": "244",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "X5",
+      "slug": "x5",
+      "image": "2998"
+    },
+    {
+      "id": "245",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "X6",
+      "slug": "x6",
+      "image": "SQl5f22406.jpeg"
+    },
+    {
+      "id": "246",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "X7",
+      "slug": "x7",
+      "image": "2993"
+    },
+    {
+      "id": "247",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "Z4",
+      "slug": "z4",
+      "image": "4s2Zc22506.jpeg"
+    },
+    {
+      "id": "248",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Aveo",
+      "slug": "aveo",
+      "image": "1598"
+    },
+    {
+      "id": "249",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Beat",
+      "slug": "beat",
+      "image": "1199"
+    },
+    {
+      "id": "250",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Captiva",
+      "slug": "captiva",
+      "image": "prHBx22806.jpeg"
+    },
+    {
+      "id": "251",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Cruze",
+      "slug": "cruze",
+      "image": "BYEIE22906.jpeg"
+    },
+    {
+      "id": "252",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Enjoy",
+      "slug": "enjoy",
+      "image": "1399"
+    },
+    {
+      "id": "253",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Forester",
+      "slug": "forester",
+      "image": "1399"
+    },
+    {
+      "id": "254",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Optra Magnum",
+      "slug": "optra-magnum",
+      "image": "1991"
+    },
+    {
+      "id": "255",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Optra SRV",
+      "slug": "optra-srv",
+      "image": "1991"
+    },
+    {
+      "id": "256",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Optra",
+      "slug": "optra",
+      "image": "l37MS22606.jpeg"
+    },
+    {
+      "id": "257",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Sail Hatchback",
+      "slug": "sail-hatchback",
+      "image": "1248"
+    },
+    {
+      "id": "258",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Sail",
+      "slug": "sail",
+      "image": "1248"
+    },
+    {
+      "id": "259",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Spark",
+      "slug": "spark",
+      "image": "EPcBn22107.jpeg"
+    },
+    {
+      "id": "260",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Tavera",
+      "slug": "tavera",
+      "image": "itlwO22407.jpeg"
+    },
+    {
+      "id": "261",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "Trailblazer",
+      "slug": "trailblazer",
+      "image": "6LAiX22407.jpeg"
+    },
+    {
+      "id": "262",
+      "brand_id": "2",
+      "type_id": "11",
+      "name": "UVA",
+      "slug": "uva",
+      "image": "FkPic22707.jpeg"
+    },
+    {
+      "id": "263",
+      "brand_id": "2",
+      "type_id": "12",
+      "name": "C5 Aircross",
+      "slug": "c5-aircross",
+      "image": "GVBXG22107.jpeg"
+    },
+    {
+      "id": "264",
+      "brand_id": "2",
+      "type_id": "13",
+      "name": "Cielo",
+      "slug": "cielo",
+      "image": "1498"
+    },
+    {
+      "id": "265",
+      "brand_id": "2",
+      "type_id": "13",
+      "name": "Matiz",
+      "slug": "matiz",
+      "image": "PuoFY22507.jpeg"
+    },
+    {
+      "id": "266",
+      "brand_id": "2",
+      "type_id": "13",
+      "name": "Nexia",
+      "slug": "nexia",
+      "image": "qykMr22607.jpeg"
+    },
+    {
+      "id": "267",
+      "brand_id": "2",
+      "type_id": "14",
+      "name": "Go Plus",
+      "slug": "go-plus",
+      "image": "l68SX22207.jpeg"
+    },
+    {
+      "id": "268",
+      "brand_id": "2",
+      "type_id": "14",
+      "name": "Go",
+      "slug": "go",
+      "image": "Ktu9722507.jpeg"
+    },
+    {
+      "id": "269",
+      "brand_id": "2",
+      "type_id": "14",
+      "name": "Redi Go",
+      "slug": "redi-go",
+      "image": "DV34022107.jpeg"
+    },
+    {
+      "id": "270",
+      "brand_id": "2",
+      "type_id": "15",
+      "name": "Avanti",
+      "slug": "avanti",
+      "image": "nngsD22207.jpeg"
+    },
+    {
+      "id": "271",
+      "brand_id": "2",
+      "type_id": "16",
+      "name": "458 Italia",
+      "slug": "458-italia",
+      "image": "trIdI22207.jpeg"
+    },
+    {
+      "id": "272",
+      "brand_id": "2",
+      "type_id": "16",
+      "name": "458 Speciale",
+      "slug": "458-speciale",
+      "image": "SjTKN22907.jpeg"
+    },
+    {
+      "id": "273",
+      "brand_id": "2",
+      "type_id": "16",
+      "name": "488",
+      "slug": "488",
+      "image": "4BXod22207.jpeg"
+    },
+    {
+      "id": "274",
+      "brand_id": "2",
+      "type_id": "16",
+      "name": "California",
+      "slug": "california",
+      "image": "slZpv22507.jpeg"
+    },
+    {
+      "id": "275",
+      "brand_id": "2",
+      "type_id": "16",
+      "name": "F12 Berlinetta",
+      "slug": "f12-berlinetta",
+      "image": "4MmAu22807.jpeg"
+    },
+    {
+      "id": "276",
+      "brand_id": "2",
+      "type_id": "16",
+      "name": "FF",
+      "slug": "ff",
+      "image": "eyIUx22207.jpeg"
+    },
+    {
+      "id": "277",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Punto",
+      "slug": "punto",
+      "image": "1248"
+    },
+    {
+      "id": "278",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Avventura",
+      "slug": "avventura",
+      "image": "1368"
+    },
+    {
+      "id": "279",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Linea Classic",
+      "slug": "linea-classic",
+      "image": "1368"
+    },
+    {
+      "id": "280",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Linea",
+      "slug": "linea",
+      "image": "1368"
+    },
+    {
+      "id": "281",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Palio D",
+      "slug": "palio-d",
+      "image": "z7v2f22707.jpeg"
+    },
+    {
+      "id": "282",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Palio NV",
+      "slug": "palio-nv",
+      "image": "psYtr22307.jpeg"
+    },
+    {
+      "id": "283",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Palio Stile",
+      "slug": "palio-stile",
+      "image": "1596"
+    },
+    {
+      "id": "284",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Petra",
+      "slug": "petra",
+      "image": "1910"
+    },
+    {
+      "id": "285",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Punto Evo",
+      "slug": "punto-evo",
+      "image": "GDT9422507.jpeg"
+    },
+    {
+      "id": "286",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Abarth Punto",
+      "slug": "abarth-punto",
+      "image": "avnhw22807.jpeg"
+    },
+    {
+      "id": "287",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Uno",
+      "slug": "uno",
+      "image": "1698"
+    },
+    {
+      "id": "288",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Urban Cross",
+      "slug": "urban-cross",
+      "image": "1368"
+    },
+    {
+      "id": "289",
+      "brand_id": "2",
+      "type_id": "18",
+      "name": "Gurkha",
+      "slug": "gurkha",
+      "image": "k3iY222807.jpeg"
+    },
+    {
+      "id": "290",
+      "brand_id": "2",
+      "type_id": "18",
+      "name": "One",
+      "slug": "one",
+      "image": "Sigvv22907.jpeg"
+    },
+    {
+      "id": "291",
+      "brand_id": "2",
+      "type_id": "18",
+      "name": "Traveller 3350",
+      "slug": "traveller-3350",
+      "image": "Gw0U822607.jpeg"
+    },
+    {
+      "id": "292",
+      "brand_id": "2",
+      "type_id": "18",
+      "name": "Trax",
+      "slug": "trax",
+      "image": "QDsPs22507.jpeg"
+    },
+    {
+      "id": "293",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Eco Sport",
+      "slug": "eco-sport",
+      "image": "1498"
+    },
+    {
+      "id": "294",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Endeavour",
+      "slug": "endeavour",
+      "image": "vu6c322507.jpeg"
+    },
+    {
+      "id": "295",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Escort",
+      "slug": "escort",
+      "image": "1796"
+    },
+    {
+      "id": "296",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Fiesta Classic",
+      "slug": "fiesta-classic",
+      "image": "1596"
+    },
+    {
+      "id": "297",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Fiesta",
+      "slug": "fiesta",
+      "image": "1499"
+    },
+    {
+      "id": "298",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Figo Aspire",
+      "slug": "figo-aspire",
+      "image": "1499"
+    },
+    {
+      "id": "299",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Figo",
+      "slug": "figo",
+      "image": "1499"
+    },
+    {
+      "id": "300",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Free Style",
+      "slug": "free-style",
+      "image": "1499"
+    },
+    {
+      "id": "301",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Fusion",
+      "slug": "fusion",
+      "image": "1596"
+    },
+    {
+      "id": "302",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Ikon",
+      "slug": "ikon",
+      "image": "1753"
+    },
+    {
+      "id": "303",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Mondeo",
+      "slug": "mondeo",
+      "image": "1999"
+    },
+    {
+      "id": "304",
+      "brand_id": "2",
+      "type_id": "19",
+      "name": "Mustang",
+      "slug": "mustang",
+      "image": "u4oUQ22408.jpeg"
+    },
+    {
+      "id": "305",
+      "brand_id": "2",
+      "type_id": "20",
+      "name": "VIW CS2",
+      "slug": "viw-cs2",
+      "image": "IgmXr22208.jpeg"
+    },
+    {
+      "id": "306",
+      "brand_id": "2",
+      "type_id": "21",
+      "name": "Ambassador",
+      "slug": "ambassador",
+      "image": "1995"
+    },
+    {
+      "id": "307",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Accord Hybrid",
+      "slug": "accord-hybrid",
+      "image": "1993"
+    },
+    {
+      "id": "308",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Accord",
+      "slug": "accord",
+      "image": "6f8IN23511.jpeg"
+    },
+    {
+      "id": "309",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Amaze",
+      "slug": "amaze",
+      "image": "1199"
+    },
+    {
+      "id": "310",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Brio",
+      "slug": "brio",
+      "image": "5reTr23711.jpeg"
+    },
+    {
+      "id": "311",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "BRV",
+      "slug": "brv",
+      "image": "1498"
+    },
+    {
+      "id": "312",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "City IDTEC",
+      "slug": "city-idtec",
+      "image": "uwVf223111.jpeg"
+    },
+    {
+      "id": "313",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "City IVTEC",
+      "slug": "city-ivtec",
+      "image": "XOuh923511.jpeg"
+    },
+    {
+      "id": "314",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "City ZX",
+      "slug": "city-zx",
+      "image": "np8SL23711.jpeg"
+    },
+    {
+      "id": "315",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "City",
+      "slug": "city",
+      "image": "1498"
+    },
+    {
+      "id": "316",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Civic",
+      "slug": "civic",
+      "image": "1799"
+    },
+    {
+      "id": "317",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Honda CRV",
+      "slug": "honda-crv",
+      "image": "2354"
+    },
+    {
+      "id": "318",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Jazz",
+      "slug": "jazz",
+      "image": "hgGPK23211.jpeg"
+    },
+    {
+      "id": "319",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "Mobilio",
+      "slug": "mobilio",
+      "image": "1498"
+    },
+    {
+      "id": "320",
+      "brand_id": "2",
+      "type_id": "4",
+      "name": "WRV",
+      "slug": "wrv",
+      "image": "1498"
+    },
+    {
+      "id": "321",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Accent Viva",
+      "slug": "accent-viva",
+      "image": "i714e23511.jpeg"
+    },
+    {
+      "id": "322",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Accent",
+      "slug": "accent",
+      "image": "1599"
+    },
+    {
+      "id": "323",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Alcazar",
+      "slug": "alcazar",
+      "image": "1493"
+    },
+    {
+      "id": "324",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Aura",
+      "slug": "aura",
+      "image": "1197"
+    },
+    {
+      "id": "325",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Creta",
+      "slug": "creta",
+      "image": "1493"
+    },
+    {
+      "id": "326",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Elantra",
+      "slug": "elantra",
+      "image": "1999"
+    },
+    {
+      "id": "327",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Elite i20",
+      "slug": "elite-i20",
+      "image": "1396"
+    },
+    {
+      "id": "328",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Eon",
+      "slug": "eon",
+      "image": "f47Sn23611.jpeg"
+    },
+    {
+      "id": "329",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Getz Prime",
+      "slug": "getz-prime",
+      "image": "1493"
+    },
+    {
+      "id": "330",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Getz",
+      "slug": "getz",
+      "image": "1493"
+    },
+    {
+      "id": "331",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Grand i10 Nios",
+      "slug": "grand-i10-nios",
+      "image": "1197"
+    },
+    {
+      "id": "332",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Grand i10",
+      "slug": "grand-i10",
+      "image": "1197"
+    },
+    {
+      "id": "333",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "i10",
+      "slug": "i10",
+      "image": "k0hNo23611.jpeg"
+    },
+    {
+      "id": "334",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "i20 Active",
+      "slug": "i20-active",
+      "image": "1396"
+    },
+    {
+      "id": "335",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "i20",
+      "slug": "i20",
+      "image": "1493"
+    },
+    {
+      "id": "336",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Kona",
+      "slug": "kona",
+      "image": "DhcGG23411.jpeg"
+    },
+    {
+      "id": "337",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Santa FE",
+      "slug": "santa-fe",
+      "image": "p23Wa23811.jpeg"
+    },
+    {
+      "id": "338",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Santro Xing",
+      "slug": "santro-xing",
+      "image": "1086"
+    },
+    {
+      "id": "339",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Santro",
+      "slug": "santro",
+      "image": "1086"
+    },
+    {
+      "id": "340",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Sonata Embera",
+      "slug": "sonata-embera",
+      "image": "2359"
+    },
+    {
+      "id": "341",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Sonata Transform",
+      "slug": "sonata-transform",
+      "image": "2359"
+    },
+    {
+      "id": "342",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Sonata",
+      "slug": "sonata",
+      "image": "2359"
+    },
+    {
+      "id": "343",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Tucson",
+      "slug": "tucson",
+      "image": "1997"
+    },
+    {
+      "id": "344",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Venue",
+      "slug": "venue",
+      "image": "1493"
+    },
+    {
+      "id": "345",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Verna Fluidic",
+      "slug": "verna-fluidic",
+      "image": "1591"
+    },
+    {
+      "id": "346",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Verna Transform",
+      "slug": "verna-transform",
+      "image": "1599"
+    },
+    {
+      "id": "347",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Verna",
+      "slug": "verna",
+      "image": "1493"
+    },
+    {
+      "id": "348",
+      "brand_id": "2",
+      "type_id": "22",
+      "name": "Xcent",
+      "slug": "xcent",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "349",
+      "brand_id": "2",
+      "type_id": "23",
+      "name": "Dmax V Cross",
+      "slug": "dmax-v-cross",
+      "image": "ChtvR23411.jpeg"
+    },
+    {
+      "id": "350",
+      "brand_id": "2",
+      "type_id": "23",
+      "name": "MU7",
+      "slug": "mu7",
+      "image": "369cm23811.jpeg"
+    },
+    {
+      "id": "351",
+      "brand_id": "2",
+      "type_id": "24",
+      "name": "F Pace",
+      "slug": "f-pace",
+      "image": "4999"
+    },
+    {
+      "id": "352",
+      "brand_id": "2",
+      "type_id": "24",
+      "name": "F Type",
+      "slug": "f-type",
+      "image": "N0bja23211.jpeg"
+    },
+    {
+      "id": "353",
+      "brand_id": "2",
+      "type_id": "24",
+      "name": "XE",
+      "slug": "xe",
+      "image": "1999"
+    },
+    {
+      "id": "354",
+      "brand_id": "2",
+      "type_id": "24",
+      "name": "XF",
+      "slug": "xf",
+      "image": "1997"
+    },
+    {
+      "id": "355",
+      "brand_id": "2",
+      "type_id": "24",
+      "name": "XJ",
+      "slug": "xj",
+      "image": "2993"
+    },
+    {
+      "id": "356",
+      "brand_id": "2",
+      "type_id": "24",
+      "name": "XJR",
+      "slug": "xjr",
+      "image": "2993"
+    },
+    {
+      "id": "357",
+      "brand_id": "2",
+      "type_id": "25",
+      "name": "Neo",
+      "slug": "neo",
+      "image": "MRQfN23311.jpeg"
+    },
+    {
+      "id": "358",
+      "brand_id": "2",
+      "type_id": "7",
+      "name": "Compass",
+      "slug": "compass",
+      "image": "1956"
+    },
+    {
+      "id": "359",
+      "brand_id": "2",
+      "type_id": "26",
+      "name": "Carens",
+      "slug": "carens",
+      "image": "1493"
+    },
+    {
+      "id": "360",
+      "brand_id": "2",
+      "type_id": "26",
+      "name": "Carnival",
+      "slug": "carnival",
+      "image": "IRBsj23811.jpeg"
+    },
+    {
+      "id": "361",
+      "brand_id": "2",
+      "type_id": "26",
+      "name": "Seltos",
+      "slug": "seltos",
+      "image": "1493"
+    },
+    {
+      "id": "362",
+      "brand_id": "2",
+      "type_id": "26",
+      "name": "Sonet",
+      "slug": "sonet",
+      "image": "1493"
+    },
+    {
+      "id": "363",
+      "brand_id": "2",
+      "type_id": "27",
+      "name": "Aventador",
+      "slug": "aventador",
+      "image": "nVaMw23311.jpeg"
+    },
+    {
+      "id": "364",
+      "brand_id": "2",
+      "type_id": "27",
+      "name": "Gallardo",
+      "slug": "gallardo",
+      "image": "Ba6A123311.jpeg"
+    },
+    {
+      "id": "365",
+      "brand_id": "2",
+      "type_id": "27",
+      "name": "Huracan",
+      "slug": "huracan",
+      "image": "aN6Ah23311.jpeg"
+    },
+    {
+      "id": "366",
+      "brand_id": "2",
+      "type_id": "27",
+      "name": "Urus",
+      "slug": "urus",
+      "image": "n0dbc23311.jpeg"
+    },
+    {
+      "id": "367",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Defender",
+      "slug": "defender",
+      "image": "2997"
+    },
+    {
+      "id": "368",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Discovery 4",
+      "slug": "discovery-4",
+      "image": "mERIY23711.jpeg"
+    },
+    {
+      "id": "369",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Discovery Sport",
+      "slug": "discovery-sport",
+      "image": "2179"
+    },
+    {
+      "id": "370",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Freelander 2",
+      "slug": "freelander-2",
+      "image": "hH8lC23912.jpeg"
+    },
+    {
+      "id": "371",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Range Rovar Velar",
+      "slug": "range-rovar-velar",
+      "image": "f5oMh23712.jpeg"
+    },
+    {
+      "id": "372",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Range Rovar Evoque",
+      "slug": "range-rovar-evoque",
+      "image": "1997"
+    },
+    {
+      "id": "373",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Range Rovar Sport",
+      "slug": "range-rovar-sport",
+      "image": "2997"
+    },
+    {
+      "id": "374",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Range Rovar Vogue",
+      "slug": "range-rovar-vogue",
+      "image": "1997"
+    },
+    {
+      "id": "375",
+      "brand_id": "2",
+      "type_id": "28",
+      "name": "Range Rover",
+      "slug": "range-rover",
+      "image": "2997"
+    },
+    {
+      "id": "376",
+      "brand_id": "2",
+      "type_id": "29",
+      "name": "ES",
+      "slug": "es",
+      "image": "WCJxg23512.jpeg"
+    },
+    {
+      "id": "377",
+      "brand_id": "2",
+      "type_id": "29",
+      "name": "LC",
+      "slug": "lc",
+      "image": "r0yMo23612.jpeg"
+    },
+    {
+      "id": "378",
+      "brand_id": "2",
+      "type_id": "29",
+      "name": "LS",
+      "slug": "ls",
+      "image": "AaEyI23112.jpeg"
+    },
+    {
+      "id": "379",
+      "brand_id": "2",
+      "type_id": "29",
+      "name": "LX",
+      "slug": "lx",
+      "image": "fz2Gx23412.jpeg"
+    },
+    {
+      "id": "380",
+      "brand_id": "2",
+      "type_id": "29",
+      "name": "NX",
+      "slug": "nx",
+      "image": "OIi6F23512.jpeg"
+    },
+    {
+      "id": "381",
+      "brand_id": "2",
+      "type_id": "29",
+      "name": "RX",
+      "slug": "rx",
+      "image": "HAO4023312.jpeg"
+    },
+    {
+      "id": "382",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Alturas G4",
+      "slug": "alturas-g4",
+      "image": "OHVds23612.jpeg"
+    },
+    {
+      "id": "383",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Bolero Camper",
+      "slug": "bolero-camper",
+      "image": "DtMwu23412.jpeg"
+    },
+    {
+      "id": "384",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Bolero Neo",
+      "slug": "bolero-neo",
+      "image": "OnPld23912.jpeg"
+    },
+    {
+      "id": "385",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Bolero Pickup",
+      "slug": "bolero-pickup",
+      "image": "JdOlJ23212.jpeg"
+    },
+    {
+      "id": "386",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Bolero",
+      "slug": "bolero",
+      "image": "SJI1523712.jpeg"
+    },
+    {
+      "id": "387",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "E20 Plus",
+      "slug": "e20-plus",
+      "image": "ApYtK23512.jpeg"
+    },
+    {
+      "id": "388",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Imperio",
+      "slug": "imperio",
+      "image": "SCVDJ23212.jpeg"
+    },
+    {
+      "id": "389",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "KUV 100",
+      "slug": "kuv-100",
+      "image": "P23so23112.jpeg"
+    },
+    {
+      "id": "390",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Logan",
+      "slug": "logan",
+      "image": "1461"
+    },
+    {
+      "id": "391",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Marazzo",
+      "slug": "marazzo",
+      "image": "X6cE723312.jpeg"
+    },
+    {
+      "id": "392",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Nuvo Sport",
+      "slug": "nuvo-sport",
+      "image": "WQJBP23412.jpeg"
+    },
+    {
+      "id": "393",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Quanto",
+      "slug": "quanto",
+      "image": "SHd0u23412.jpeg"
+    },
+    {
+      "id": "394",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Scorpio Getaway",
+      "slug": "scorpio-getaway",
+      "image": "cnGcE23612.jpeg"
+    },
+    {
+      "id": "395",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Scorpio",
+      "slug": "scorpio",
+      "image": "dVfy723112.jpeg"
+    },
+    {
+      "id": "396",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Thar",
+      "slug": "thar",
+      "image": "2184"
+    },
+    {
+      "id": "397",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "TUV 300 Plus",
+      "slug": "tuv-300-plus",
+      "image": "fhxGu23312.jpeg"
+    },
+    {
+      "id": "398",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "TUV 300",
+      "slug": "tuv-300",
+      "image": "3fhLd23312.jpeg"
+    },
+    {
+      "id": "399",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Verito Vibe CS",
+      "slug": "verito-vibe-cs",
+      "image": "LTtrF23912.jpeg"
+    },
+    {
+      "id": "400",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Verito",
+      "slug": "verito",
+      "image": "1598"
+    },
+    {
+      "id": "401",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "XUV 300",
+      "slug": "xuv-300",
+      "image": "1497"
+    },
+    {
+      "id": "402",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "XUV 500",
+      "slug": "xuv-500",
+      "image": "2179"
+    },
+    {
+      "id": "403",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "XUV 700",
+      "slug": "xuv-700",
+      "image": "2198"
+    },
+    {
+      "id": "404",
+      "brand_id": "2",
+      "type_id": "30",
+      "name": "Xylo",
+      "slug": "xylo",
+      "image": "Ba75r23412.jpeg"
+    },
+    {
+      "id": "405",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "800",
+      "slug": "800",
+      "image": "j4HL823112.jpeg"
+    },
+    {
+      "id": "406",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "A-Star",
+      "slug": "a-star",
+      "image": "5TzN923812.jpeg"
+    },
+    {
+      "id": "407",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Alto 800",
+      "slug": "alto-800",
+      "image": "796"
+    },
+    {
+      "id": "408",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Alto K10",
+      "slug": "alto-k10",
+      "image": "998"
+    },
+    {
+      "id": "409",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Alto",
+      "slug": "alto",
+      "image": "1061"
+    },
+    {
+      "id": "410",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Baleno",
+      "slug": "baleno",
+      "image": "1197"
+    },
+    {
+      "id": "411",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Celerio",
+      "slug": "celerio",
+      "image": "998"
+    },
+    {
+      "id": "412",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Ciaz",
+      "slug": "ciaz",
+      "image": "UbXaw23112.jpeg"
+    },
+    {
+      "id": "413",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Eeco",
+      "slug": "eeco",
+      "image": "1197"
+    },
+    {
+      "id": "414",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Ertiga",
+      "slug": "ertiga",
+      "image": "1462"
+    },
+    {
+      "id": "415",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Esteem",
+      "slug": "esteem",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "416",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Estilo",
+      "slug": "estilo",
+      "image": "1061"
+    },
+    {
+      "id": "417",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Grand Vitara",
+      "slug": "grand-vitara",
+      "image": "GwZA823412.jpeg"
+    },
+    {
+      "id": "418",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Gypsy",
+      "slug": "gypsy",
+      "image": "VUP3123812.jpeg"
+    },
+    {
+      "id": "419",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Ignis",
+      "slug": "ignis",
+      "image": "rXcU023412.jpeg"
+    },
+    {
+      "id": "420",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Kizashi",
+      "slug": "kizashi",
+      "image": "rKF9D23712.jpeg"
+    },
+    {
+      "id": "421",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Omni",
+      "slug": "omni",
+      "image": "796"
+    },
+    {
+      "id": "422",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Ritz",
+      "slug": "ritz",
+      "image": "1248"
+    },
+    {
+      "id": "423",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "S-Cross",
+      "slug": "s-cross",
+      "image": "1598"
+    },
+    {
+      "id": "424",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "S-Presso",
+      "slug": "s-presso",
+      "image": "998"
+    },
+    {
+      "id": "425",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Swift Dzire",
+      "slug": "swift-dzire",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "426",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Swift",
+      "slug": "swift",
+      "image": "1197"
+    },
+    {
+      "id": "427",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "SX4",
+      "slug": "sx4",
+      "image": "1586"
+    },
+    {
+      "id": "428",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Versa",
+      "slug": "versa",
+      "image": "VjLcf23812.jpeg"
+    },
+    {
+      "id": "429",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Vitara Brezza",
+      "slug": "vitara-brezza",
+      "image": "1462"
+    },
+    {
+      "id": "430",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "WagonR",
+      "slug": "wagonr",
+      "image": "1197"
+    },
+    {
+      "id": "431",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "XL6",
+      "slug": "xl6",
+      "image": "1462"
+    },
+    {
+      "id": "432",
+      "brand_id": "2",
+      "type_id": "5",
+      "name": "Zen",
+      "slug": "zen",
+      "image": "1527"
+    },
+    {
+      "id": "433",
+      "brand_id": "2",
+      "type_id": "31",
+      "name": "Ghibli",
+      "slug": "ghibli",
+      "image": "2987"
+    },
+    {
+      "id": "434",
+      "brand_id": "2",
+      "type_id": "31",
+      "name": "GranCabrio",
+      "slug": "grancabrio",
+      "image": "4691"
+    },
+    {
+      "id": "435",
+      "brand_id": "2",
+      "type_id": "31",
+      "name": "GranTurismo",
+      "slug": "granturismo",
+      "image": "4691"
+    },
+    {
+      "id": "436",
+      "brand_id": "2",
+      "type_id": "31",
+      "name": "Quattroporte",
+      "slug": "quattroporte",
+      "image": "3799"
+    },
+    {
+      "id": "437",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "A-Class",
+      "slug": "a-class",
+      "image": "2143"
+    },
+    {
+      "id": "438",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "AMG GT",
+      "slug": "amg-gt",
+      "image": "PgPwz23901.jpeg"
+    },
+    {
+      "id": "439",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "B-Class",
+      "slug": "b-class",
+      "image": "2143"
+    },
+    {
+      "id": "440",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "C-Class",
+      "slug": "c-class",
+      "image": "2143"
+    },
+    {
+      "id": "441",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "CLA Class",
+      "slug": "cla-class",
+      "image": "2143"
+    },
+    {
+      "id": "442",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "CLS Class",
+      "slug": "cls-class",
+      "image": "4966"
+    },
+    {
+      "id": "443",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "E-Class",
+      "slug": "e-class",
+      "image": "2987"
+    },
+    {
+      "id": "444",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "G63 AMG",
+      "slug": "g63-amg",
+      "image": "nfGPR23401.jpeg"
+    },
+    {
+      "id": "445",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "GL Class",
+      "slug": "gl-class",
+      "image": "2987"
+    },
+    {
+      "id": "446",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "GLA Class",
+      "slug": "gla-class",
+      "image": "1332"
+    },
+    {
+      "id": "447",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "GLC",
+      "slug": "glc",
+      "image": "2143"
+    },
+    {
+      "id": "448",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "GLE Class",
+      "slug": "gle-class",
+      "image": "2925"
+    },
+    {
+      "id": "449",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "GLE 43 AMG",
+      "slug": "gle-43-amg",
+      "image": "Hln9D23901.jpeg"
+    },
+    {
+      "id": "450",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "GLS",
+      "slug": "gls",
+      "image": "2925"
+    },
+    {
+      "id": "451",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "ML Class",
+      "slug": "ml-class",
+      "image": "e8GQO23501.jpeg"
+    },
+    {
+      "id": "452",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "R Class",
+      "slug": "r-class",
+      "image": "3498"
+    },
+    {
+      "id": "453",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "S Class",
+      "slug": "s-class",
+      "image": "2925"
+    },
+    {
+      "id": "454",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "SL 500 AMG",
+      "slug": "sl-500-amg",
+      "image": "PqJkA23801.jpeg"
+    },
+    {
+      "id": "455",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "SLK Class",
+      "slug": "slk-class",
+      "image": "19OSj23101.jpeg"
+    },
+    {
+      "id": "456",
+      "brand_id": "2",
+      "type_id": "32",
+      "name": "V-Class",
+      "slug": "v-class",
+      "image": "tr5si23901.jpeg"
+    },
+    {
+      "id": "457",
+      "brand_id": "2",
+      "type_id": "33",
+      "name": "Astor",
+      "slug": "astor",
+      "image": "k1mBj23102.jpeg"
+    },
+    {
+      "id": "458",
+      "brand_id": "2",
+      "type_id": "33",
+      "name": "Gloster",
+      "slug": "gloster",
+      "image": "BcbXR23702.jpeg"
+    },
+    {
+      "id": "459",
+      "brand_id": "2",
+      "type_id": "33",
+      "name": "Hector Plus",
+      "slug": "hector-plus",
+      "image": "1498"
+    },
+    {
+      "id": "460",
+      "brand_id": "2",
+      "type_id": "33",
+      "name": "Hector",
+      "slug": "hector",
+      "image": "1451"
+    },
+    {
+      "id": "461",
+      "brand_id": "2",
+      "type_id": "33",
+      "name": "ZS EV",
+      "slug": "zs-ev",
+      "image": "bmi2W23703.jpeg"
+    },
+    {
+      "id": "462",
+      "brand_id": "2",
+      "type_id": "34",
+      "name": "Clubman",
+      "slug": "clubman",
+      "image": "vlTiO23303.jpeg"
+    },
+    {
+      "id": "463",
+      "brand_id": "2",
+      "type_id": "34",
+      "name": "Cooper",
+      "slug": "cooper",
+      "image": "AXtI923203.jpeg"
+    },
+    {
+      "id": "464",
+      "brand_id": "2",
+      "type_id": "34",
+      "name": "Countryman",
+      "slug": "countryman",
+      "image": "1998"
+    },
+    {
+      "id": "465",
+      "brand_id": "2",
+      "type_id": "35",
+      "name": "Cedia",
+      "slug": "cedia",
+      "image": "1999"
+    },
+    {
+      "id": "466",
+      "brand_id": "2",
+      "type_id": "35",
+      "name": "Lancer",
+      "slug": "lancer",
+      "image": "1998"
+    },
+    {
+      "id": "467",
+      "brand_id": "2",
+      "type_id": "35",
+      "name": "Montero",
+      "slug": "montero",
+      "image": "Lw6Yl23703.jpeg"
+    },
+    {
+      "id": "468",
+      "brand_id": "2",
+      "type_id": "35",
+      "name": "Outlander",
+      "slug": "outlander",
+      "image": "lk0e023303.jpeg"
+    },
+    {
+      "id": "469",
+      "brand_id": "2",
+      "type_id": "35",
+      "name": "Pajero Sport",
+      "slug": "pajero-sport",
+      "image": "wPpO123903.jpeg"
+    },
+    {
+      "id": "470",
+      "brand_id": "2",
+      "type_id": "35",
+      "name": "Pajero",
+      "slug": "pajero",
+      "image": "h2mrG23603.jpeg"
+    },
+    {
+      "id": "471",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Evalia",
+      "slug": "evalia",
+      "image": "qNdi523703.jpeg"
+    },
+    {
+      "id": "472",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "GTR",
+      "slug": "gtr",
+      "image": "OSmx323203.jpeg"
+    },
+    {
+      "id": "473",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Kicks",
+      "slug": "kicks",
+      "image": "v2Toy23503.jpeg"
+    },
+    {
+      "id": "474",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Magnite",
+      "slug": "magnite",
+      "image": "HeleH23203.jpeg"
+    },
+    {
+      "id": "475",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Micra Active",
+      "slug": "micra-active",
+      "image": "3WKEA23503.jpeg"
+    },
+    {
+      "id": "476",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Micra",
+      "slug": "micra",
+      "image": "1461"
+    },
+    {
+      "id": "477",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Sunny",
+      "slug": "sunny",
+      "image": "1498"
+    },
+    {
+      "id": "478",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Teana",
+      "slug": "teana",
+      "image": "GPfen23903.jpeg"
+    },
+    {
+      "id": "479",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "Terrano",
+      "slug": "terrano",
+      "image": "1461"
+    },
+    {
+      "id": "480",
+      "brand_id": "2",
+      "type_id": "36",
+      "name": "X-Trail",
+      "slug": "x-trail",
+      "image": "2488"
+    },
+    {
+      "id": "481",
+      "brand_id": "2",
+      "type_id": "37",
+      "name": "Astra",
+      "slug": "astra",
+      "image": "6nqKF23803.jpeg"
+    },
+    {
+      "id": "482",
+      "brand_id": "2",
+      "type_id": "37",
+      "name": "Corsa",
+      "slug": "corsa",
+      "image": "6Tk7423503.jpeg"
+    },
+    {
+      "id": "483",
+      "brand_id": "2",
+      "type_id": "38",
+      "name": "911",
+      "slug": "911",
+      "image": "uIKVU23703.jpeg"
+    },
+    {
+      "id": "484",
+      "brand_id": "2",
+      "type_id": "38",
+      "name": "Boxter",
+      "slug": "boxter",
+      "image": "U98Lt23803.jpeg"
+    },
+    {
+      "id": "485",
+      "brand_id": "2",
+      "type_id": "38",
+      "name": "Cayenne",
+      "slug": "cayenne",
+      "image": "hhxNI23303.jpeg"
+    },
+    {
+      "id": "486",
+      "brand_id": "2",
+      "type_id": "38",
+      "name": "Cayman",
+      "slug": "cayman",
+      "image": "RCCQs23403.jpeg"
+    },
+    {
+      "id": "487",
+      "brand_id": "2",
+      "type_id": "38",
+      "name": "Macan",
+      "slug": "macan",
+      "image": "BEtZY23303.jpeg"
+    },
+    {
+      "id": "488",
+      "brand_id": "2",
+      "type_id": "38",
+      "name": "Panamera",
+      "slug": "panamera",
+      "image": "cj98g23703.jpeg"
+    },
+    {
+      "id": "489",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Captur",
+      "slug": "captur",
+      "image": "1498"
+    },
+    {
+      "id": "490",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Duster",
+      "slug": "duster",
+      "image": "1461"
+    },
+    {
+      "id": "491",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Fluence",
+      "slug": "fluence",
+      "image": "1461"
+    },
+    {
+      "id": "492",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Kiger",
+      "slug": "kiger",
+      "image": "byGta23604.jpeg"
+    },
+    {
+      "id": "493",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Koleos",
+      "slug": "koleos",
+      "image": "IGQ4s23704.jpeg"
+    },
+    {
+      "id": "494",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Kwid",
+      "slug": "kwid",
+      "image": "mG90F23704.jpeg"
+    },
+    {
+      "id": "495",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Lodgy",
+      "slug": "lodgy",
+      "image": "sGc7g23704.jpeg"
+    },
+    {
+      "id": "496",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Pulse",
+      "slug": "pulse",
+      "image": "1461"
+    },
+    {
+      "id": "497",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Scala",
+      "slug": "scala",
+      "image": "1498"
+    },
+    {
+      "id": "498",
+      "brand_id": "2",
+      "type_id": "39",
+      "name": "Triber",
+      "slug": "triber",
+      "image": "cgmWp23604.jpeg"
+    },
+    {
+      "id": "499",
+      "brand_id": "2",
+      "type_id": "40",
+      "name": "Ghost",
+      "slug": "ghost",
+      "image": "iSKco23304.jpeg"
+    },
+    {
+      "id": "500",
+      "brand_id": "2",
+      "type_id": "40",
+      "name": "Phantom",
+      "slug": "phantom",
+      "image": "iyvxm23404.jpeg"
+    },
+    {
+      "id": "501",
+      "brand_id": "2",
+      "type_id": "40",
+      "name": "Wraith",
+      "slug": "wraith",
+      "image": "L2um023704.jpeg"
+    },
+    {
+      "id": "502",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Fabia Scout",
+      "slug": "fabia-scout",
+      "image": "1XhM123204.jpeg"
+    },
+    {
+      "id": "503",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Fabia",
+      "slug": "fabia",
+      "image": "Yqlej23504.jpeg"
+    },
+    {
+      "id": "504",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Kodiaq",
+      "slug": "kodiaq",
+      "image": "Phb2H23304.jpeg"
+    },
+    {
+      "id": "505",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Kushaq",
+      "slug": "kushaq",
+      "image": "mljjC23504.jpeg"
+    },
+    {
+      "id": "506",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Laura",
+      "slug": "laura",
+      "image": "1968"
+    },
+    {
+      "id": "507",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Octavia",
+      "slug": "octavia",
+      "image": "sWWHA23704.jpeg"
+    },
+    {
+      "id": "508",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Rapid",
+      "slug": "rapid",
+      "image": "1498"
+    },
+    {
+      "id": "509",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Slavia",
+      "slug": "slavia",
+      "image": "HdZpI23204.png"
+    },
+    {
+      "id": "510",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Superb",
+      "slug": "superb",
+      "image": "2496"
+    },
+    {
+      "id": "511",
+      "brand_id": "2",
+      "type_id": "41",
+      "name": "Yeti",
+      "slug": "yeti",
+      "image": "0Kyl023304.jpeg"
+    },
+    {
+      "id": "512",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Altroz",
+      "slug": "altroz",
+      "image": "1497"
+    },
+    {
+      "id": "513",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Aria",
+      "slug": "aria",
+      "image": "bfHjn23504.jpeg"
+    },
+    {
+      "id": "514",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Bolt",
+      "slug": "bolt",
+      "image": "1248"
+    },
+    {
+      "id": "515",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Harrier",
+      "slug": "harrier",
+      "image": "2NpCe23904.jpeg"
+    },
+    {
+      "id": "516",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Hexa",
+      "slug": "hexa",
+      "image": "ePIdd23304.jpeg"
+    },
+    {
+      "id": "517",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indica eV2",
+      "slug": "indica-ev2",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "518",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indica V2",
+      "slug": "indica-v2",
+      "image": "1405"
+    },
+    {
+      "id": "519",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indica Vista",
+      "slug": "indica-vista",
+      "image": "1405"
+    },
+    {
+      "id": "520",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indica",
+      "slug": "indica",
+      "image": "1405"
+    },
+    {
+      "id": "521",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indigo CS",
+      "slug": "indigo-cs",
+      "image": "1405"
+    },
+    {
+      "id": "522",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indigo eCS",
+      "slug": "indigo-ecs",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "523",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indigo Marina",
+      "slug": "indigo-marina",
+      "image": "IPZUj23304.jpeg"
+    },
+    {
+      "id": "524",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indigo XL",
+      "slug": "indigo-xl",
+      "image": "1405"
+    },
+    {
+      "id": "525",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Indigo",
+      "slug": "indigo",
+      "image": "1405"
+    },
+    {
+      "id": "526",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Manza",
+      "slug": "manza",
+      "image": "1248"
+    },
+    {
+      "id": "527",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Nano Genx",
+      "slug": "nano-genx",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "528",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Nano",
+      "slug": "nano",
+      "image": "\\\"3\\\"]"
+    },
+    {
+      "id": "529",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Nexon",
+      "slug": "nexon",
+      "image": "1497"
+    },
+    {
+      "id": "530",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Punch",
+      "slug": "punch",
+      "image": "Osgc023604.jpeg"
+    },
+    {
+      "id": "531",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Safari Storme",
+      "slug": "safari-storme",
+      "image": "AWgfF23304.jpeg"
+    },
+    {
+      "id": "532",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Safari",
+      "slug": "safari",
+      "image": "A0tLn23804.jpeg"
+    },
+    {
+      "id": "533",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Sumo Gold",
+      "slug": "sumo-gold",
+      "image": "vWkGp23104.jpeg"
+    },
+    {
+      "id": "534",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Sumo Grande MK II",
+      "slug": "sumo-grande-mk-ii",
+      "image": "wszfR23804.jpeg"
+    },
+    {
+      "id": "535",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Sumo Grande",
+      "slug": "sumo-grande",
+      "image": "ZLYc823704.jpeg"
+    },
+    {
+      "id": "536",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Sumo Spacio",
+      "slug": "sumo-spacio",
+      "image": "ahHB023104.jpeg"
+    },
+    {
+      "id": "537",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Sumo Victa",
+      "slug": "sumo-victa",
+      "image": "4tboq23104.jpeg"
+    },
+    {
+      "id": "538",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Tiago NRG",
+      "slug": "tiago-nrg",
+      "image": "1199"
+    },
+    {
+      "id": "539",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Tiago",
+      "slug": "tiago",
+      "image": "1199"
+    },
+    {
+      "id": "540",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Tigor",
+      "slug": "tigor",
+      "image": "1199"
+    },
+    {
+      "id": "541",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Venture",
+      "slug": "venture",
+      "image": "igoOf23604.jpeg"
+    },
+    {
+      "id": "542",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Winger",
+      "slug": "winger",
+      "image": "cDYeo23904.jpeg"
+    },
+    {
+      "id": "543",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Xenon",
+      "slug": "xenon",
+      "image": "eE55223304.jpeg"
+    },
+    {
+      "id": "544",
+      "brand_id": "2",
+      "type_id": "42",
+      "name": "Zest",
+      "slug": "zest",
+      "image": "1248"
+    },
+    {
+      "id": "545",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Camry",
+      "slug": "camry",
+      "image": "WyADn23204.jpeg"
+    },
+    {
+      "id": "546",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Corolla Altis",
+      "slug": "corolla-altis",
+      "image": "1798"
+    },
+    {
+      "id": "547",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Corolla",
+      "slug": "corolla",
+      "image": "1794"
+    },
+    {
+      "id": "548",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Etios Cross",
+      "slug": "etios-cross",
+      "image": "1496"
+    },
+    {
+      "id": "549",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Etios Liva",
+      "slug": "etios-liva",
+      "image": "1364"
+    },
+    {
+      "id": "550",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Etios",
+      "slug": "etios",
+      "image": "1496"
+    },
+    {
+      "id": "551",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Fortuner",
+      "slug": "fortuner",
+      "image": "2694"
+    },
+    {
+      "id": "552",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Glanza",
+      "slug": "glanza",
+      "image": "1197"
+    },
+    {
+      "id": "553",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Hilux",
+      "slug": "hilux",
+      "image": "Is9BT23205.png"
+    },
+    {
+      "id": "554",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Innova Crysta",
+      "slug": "innova-crysta",
+      "image": "2694"
+    },
+    {
+      "id": "555",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Innova",
+      "slug": "innova",
+      "image": "2494"
+    },
+    {
+      "id": "556",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Land Cruiser Prado",
+      "slug": "land-cruiser-prado",
+      "image": "4461"
+    },
+    {
+      "id": "557",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Land Cruiser",
+      "slug": "land-cruiser",
+      "image": "9MZAB23705.jpeg"
+    },
+    {
+      "id": "558",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Qualis",
+      "slug": "qualis",
+      "image": "4cmbR23905.jpeg"
+    },
+    {
+      "id": "559",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Sera",
+      "slug": "sera",
+      "image": "5rsqe23805.jpeg"
+    },
+    {
+      "id": "560",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Urban Cruiser",
+      "slug": "urban-cruiser",
+      "image": "HsoHY23205.jpeg"
+    },
+    {
+      "id": "561",
+      "brand_id": "2",
+      "type_id": "43",
+      "name": "Yaris",
+      "slug": "yaris",
+      "image": "VDP8923505.jpeg"
+    },
+    {
+      "id": "562",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Ameo",
+      "slug": "ameo",
+      "image": "1498"
+    },
+    {
+      "id": "563",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Beetle",
+      "slug": "beetle",
+      "image": "oYqnV23905.jpeg"
+    },
+    {
+      "id": "564",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Cross Polo",
+      "slug": "cross-polo",
+      "image": "1498"
+    },
+    {
+      "id": "565",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Jetta",
+      "slug": "jetta",
+      "image": "1968"
+    },
+    {
+      "id": "566",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Passat",
+      "slug": "passat",
+      "image": "ol3ue23605.jpeg"
+    },
+    {
+      "id": "567",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Polo",
+      "slug": "polo",
+      "image": "1498"
+    },
+    {
+      "id": "568",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "T-Roc",
+      "slug": "t-roc",
+      "image": "CpgcO23305.jpeg"
+    },
+    {
+      "id": "569",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Tiguan",
+      "slug": "tiguan",
+      "image": "ocXgb23905.jpeg"
+    },
+    {
+      "id": "570",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Vento",
+      "slug": "vento",
+      "image": "1598"
+    },
+    {
+      "id": "571",
+      "brand_id": "2",
+      "type_id": "44",
+      "name": "Virtus",
+      "slug": "virtus",
+      "image": "K6Ut523605.jpeg"
+    },
+    {
+      "id": "572",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "S40",
+      "slug": "s40",
+      "image": "qwjKW23505.jpeg"
+    },
+    {
+      "id": "573",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "S60 Cross County",
+      "slug": "s60-cross-county",
+      "image": "dxjUK23305.jpeg"
+    },
+    {
+      "id": "574",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "S60",
+      "slug": "s60",
+      "image": "HvII623405.jpeg"
+    },
+    {
+      "id": "575",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "S80",
+      "slug": "s80",
+      "image": "eMgXe23505.jpeg"
+    },
+    {
+      "id": "576",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "S90",
+      "slug": "s90",
+      "image": "1969"
+    },
+    {
+      "id": "577",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "V40 Cross Country",
+      "slug": "v40-cross-country",
+      "image": "1596"
+    },
+    {
+      "id": "578",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "V40",
+      "slug": "v40",
+      "image": "1969"
+    },
+    {
+      "id": "579",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "V60",
+      "slug": "v60",
+      "image": "KoF9723705.jpeg"
+    },
+    {
+      "id": "580",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "V90",
+      "slug": "v90",
+      "image": "1N4zM23205.jpeg"
+    },
+    {
+      "id": "581",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "XC 40",
+      "slug": "xc-40",
+      "image": "1969"
+    },
+    {
+      "id": "582",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "XC60",
+      "slug": "xc60",
+      "image": "1969"
+    },
+    {
+      "id": "583",
+      "brand_id": "2",
+      "type_id": "45",
+      "name": "XC90",
+      "slug": "xc90",
+      "image": "1969"
+    },
+    {
+      "id": "584",
+      "brand_id": "2",
+      "type_id": "63",
+      "name": "Rexton",
+      "slug": "rexton",
+      "image": "UZbAL26602.jpeg"
+    },
+    {
+      "id": "585",
+      "brand_id": "2",
+      "type_id": "10",
+      "name": "5 Series",
+      "slug": "5-series",
+      "image": "dl4uf03106.jpeg"
+    },
+    {
+      "id": "586",
+      "brand_id": "2",
+      "type_id": "17",
+      "name": "Adventure",
+      "slug": "adventure",
+      "image": "J8b9m03506.jpeg"
+    },
+    {
+      "id": "587",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "C 400 GT",
+      "slug": "c-400-gt",
+      "image": "3fv5G03907.jpg"
+    },
+    {
+      "id": "588",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "F 850 GS Adventure",
+      "slug": "f-850-gs-adventure",
+      "image": "e0zyn03607.jpg"
+    },
+    {
+      "id": "589",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "F 850 GS",
+      "slug": "f-850-gs",
+      "image": "nfTTg03407.jpg"
+    },
+    {
+      "id": "590",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "F 900 R",
+      "slug": "f-900-r",
+      "image": "59zuB03807.jpg"
+    },
+    {
+      "id": "591",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "F 900 XR",
+      "slug": "f-900-xr",
+      "image": "mPu5S03807.jpg"
+    },
+    {
+      "id": "592",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "G 310 GS",
+      "slug": "g-310-gs",
+      "image": "6xiR803307.jpg"
+    },
+    {
+      "id": "593",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "G 310 R",
+      "slug": "g-310-r",
+      "image": "fiIt903507.jpg"
+    },
+    {
+      "id": "594",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "G 310 RR",
+      "slug": "g-310-rr",
+      "image": "fVd5D03507.jpg"
+    },
+    {
+      "id": "595",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "M 1000 RR",
+      "slug": "m-1000-rr",
+      "image": "Pd0Ds03207.jpg"
+    },
+    {
+      "id": "596",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R 18",
+      "slug": "r-18",
+      "image": "RqUyz03707.jpg"
+    },
+    {
+      "id": "597",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R 1250 GS Adventure",
+      "slug": "r-1250-gs-adventure",
+      "image": "O1Qij03207.jpg"
+    },
+    {
+      "id": "598",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R 1250 GS",
+      "slug": "r-1250-gs",
+      "image": "WG9PN03907.jpg"
+    },
+    {
+      "id": "599",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R 1250 R",
+      "slug": "r-1250-r",
+      "image": "RXlgY03607.jpg"
+    },
+    {
+      "id": "600",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R 1250 RT",
+      "slug": "r-1250-rt",
+      "image": "4PSRA03307.jpg"
+    },
+    {
+      "id": "601",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R NineT Scrambler",
+      "slug": "r-ninet-scrambler",
+      "image": "OK8gZ03207.jpg"
+    },
+    {
+      "id": "602",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "R NineT",
+      "slug": "r-ninet",
+      "image": "pjEiY03107.jpg"
+    },
+    {
+      "id": "603",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "S 1000 R",
+      "slug": "s-1000-r",
+      "image": "5tp1703507.jpg"
+    },
+    {
+      "id": "604",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "S 1000 RR",
+      "slug": "s-1000-rr",
+      "image": "IzHpi03807.jpg"
+    },
+    {
+      "id": "605",
+      "brand_id": "1",
+      "type_id": "10",
+      "name": "S 1000 XR",
+      "slug": "s-1000-xr",
+      "image": "mI37503607.jpg"
+    }
+  ]
+}

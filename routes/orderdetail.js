@@ -1,6 +1,25 @@
 const express = require('express')
 const router = express.Router()
 const Order = require('../models/Order')
+const fs = require('fs');
+
+
+router.get('/vehicleData', (req, res) => {
+    fs.readFile('vehicleData.json', (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error loading JSON data');
+      } else {
+        try {
+          const jsonData = JSON.parse(data);
+          res.json(jsonData);
+        } catch (err) {
+          console.error('Error parsing JSON data:', err);
+          res.status(500).send('Error parsing JSON data');
+        }
+      }
+    });
+  });
 
 router.post('/order', async (req, res) => {
     try {
