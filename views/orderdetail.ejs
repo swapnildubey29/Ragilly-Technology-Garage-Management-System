@@ -77,32 +77,6 @@
     </div>
     <div class="track">
       <div id="orderDetails" class="container-pro" class="mt-4">
-
-      </div>
-      <ul id="progress" class="text-center">
-        <li class="active"></li>
-        <li class="active"></li>
-        <li class="active"></li>
-        <li class=""></li>
-      </ul>
-    </div>
-
-    <div class="lists">
-      <div class="list">
-        <img src="./assets/images/img/requested.png" alt="">
-        <p>Order <br>Requested</p>
-      </div>
-      <div class="list">
-        <img src="./assets/images/img/offered.png" alt="">
-        <p>Order <br>Offered</p>
-      </div>
-      <div class="list">
-        <img src="./assets/images/img/accept.png" alt="">
-        <p>Order <br>Accepted</p>
-      </div>
-      <div class="list">
-        <img src="./assets/images/img/payed.png" alt="">
-        <p>Payment <br>Done</p>
       </div>
     </div>
   </div>
@@ -275,74 +249,91 @@
     }
 
     function renderOrderDetails(ordersData) {
-      const orderDetailsContainer = document.getElementById("orderDetails");
-      orderDetailsContainer.innerHTML = "";
+  const orderDetailsContainer = document.getElementById("orderDetails");
+  orderDetailsContainer.innerHTML = "";
 
-      if (ordersData.length === 0) {
-        alert("Orders not found");
-        return;
+  if (ordersData.length === 0) {
+    alert("Orders not found");
+    return;
+  }
+
+  ordersData.forEach(orderData => {
+    const orderDetailsDiv = document.createElement("div");
+    orderDetailsDiv.classList.add("order-details");
+
+    // Add order details
+    const fieldsToDisplay = ["name", "mobile", "location", "service_type", "service_date", "service_time"];
+    fieldsToDisplay.forEach(key => {
+      const detailItem = document.createElement("div");
+      let value = orderData[key];
+      if (key === "service_date") {
+        value = formatDate(value);
       }
+      detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${value}`;
+      orderDetailsDiv.appendChild(detailItem);
+    });
 
-      ordersData.forEach(orderData => {
-        const orderDetailsDiv = document.createElement("div");
-        orderDetailsDiv.classList.add("order-details");
+    // Add order status
+    const orderStatus = document.createElement("div");
+    orderStatus.classList.add("order-status");
+    orderStatus.textContent = orderData.status;
+    orderDetailsDiv.appendChild(orderStatus);
 
-        const fieldsToDisplay = ["name", "mobile", "location", "service_type", "service_date", "service_time"];
-        fieldsToDisplay.forEach(key => {
-          const detailItem = document.createElement("div");
-          let value = orderData[key];
-          if (key === "service_date") {
-            value = formatDate(value);
-          }
-          detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${value}`;
-          orderDetailsDiv.appendChild(detailItem);
-        });
-
-        // Add order status indicator
-        const orderStatus = document.createElement("div");
-        orderStatus.classList.add("order-status");
-        orderStatus.textContent = orderData.status;
-        orderDetailsDiv.appendChild(orderStatus);
-
-        // Display additional details if the status is "offered"
-        if (orderData.status === "Offered") {
-          orderStatus.classList.add("offered-status");
-          const additionalDetails = ["quotation", "price", "discount", "payable_price"];
-          additionalDetails.forEach(key => {
-            const detailItem = document.createElement("div");
-            detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${orderData[key]}`;
-            orderDetailsDiv.appendChild(detailItem);
-          });
-        } else {
-          console.log("Status is not 'offered'.");
-        }
-
-
-        const buttonContainer = document.createElement("div");
-        buttonContainer.classList.add("button-container");
-
-        const editIcon = document.createElement("span");
-        editIcon.classList.add("material-symbols-rounded", "edit-icon");
-        editIcon.textContent = "edit";
-        editIcon.addEventListener("click", function () {
-          renderEditableOrderDetails(orderData);
-        });
-
-        const deleteIcon = document.createElement("span");
-        deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
-        deleteIcon.textContent = "delete";
-        deleteIcon.addEventListener("click", function () {
-          deleteOrder(orderData.mobile);
-        });
-
-        buttonContainer.appendChild(editIcon);
-        buttonContainer.appendChild(deleteIcon);
-
-        orderDetailsDiv.appendChild(buttonContainer);
-        orderDetailsDiv.appendChild(orderStatus);
-        orderDetailsContainer.appendChild(orderDetailsDiv);
+    // Add additional details if status is "Offered"
+    if (orderData.status === "Offered") {
+      orderStatus.classList.add("offered-status");
+      const additionalDetails = ["quotation", "price", "discount", "payable_price"];
+      additionalDetails.forEach(key => {
+        const detailItem = document.createElement("div");
+        detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${orderData[key]}`;
+        orderDetailsDiv.appendChild(detailItem);
       });
+    } else {
+      console.log("Status is not 'offered'.");
     }
+
+    // Add progress bar
+    const progressBar = document.createElement("ul");
+    progressBar.classList.add("text-center", "progress");
+    const progressSteps = ["Requested", "Offered", "Accepted", "Payment Done"];
+    progressSteps.forEach(step => {
+      const progressItem = document.createElement("li");
+      if (step === orderData.status) {
+        progressItem.classList.add("active");
+      } else {
+        progressItem.classList.remove("active");
+      }
+      progressBar.appendChild(progressItem);
+    });
+    orderDetailsDiv.appendChild(progressBar);
+
+    // Add button container
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
+
+    const editIcon = document.createElement("span");
+    editIcon.classList.add("material-symbols-rounded", "edit-icon");
+    editIcon.textContent = "edit";
+    editIcon.addEventListener("click", function () {
+      renderEditableOrderDetails(orderData);
+    });
+
+    const deleteIcon = document.createElement("span");
+    deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
+    deleteIcon.textContent = "delete";
+    deleteIcon.addEventListener("click", function () {
+      deleteOrder(orderData.mobile);
+    });
+
+    buttonContainer.appendChild(editIcon);
+    buttonContainer.appendChild(deleteIcon);
+
+    orderDetailsDiv.appendChild(buttonContainer);
+
+    // Append the orderDetailsDiv to the orderDetailsContainer
+    orderDetailsContainer.appendChild(orderDetailsDiv);
+  });
+}
 
     function formatDate(isoDate) {
       const date = new Date(isoDate);

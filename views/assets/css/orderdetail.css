@@ -147,17 +147,21 @@
 }
 
 #orderDetails {
+  display: flex;
+  flex-direction: column;
   margin-top: 50px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  padding: 20px;
-  min-height: 80vh;
-  position: relative;
+  padding: 4rem;
+  min-height: 100vh;
+  overflow: scroll;
   font-size: large;
 }
 
 .order-details {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ddd;
   border-radius: 20px;
   background-color: #f8f9fa;
@@ -167,6 +171,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
+
 
 .order-details:last-child {
   margin-bottom: 0;
@@ -271,17 +276,7 @@ form#editOrderForm button[type="submit"]:hover {
 
 /* Progress-Bar  */
 
-/* body {
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--body);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.4;
-} */
-
-#progress {
+.progress {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -290,14 +285,19 @@ form#editOrderForm button[type="submit"]:hover {
   gap: 1em;
   position: relative;
   text-align: center;
+  margin-top: 20px;
+  height: auto;
+  background-color: #f8f9fa;
 }
-#progress li {
+
+.progress li {
   width: 20%;
   position: relative;
+  z-index: 1111;
 }
-#progress li::before {
+
+.progress li::before {
   content: "\2713";
-  position: absolute;
   display: flex;
   justify-content: center;
   width: 50%;
@@ -309,12 +309,14 @@ form#editOrderForm button[type="submit"]:hover {
   border-radius: 50%;
   z-index: 11111;
 }
-#progress li:last-child::before {
+
+.progress li:last-child::before {
   content: "\2713";
   font-weight: bold;
   background: var(--light);
 }
-#progress::before {
+
+.progress::before {
   content: "";
   position: absolute;
   top: 20px;
@@ -324,7 +326,8 @@ form#editOrderForm button[type="submit"]:hover {
   background: var(--line);
   z-index: 111;
 }
-#progress::after {
+
+.progress::after {
   content: "";
   position: absolute;
   top: 20px;
@@ -373,7 +376,4 @@ form#editOrderForm button[type="submit"]:hover {
   width: 2000px;
   max-width: 100%;
   padding: 40px;
-  /* margin: 0 30px;
-  background: var(--cont);
-  position: relative; */
 }
