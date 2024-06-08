@@ -338,8 +338,9 @@ form#editOrderForm button[type="submit"]:hover {
 .lists {
   display: flex;
   gap: 2em;
+  margin: 1rem;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: space-between;
 }
 .list {
   display: flex;

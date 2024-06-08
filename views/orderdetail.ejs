@@ -330,6 +330,27 @@
 
     orderDetailsDiv.appendChild(buttonContainer);
 
+    const listsDiv = document.createElement("div");
+    listsDiv.classList.add("lists");
+    listsDiv.innerHTML = `
+      <div class="list">
+        <img src="./assets/images/img/requested.png" alt="">
+        <p>Order <br>Requested</p>
+      </div>
+      <div class="list">
+        <img src="./assets/images/img/offered.png" alt="">
+        <p>Order <br>Offered</p>
+      </div>
+      <div class="list">
+        <img src="./assets/images/img/accept.png" alt="">
+        <p>Order <br>Accepted</p>
+      </div>
+      <div class="list">
+        <img src="./assets/images/img/payed.png" alt="">
+        <p>Payment <br>Done</p>
+      </div>
+    `;
+    orderDetailsDiv.appendChild(listsDiv);
     // Append the orderDetailsDiv to the orderDetailsContainer
     orderDetailsContainer.appendChild(orderDetailsDiv);
   });
