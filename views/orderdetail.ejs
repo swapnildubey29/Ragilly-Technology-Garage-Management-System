@@ -70,17 +70,12 @@
 
   <!-- Main content -->
   <div class="container">
-    <div class="details">
-      <div class="order">
-        <h1>Order <span>details</span></h1>
-      </div>
-    </div>
+    <h1 style="margin-top: 15rem; display: flex; text-align: center; justify-content: center;">Order details</h1>
     <div class="track">
       <div id="orderDetails" class="container-pro" class="mt-4">
       </div>
     </div>
   </div>
-
 
   <!--- #FOOTER-->
 
@@ -249,119 +244,105 @@
     }
 
     function renderOrderDetails(ordersData) {
-  const orderDetailsContainer = document.getElementById("orderDetails");
-  orderDetailsContainer.innerHTML = "";
+      const orderDetailsContainer = document.getElementById("orderDetails");
+      orderDetailsContainer.innerHTML = "";
 
-  if (ordersData.length === 0) {
-    alert("Orders not found");
-    return;
-  }
-
-  ordersData.forEach(orderData => {
-    const orderDetailsDiv = document.createElement("div");
-    orderDetailsDiv.classList.add("order-details");
-
-    // Add order details
-    const fieldsToDisplay = ["name", "mobile", "location", "service_type", "service_date", "service_time"];
-    fieldsToDisplay.forEach(key => {
-      const detailItem = document.createElement("div");
-      let value = orderData[key];
-      if (key === "service_date") {
-        value = formatDate(value);
+      if (ordersData.length === 0) {
+        alert("Orders not found");
+        return;
       }
-      detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${value}`;
-      orderDetailsDiv.appendChild(detailItem);
-    });
 
-    // Add order status
-    const orderStatus = document.createElement("div");
-    orderStatus.classList.add("order-status");
-    orderStatus.textContent = orderData.status;
-    orderDetailsDiv.appendChild(orderStatus);
+      ordersData.forEach(orderData => {
+        const orderDetailsDiv = document.createElement("div");
+        orderDetailsDiv.classList.add("order-details");
 
-    // Add additional details if status is "Offered"
-    if (orderData.status === "Offered") {
-      orderStatus.classList.add("offered-status");
-      const additionalDetails = ["quotation", "price", "discount", "payable_price"];
-      additionalDetails.forEach(key => {
-        const detailItem = document.createElement("div");
-        detailItem.innerHTML = `<strong>${key.replace('_', ' ')}:</strong> ${orderData[key]}`;
-        orderDetailsDiv.appendChild(detailItem);
+        // Add order details
+        const fieldsToDisplay = ["name", "mobile", "location", "service_type", "service_date", "service_time"];
+        fieldsToDisplay.forEach(key => {
+          const detailItem = document.createElement("div");
+          let value = orderData[key];
+          if (key === "service_date") {
+            value = formatDate(value);
+          }
+          detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace('_', ' '))}:</strong> ${value}`;
+          orderDetailsDiv.appendChild(detailItem);
+        });
+
+        // Add order status
+        const orderStatus = document.createElement("div");
+        orderStatus.classList.add("order-status");
+        orderStatus.textContent = orderData.status;
+        orderDetailsDiv.appendChild(orderStatus);
+
+        // Add additional details if status is "Offered"
+        if (orderData.status === "Offered") {
+          orderStatus.classList.add("offered-status");
+          const additionalDetails = ["quotation", "price", "discount", "payable_price"];
+          additionalDetails.forEach(key => {
+            const detailItem = document.createElement("div");
+            detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace('_', ' '))}:</strong> ${orderData[key]}`;
+            orderDetailsDiv.appendChild(detailItem);
+          });
+        }
+
+        // Add progress bar
+        const progressBar = document.createElement("ul");
+        progressBar.classList.add("text-center", "progress");
+
+        const progressSteps = ["Requested", "Offered", "Accepted", "Payed"];
+        progressSteps.forEach(step => {
+          const progressItem = document.createElement("li");
+          if (progressSteps.indexOf(step) <= progressSteps.indexOf(orderData.status)) {
+            progressItem.classList.add("active");
+          }
+          progressBar.appendChild(progressItem);
+        });
+
+        // Adjust width of the progress before element
+        const activeProgressIndex = progressSteps.indexOf(orderData.status);
+        const progressBarBefore = document.createElement("div");
+        progressBarBefore.style.width = `${(activeProgressIndex / (progressSteps.length - 1)) * 100}%`;
+        progressBarBefore.classList.add("progress-before");
+        progressBar.appendChild(progressBarBefore);
+
+        orderDetailsDiv.appendChild(progressBar);
+
+        // Add button container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
+
+        const editIcon = document.createElement("span");
+        editIcon.classList.add("material-symbols-rounded", "edit-icon");
+        editIcon.textContent = "edit";
+        editIcon.addEventListener("click", function () {
+          renderEditableOrderDetails(orderData);
+        });
+
+        const deleteIcon = document.createElement("span");
+        deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
+        deleteIcon.textContent = "delete";
+        deleteIcon.addEventListener("click", function () {
+          deleteOrder(orderData.mobile);
+        });
+
+        buttonContainer.appendChild(editIcon);
+        buttonContainer.appendChild(deleteIcon);
+
+        orderDetailsDiv.appendChild(buttonContainer);
+
+        // Append the orderDetailsDiv to the orderDetailsContainer
+        orderDetailsContainer.appendChild(orderDetailsDiv);
       });
-    } else {
-      console.log("Status is not 'offered'.");
     }
 
-    // Add progress bar
-    const progressBar = document.createElement("ul");
-    progressBar.classList.add("text-center", "progress");
-    const progressSteps = ["Requested", "Offered", "Accepted", "Payment Done"];
-    progressSteps.forEach(step => {
-      const progressItem = document.createElement("li");
-      if (step === orderData.status) {
-        progressItem.classList.add("active");
-      } else {
-        progressItem.classList.remove("active");
-      }
-      progressBar.appendChild(progressItem);
-    });
-    orderDetailsDiv.appendChild(progressBar);
+    // Helper functions
+    function formatDate(dateString) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(dateString).toLocaleDateString(undefined, options);
+    }
 
-    // Add button container
-    const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add("button-container");
-
-    const editIcon = document.createElement("span");
-    editIcon.classList.add("material-symbols-rounded", "edit-icon");
-    editIcon.textContent = "edit";
-    editIcon.addEventListener("click", function () {
-      renderEditableOrderDetails(orderData);
-    });
-
-    const deleteIcon = document.createElement("span");
-    deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
-    deleteIcon.textContent = "delete";
-    deleteIcon.addEventListener("click", function () {
-      deleteOrder(orderData.mobile);
-    });
-
-    buttonContainer.appendChild(editIcon);
-    buttonContainer.appendChild(deleteIcon);
-
-    orderDetailsDiv.appendChild(buttonContainer);
-
-    const listsDiv = document.createElement("div");
-    listsDiv.classList.add("lists");
-    listsDiv.innerHTML = `
-      <div class="list">
-        <img src="./assets/images/img/requested.png" alt="">
-        <p>Order <br>Requested</p>
-      </div>
-      <div class="list">
-        <img src="./assets/images/img/offered.png" alt="">
-        <p>Order <br>Offered</p>
-      </div>
-      <div class="list">
-        <img src="./assets/images/img/accept.png" alt="">
-        <p>Order <br>Accepted</p>
-      </div>
-      <div class="list">
-        <img src="./assets/images/img/payed.png" alt="">
-        <p>Payment <br>Done</p>
-      </div>
-    `;
-    orderDetailsDiv.appendChild(listsDiv);
-    // Append the orderDetailsDiv to the orderDetailsContainer
-    orderDetailsContainer.appendChild(orderDetailsDiv);
-  });
-}
-
-    function formatDate(isoDate) {
-      const date = new Date(isoDate);
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JS
-      const year = date.getFullYear();
-      return `${day}/${month}/${year}`;
+    function toCapitalizedWords(str) {
+      return str.replace(/\b\w/g, char => char.toUpperCase());
     }
 
     function renderEditableOrderDetails(orderData) {

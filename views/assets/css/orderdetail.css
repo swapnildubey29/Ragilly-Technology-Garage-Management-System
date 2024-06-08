@@ -6,11 +6,14 @@
   --txt: #007bfd;
   --light: #c5cae9;
 }
+
 .header {
   background-color: hsl(222, 44%, 18%);
   padding: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .header .container {
   display: flex;
@@ -153,11 +156,11 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  padding: 4rem;
   min-height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   font-size: large;
 }
+
 
 .order-details {
   display: flex;
@@ -166,7 +169,7 @@
   border-radius: 20px;
   background-color: #f8f9fa;
   padding: 20px;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -265,13 +268,15 @@ form#editOrderForm button[type="submit"]:hover {
   padding: 5px;
   border-radius: 3px;
   font-size: 12px;
-  left: calc(87% - 20px);
+  left: calc(94% - 20px);
   /* Adjust this value based on your layout */
   transform: translateX(-100%);
 }
 
 .offered-status {
   background-color: green;
+  left: calc(94% - 20px);
+
 }
 
 /* Progress-Bar  */
@@ -300,14 +305,18 @@ form#editOrderForm button[type="submit"]:hover {
   content: "\2713";
   display: flex;
   justify-content: center;
-  width: 50%;
   align-items: center;
   font-size: 2rem;
   height: 50px;
-  background: var(--line);
+  width: 50px;
+  background: #c5cae9;
   color: #fff;
   border-radius: 50%;
   z-index: 11111;
+}
+
+.progress li.active::before {
+  background: var(--line);
 }
 
 .progress li:last-child::before {
@@ -320,8 +329,16 @@ form#editOrderForm button[type="submit"]:hover {
   content: "";
   position: absolute;
   top: 20px;
-  width: 55%;
   margin-left: 35px;
+  height: 10px;
+  background: var(--line);
+  z-index: 111;
+}
+
+.progress-before {
+  content: "";
+  position: absolute;
+  top: 20px;
   height: 10px;
   background: var(--line);
   z-index: 111;
@@ -335,6 +352,7 @@ form#editOrderForm button[type="submit"]:hover {
   height: 10px;
   background: #c5cae9;
 }
+
 .lists {
   display: flex;
   gap: 2em;
@@ -342,37 +360,46 @@ form#editOrderForm button[type="submit"]:hover {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .list {
   display: flex;
   gap: 1em;
   flex: 1 1 50px;
 }
+
 .list p {
   font-size: 1.1rem;
 }
+
 .list img {
   width: 50px;
 }
+
 .container-pro {
   display: flex;
   flex-direction: column;
   height: 50vh;
 }
+
 .details {
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .order h1 {
   text-transform: uppercase;
 }
+
 .order span {
   color: var(--txt);
 }
+
 .track {
   margin: 4em 8em;
 }
+
 .container {
   width: 2000px;
   max-width: 100%;
