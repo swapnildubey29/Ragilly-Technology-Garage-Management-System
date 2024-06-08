@@ -149,7 +149,7 @@
           </li>
 
           <li>
-            <a href="/" class="navbar-link">Logout</a>
+            <button href="/" id="logout" class="navbar-link">Logout</button>
           </li>
 
         </ul>
@@ -237,15 +237,16 @@
                     <option value="" disabled selected>
                       Select Vehicle Type
                     </option>
-                    <option value="Two-whiller">Two Wheeler </option>
-                    <option value="four-whiller">four Wheeler</option>
+                    <option type_id="1" value="Two-whiller">Two Wheeler</option>
+                    <option type_id="2" value="four-whiller">four Wheeler</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <input id="vehicle-brand-input" type="text" name="vehicle_brand" aria-label="Vehicle Brand"
                     placeholder="Search Vehicle Brand">
-                  <datalist id="vehicle-brands-datalist"></datalist>
+                  <datalist id="vehicle-brands-datalist" name="vehicle-brands-datalist"></datalist>
                 </div>
+
                 <div class="form-group">
                   <input id="vehicle-model-input" type="text" name="vehicle_model" aria-label="Vehicle Model"
                     placeholder="Search Vehicle Model">
@@ -273,66 +274,67 @@
                   </button>
                 </div>
               </div>
-              <!-- Step 3: Service Information -->
-              <div class="step">
-                <h2 class="mb-4 text-center">Service Information</h2>
-                <div class="form-row">
-                  <div class="form-group">
-                    <select class="form-control" name="service_type" required aria-label="Service Type">
-                      <option value="" disabled selected>
-                        Select Service Type
-                      </option>
-                      <option value="Regular Maintenance">
-                        Regular Maintenance
-                      </option>
-                      <option value="Repair">Repair</option>
-                      <option value="Inspection">Inspection</option>
-                    </select>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <textarea class="form-control" name="description" rows="3" placeholder="Description"
-                        aria-label="Description"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control" name="service_place_type" required aria-label="Service Place Type">
-                      <option value="" disabled selected>
-                        Select Service Place Type
-                      </option>
-                      <option value="Home Service">Home Service</option>
-                      <option value="Workshop Service">Workshop Service</option>
-                    </select>
-                  </div>
+            </div>
+            <!-- Step 3: Service Information -->
+            <div class="step">
+              <h2 class="mb-4 text-center">Service Information</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <select class="form-control" name="service_type" required aria-label="Service Type">
+                    <option value="" disabled selected>
+                      Select Service Type
+                    </option>
+                    <option value="Regular Maintenance">
+                      Regular Maintenance
+                    </option>
+                    <option value="Repair">Repair</option>
+                    <option value="Inspection">Inspection</option>
+                  </select>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="address" placeholder="Address" required
-                      aria-label="Address" />
-                  </div>
-                  <div class="form-group">
-                    <input type="date" class="form-control" name="service_date" required aria-label="Service Date" />
+                    <textarea class="form-control" name="description" rows="3" placeholder="Description"
+                      aria-label="Description"></textarea>
                   </div>
                 </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <input type="time" class="form-control" name="service_time" required aria-label="Service Time" />
-                  </div>
-                </div>
-                <input type="hidden" name="quotation" value="Pending" />
-                <input type="hidden" name="price" />
-                <input type="hidden" name="discount" />
-                <input type="hidden" name="payable_price" />
-                <input type="hidden" name="status" value="Pending" />
-                <div style="display: flex; gap: 2">
-                  <button type="button" class="btn btn-primary prev">
-                    Previous
-                  </button>
-                  <button type="submit" class="btn btn-primary">
-                    Submit Order
-                  </button>
+                <div class="form-group">
+                  <select class="form-control" name="service_place_type" required aria-label="Service Place Type">
+                    <option value="" disabled selected>
+                      Select Service Place Type
+                    </option>
+                    <option value="Home Service">Home Service</option>
+                    <option value="Workshop Service">Workshop Service</option>
+                  </select>
                 </div>
               </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="address" placeholder="Address" required
+                    aria-label="Address" />
+                </div>
+                <div class="form-group">
+                  <input type="date" class="form-control" name="service_date" required aria-label="Service Date" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="time" class="form-control" name="service_time" required aria-label="Service Time" />
+                </div>
+              </div>
+              <input type="hidden" name="quotation" value="Pending" />
+              <input type="hidden" name="price" />
+              <input type="hidden" name="discount" />
+              <input type="hidden" name="payable_price" />
+              <input type="hidden" name="status" value="Pending" />
+              <div style="display: flex; gap: 2">
+                <button type="button" class="btn btn-primary prev">
+                  Previous
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Submit Order
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -727,13 +729,17 @@
       const prevButtons = document.querySelectorAll(".prev");
       const steps = document.querySelectorAll(".step");
 
+      console.log("Next buttons found:", nextButtons.length);
+      console.log("Previous buttons found:", prevButtons.length);
+      console.log("Steps found:", steps.length);
+
       nextButtons.forEach((button) => {
         console.log("Attaching event listener to Next button");
         button.addEventListener("click", function () {
           console.log("Next button clicked");
           const currentStep = this.closest(".step");
           const nextStep = currentStep.nextElementSibling;
-          console.log("Hiding current step and showing next step");
+          console.log("Hiding current step and showing next step", nextStep);
           if (nextStep !== null) {
             currentStep.style.display = "none";
             nextStep.style.display = "block"; // Ensure that the next step is displayed
@@ -842,12 +848,8 @@
           description: document.querySelector(
             'textarea[name="description"]'
           ).value,
-          vehicle_brand: document.querySelector(
-            'input[name="vehicle_brand"]'
-          ).value,
-          vehicle_model: document.querySelector(
-            'input[name="vehicle_model"]'
-          ).value,
+          vehicle_brand: document.getElementById("vehicle-brand-input").value,
+          vehicle_model: document.getElementById("vehicle-model-input").value,
           fuel_type: document.querySelector('select[name="fuel_type"]')
             .value,
           service_type: document.querySelector(
@@ -892,6 +894,26 @@
           });
       });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const logoutButton = document.getElementById("logout");
+    logoutButton.addEventListener("click", async () => {
+        try {
+            const response = await fetch("/logout", {
+                method: "POST"
+            });
+
+            if (response.ok) {
+                window.location.href = "/";
+            } else {
+                console.error("Error during logout:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error during logout:", error);
+        }
+    });
+});
+     
   </script>
   <script src="https://code.jquery.com/jquery-3
 </body>

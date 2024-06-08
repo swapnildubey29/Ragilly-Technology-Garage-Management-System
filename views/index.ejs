@@ -33,7 +33,6 @@
 
   <style>
     /* Form container */
-    /* Form container */
     .form-container {
       max-width: 500px;
       margin: auto;
@@ -90,6 +89,7 @@
       background-color: #f0f0f0;
     }
 
+
     .btn {
       padding: 12px 24px;
     }
@@ -114,7 +114,7 @@
     }
 
     .step:first-child {
-      display: flex;
+      display: block;
     }
   </style>
 </head>
@@ -212,7 +212,7 @@
                 <div class="form-group">
                   <input id="vehicle-brand-input" type="text" name="vehicle_brand" aria-label="Vehicle Brand"
                     placeholder="Search Vehicle Brand">
-                  <datalist id="vehicle-brands-datalist"></datalist>
+                  <datalist id="vehicle-brands-datalist" name="vehicle-brands-datalist"></datalist>
                 </div>
 
                 <div class="form-group">
@@ -242,6 +242,7 @@
                   </button>
                 </div>
               </div>
+            </div>
               <!-- Step 3: Service Information -->
               <div class="step">
                 <h2 class="mb-4 text-center">Service Information</h2>
@@ -673,7 +674,7 @@
           console.log("Next button clicked");
           const currentStep = this.closest(".step");
           const nextStep = currentStep.nextElementSibling;
-          console.log("Hiding current step and showing next step");
+          console.log("Hiding current step and showing next step",nextStep);
           if (nextStep !== null) {
             currentStep.style.display = "none";
             nextStep.style.display = "block"; // Ensure that the next step is displayed
@@ -736,6 +737,9 @@
           return response.json(); // Parse the JSON response
         })
         .then(data => {
+          console.log("Fetched data:", data); // Log the fetched data
+
+          // Check if the data format is valid
           if (!data || !data.vehicleBrands || !data.vehicleModels) {
             throw new Error('Invalid data format');
           }
@@ -747,17 +751,22 @@
           // Event listener for brand input field
           document.getElementById('vehicle-brand-input').addEventListener('input', function () {
             const filter = this.value.toLowerCase();
+            console.log("Brand filter:", filter); // Log the filter value
             const filteredBrands = vehicleBrands.filter(brand => brand.includes(filter));
+            console.log("Filtered brands:", filteredBrands); // Log the filtered brands
             updateDatalist('vehicle-brands-datalist', filteredBrands); // Update datalist options
           });
 
           // Event listener for model input field
           document.getElementById('vehicle-model-input').addEventListener('input', function () {
             const filter = this.value.toLowerCase();
+            console.log("Model filter:", filter); // Log the filter value
             const filteredModels = vehicleModels.filter(model => model.includes(filter));
+            console.log("Filtered models:", filteredModels); // Log the filtered models
             updateDatalist('vehicle-models-datalist', filteredModels); // Update datalist options
           });
 
+          // Event listener for datalist option mousedown
           document.getElementById('vehicle-brands-datalist').addEventListener('mousedown', function (event) {
             const inputId = 'vehicle-brand-input';
             const inputField = document.getElementById(inputId);
@@ -765,19 +774,20 @@
               inputField.value = event.target.value; // Update the input field value with the clicked option's value
               this.innerHTML = ''; // Remove all other options from the datalist
             }
+            console.log("== ",inputField.value)
           });
 
           document.getElementById('vehicle-models-datalist').addEventListener('mousedown', function (event) {
             const inputId = 'vehicle-model-input';
             const inputField = document.getElementById(inputId);
             if (inputField && event.target.tagName === 'OPTION') {
-              inputField.value = event.target.value; 
+              inputField.value = event.target.value; // Update the input field value with the clicked option's value
               this.innerHTML = ''; // Remove all other options from the datalist
             }
           });
 
         })
-        .catch(error => console.error('Error fetching JSON data:', error)); 
+        .catch(error => console.error('Error fetching JSON data:', error)); // Log any errors that occur during fetching
     });
 
     window.addEventListener("load", function () {
@@ -804,12 +814,8 @@
           description: document.querySelector(
             'textarea[name="description"]'
           ).value,
-          vehicle_brand: document.querySelector(
-            'select[name="vehicle_brand"]'
-          ).value,
-          vehicle_model: document.querySelector(
-            'select[name="vehicle_model"]'
-          ).value,
+          vehicle_brand: document.getElementById("vehicle-brand-input").value,
+          vehicle_model:document.getElementById("vehicle-model-input").value,
           fuel_type: document.querySelector('select[name="fuel_type"]')
             .value,
           // car_year: document.querySelector('input[name="car_year"]').value,
@@ -830,6 +836,7 @@
           payable_price: "",
           status: "Requested",
         };
+          console.log(formData)
 
         fetch("/job", {
           method: "POST",

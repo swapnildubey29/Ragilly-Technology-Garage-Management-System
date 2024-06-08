@@ -23,278 +23,13 @@
   <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
   <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
 
-  <style>
-    /* Header Styles */
-
-    .header {
-      background-color: hsl(222, 44%, 18%);
-      padding: 20px 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header .logo {
-      display: block;
-    }
-
-    .header .navbar {
-      display: flex;
-      align-items: center;
-    }
-
-    .header .navbar-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .header .navbar-list li {
-      margin-right: 20px;
-    }
-
-    .header .navbar-list li:last-child {
-      margin-right: 0;
-    }
-
-    .header .navbar-link {
-      color: #e8e1e1;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .header .btn-primary {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 4px;
-      text-decoration: none;
-    }
-
-    .header .btn-primary:hover {
-      background-color: #0056b3;
-    }
-
-    .header .nav-toggle-btn {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .header .container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .header .navbar {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        width: 100%;
-        z-index: 999;
-      }
-
-      .header .navbar.active {
-        display: flex;
-      }
-
-      .header .navbar-list li {
-        margin: 10px 0;
-      }
-
-      .header .nav-toggle-btn {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-      }
-
-      .header .nav-toggle-icon {
-        width: 20px;
-        height: 2px;
-        background-color: #000;
-        display: block;
-        margin-bottom: 5px;
-        transition: transform 0.3s ease;
-      }
-
-      .header .nav-toggle-icon.active {
-        transform: rotate(45deg);
-      }
-
-      .header .nav-toggle-icon:nth-child(2) {
-        width: 20px;
-        height: 2px;
-        background-color: #000;
-        display: block;
-        transition: opacity 0.3s ease;
-      }
-
-      .header .nav-toggle-icon:nth-child(3) {
-        width: 20px;
-        height: 2px;
-        background-color: #000;
-        display: block;
-        margin-top: 5px;
-        transition: transform 0.3s ease;
-      }
-
-      .header .nav-toggle-icon.active:nth-child(1) {
-        transform: rotate(-45deg);
-      }
-
-      .header .nav-toggle-icon.active:nth-child(2) {
-        opacity: 0;
-      }
-
-      .header .nav-toggle-icon.active:nth-child(3) {
-        transform: rotate(-45deg);
-      }
-    }
-
-    #orderDetails {
-      margin-top: 50px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      padding: 20px;
-      min-height: 80vh;
-      position: relative;
-      font-size: large;
-    }
-
-    .order-details {
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      background-color: #f8f9fa;
-      padding: 20px;
-      padding-top: 40px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
-
-    .order-details:last-child {
-      margin-bottom: 0;
-    }
-
-    .order-title {
-      margin-top: 10rem;
-      color: black;
-    }
-
-    .edit-icon,
-    .delete-icon {
-      display: inline-block;
-      margin-top: 10px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: #000;
-      font-size: 20px;
-      position: absolute;
-      top: 10px;
-    }
-
-    .edit-icon {
-      right: 40px;
-    }
-
-    .delete-icon {
-      right: 10px;
-    }
-
-    .edit-icon:hover,
-    .delete-icon:hover {
-      color: #007bff;
-    }
-
-    /* Styles for the editable order details form */
-
-    form#editOrderForm {
-      margin-top: 20px;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    form#editOrderForm .form-group {
-      margin-bottom: 15px;
-    }
-
-    form#editOrderForm label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    form#editOrderForm input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    form#editOrderForm button[type="submit"] {
-      display: inline-block;
-      margin-top: 10px;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      cursor: pointer;
-      color: #fff;
-      background-color: #007bff;
-      font-size: 14px;
-    }
-
-    form#editOrderForm button[type="submit"]:hover {
-      background-color: #0056b3;
-    }
-
-    .order-status {
-      position: absolute;
-      top: 10px;
-      background-color: red;
-      color: white;
-      padding: 5px;
-      top: 10px;
-      border-radius: 3px;
-      width: 70px;
-      margin-right: inherit;
-      font-size: 12px;
-    }
-
-    .offered-status {
-      background-color: green;
-    }
-  </style>
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/orderdetail.css" />
+
 </head>
 
 <body>
   <!-- - #HEADER -->
-
   <header class="header">
     <div class="container">
       <a href="/dashboard" class="logo">
@@ -335,12 +70,43 @@
 
   <!-- Main content -->
   <div class="container">
-    <div class="col-md-6 offset-md-3 mt-5">
-      <!-- Container to display order details -->
-      <h2 class="order-title text-center mb-4">Order Details</h2>
-      <div id="orderDetails" class="mt-4"></div>
+    <div class="details">
+      <div class="order">
+        <h1>Order <span>details</span></h1>
+      </div>
+    </div>
+    <div class="track">
+      <div id="orderDetails" class="container-pro" class="mt-4">
+
+      </div>
+      <ul id="progress" class="text-center">
+        <li class="active"></li>
+        <li class="active"></li>
+        <li class="active"></li>
+        <li class=""></li>
+      </ul>
+    </div>
+
+    <div class="lists">
+      <div class="list">
+        <img src="./assets/images/img/requested.png" alt="">
+        <p>Order <br>Requested</p>
+      </div>
+      <div class="list">
+        <img src="./assets/images/img/offered.png" alt="">
+        <p>Order <br>Offered</p>
+      </div>
+      <div class="list">
+        <img src="./assets/images/img/accept.png" alt="">
+        <p>Order <br>Accepted</p>
+      </div>
+      <div class="list">
+        <img src="./assets/images/img/payed.png" alt="">
+        <p>Payment <br>Done</p>
+      </div>
     </div>
   </div>
+
 
   <!--- #FOOTER-->
 
