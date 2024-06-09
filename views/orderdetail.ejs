@@ -307,6 +307,26 @@
 
         orderDetailsDiv.appendChild(progressBar);
 
+        // Add lists of statuses with images
+        const statusListContainer = document.createElement("div");
+        statusListContainer.classList.add("lists");
+
+        const statusListItems = [
+          { src: "./assets/images/img/requested.png", text: "Order <br>Requested" },
+          { src: "./assets/images/img/offered.png", text: "Order <br>Offered" },
+          { src: "./assets/images/img/accept.png", text: "Order <br>Accepted" },
+          { src: "./assets/images/img/payed.png", text: "Order <br>Payed" }
+        ];
+
+        statusListItems.forEach(item => {
+          const statusDiv = document.createElement("div");
+          statusDiv.classList.add("list");
+          statusDiv.innerHTML = `<img src="${item.src}" alt=""><p>${item.text}</p>`;
+          statusListContainer.appendChild(statusDiv);
+        });
+
+        orderDetailsDiv.appendChild(statusListContainer);
+
         // Add button container
         const buttonContainer = document.createElement("div");
         buttonContainer.classList.add("button-container");
@@ -334,6 +354,7 @@
         orderDetailsContainer.appendChild(orderDetailsDiv);
       });
     }
+
 
     // Helper functions
     function formatDate(dateString) {

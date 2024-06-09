@@ -353,10 +353,11 @@ form#editOrderForm button[type="submit"]:hover {
   background: #c5cae9;
 }
 
+/* Lists of statuses with images */
 .lists {
   display: flex;
   gap: 2em;
-  margin: 1rem;
+  margin: 1rem 0;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -365,15 +366,19 @@ form#editOrderForm button[type="submit"]:hover {
   display: flex;
   gap: 1em;
   flex: 1 1 50px;
+  align-items: center;
+  margin-left: 15px;
 }
 
 .list p {
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .list img {
   width: 50px;
 }
+
 
 .container-pro {
   display: flex;
