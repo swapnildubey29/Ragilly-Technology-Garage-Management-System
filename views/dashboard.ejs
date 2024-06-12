@@ -254,6 +254,13 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="vehicle_image">Upload Vehicle Image</label>
+                  <input id="vehicle_image" type="file" name="vehicle_image" aria-label="vehicle_image"
+                    accept="image/*">
+                </div>
+
+
+                <div class="form-group">
                   <select class="form-control" name="fuel_type" required aria-label="fuel_type">
                     <option value="" disabled selected>Select Fuel Type</option>
                     <option value="desel">Desel</option>
@@ -781,12 +788,9 @@
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-          return response.json(); // Parse the JSON response
+          return response.json();
         })
         .then(data => {
-          console.log("Fetched data:", data); // Log the fetched data
-
-          // Check if the data format is valid
           if (!data || !data.vehicleBrands || !data.vehicleModels) {
             throw new Error('Invalid data format');
           }
@@ -807,9 +811,7 @@
           // Event listener for model input field
           document.getElementById('vehicle-model-input').addEventListener('input', function () {
             const filter = this.value.toLowerCase();
-            console.log("Model filter:", filter); // Log the filter value
             const filteredModels = vehicleModels.filter(model => model.includes(filter));
-            console.log("Filtered models:", filteredModels); // Log the filtered models
             updateDatalist('vehicle-models-datalist', filteredModels); // Update datalist options
           });
 
@@ -819,7 +821,7 @@
             const inputField = document.getElementById(inputId);
             if (inputField && event.target.tagName === 'OPTION') {
               inputField.value = event.target.value; // Update the input field value with the clicked option's value
-              this.innerHTML = ''; // Remove all other options from the datalist
+              this.innerHTML = '';
             }
           });
 
@@ -828,12 +830,12 @@
             const inputField = document.getElementById(inputId);
             if (inputField && event.target.tagName === 'OPTION') {
               inputField.value = event.target.value; // Update the input field value with the clicked option's value
-              this.innerHTML = ''; // Remove all other options from the datalist
+              this.innerHTML = '';
             }
           });
 
         })
-        .catch(error => console.error('Error fetching JSON data:', error)); // Log any errors that occur during fetching
+        .catch(error => console.error('Error fetching JSON data:', error));
 
       document.getElementById("createOrderForm").addEventListener("submit", function (event) {
         event.preventDefault();
@@ -842,27 +844,17 @@
           name: document.querySelector('input[name="name"]').value,
           mobile: document.querySelector('input[name="mobile"]').value,
           location: document.querySelector('input[name="location"]').value,
-          vehicle_type: document.querySelector(
-            'select[name="vehicle_type"]'
-          ).value,
-          description: document.querySelector(
-            'textarea[name="description"]'
-          ).value,
+          vehicle_type: document.querySelector('select[name="vehicle_type"]').value,
+          description: document.querySelector('textarea[name="description"]').value,
           vehicle_brand: document.getElementById("vehicle-brand-input").value,
           vehicle_model: document.getElementById("vehicle-model-input").value,
-          fuel_type: document.querySelector('select[name="fuel_type"]')
-            .value,
-          service_type: document.querySelector(
-            'select[name="service_type"]'
-          ).value,
-          service_place_type: document.querySelector(
-            'select[name="service_place_type"]'
-          ).value,
+          vehicle_image: document.querySelector('input[name="vehicle_image"]').files[0], // Corrected from 'file' to 'files'
+          fuel_type: document.querySelector('select[name="fuel_type"]').value,
+          service_type: document.querySelector('select[name="service_type"]').value,
+          service_place_type: document.querySelector('select[name="service_place_type"]').value,
           address: document.querySelector('input[name="address"]').value,
-          service_date: document.querySelector('input[name="service_date"]')
-            .value,
-          service_time: document.querySelector('input[name="service_time"]')
-            .value,
+          service_date: document.querySelector('input[name="service_date"]').value,
+          service_time: document.querySelector('input[name="service_time"]').value,
           quotation: "Pending",
           price: "",
           discount: "",
@@ -870,11 +862,18 @@
           status: "Requested",
         };
 
+        console.log(formData)
+
+        const formDataForFetch = new FormData();
+        Object.keys(formData).forEach(key => {
+          formDataForFetch.append(key, formData[key]);
+        });
+
         fetch("/order", {
           method: "POST",
-          body: JSON.stringify(formData),
+          body: formDataForFetch,
           headers: {
-            "Content-Type": "application/json"
+            // Do not set Content-Type when sending FormData; browser will automatically set it
           }
         })
           .then(response => {
@@ -896,24 +895,24 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
-    const logoutButton = document.getElementById("logout");
-    logoutButton.addEventListener("click", async () => {
+      const logoutButton = document.getElementById("logout");
+      logoutButton.addEventListener("click", async () => {
         try {
-            const response = await fetch("/logout", {
-                method: "POST"
-            });
+          const response = await fetch("/logout", {
+            method: "POST"
+          });
 
-            if (response.ok) {
-                window.location.href = "/";
-            } else {
-                console.error("Error during logout:", response.statusText);
-            }
+          if (response.ok) {
+            window.location.href = "/";
+          } else {
+            console.error("Error during logout:", response.statusText);
+          }
         } catch (error) {
-            console.error("Error during logout:", error);
+          console.error("Error during logout:", error);
         }
+      });
     });
-});
-     
+
   </script>
   <script src="https://code.jquery.com/jquery-3
 </body>

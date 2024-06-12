@@ -5,7 +5,7 @@ const orderSchema = new mongoose.Schema({
     mobile: String,
     location: String,
     vehicle_type: String,
-    image: {
+    vehicle_image: {
         data: Buffer,
         contentType: String
     },
