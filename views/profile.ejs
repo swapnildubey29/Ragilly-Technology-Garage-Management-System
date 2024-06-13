@@ -49,20 +49,20 @@
     <div id="profile" class="profile">
       <div class="profile-image"></div>
       <div class="profile-details">
-        <h2 id="UserName"></h2>
+        <h2><strong id="UserName"></strong></h2>
         <p id="Mobile"></p>
         <p id="Location"></p>
       </div>
       <div class="current-order">
         <div style="display: flex; justify-content: center">
-          <span id="currentOrderName" style="margin-right: 1rem"></span>
+          <strong id="currentOrderName" style="margin-right: 1rem"></strong>
           <span id="currentOrdermodle"></span>
         </div>
         <div style="display: flex; justify-content: space-between">
           <div style="display: flex; flex-direction: column">
-            Order Id:
+            <strong>Order Id:</strong>
             <p id="currentOrderId"></p>
-            Order Time:
+            <strong>Order Time:</strong>
             <p id="currentOrderTime"></p>
           </div>
           <div>
@@ -312,17 +312,17 @@
           const orderElement = document.createElement("div");
           orderElement.classList.add("order");
           orderElement.innerHTML = `
-            <div style = "display:flex; justify-content: space-between;">
-            <div style = "display:flex; flex-direction: column;">
-              <h3>Order Name: ${order.vehicle_brand}  ${order.vehicle_model}</h3>
-              <p>Order ID: ${order._id}</p>
-              <p>Order Time: ${order.service_time}</p>
-              </div>
-            <div>
-            <span class="status ${order.status.toLowerCase()}">${order.status
-            }</span>
-            </div>
-          `;
+        <div style="display: flex; justify-content: space-between;">
+          <div style="display: flex; flex-direction: column;">
+            <h3><strong>Order Name:</strong> ${order.vehicle_brand} ${order.vehicle_model}</h3>
+            <p><strong>Order ID:</strong> ${order._id}</p>
+            <p><strong>Order Time:</strong> ${order.service_time}</p>
+          </div>
+          <div>
+            <span class="status ${order.status.toLowerCase()}">${order.status}</span>
+          </div>
+        </div>
+      `;
           orderContainer.appendChild(orderElement);
         });
       } else {
@@ -331,7 +331,6 @@
         orderContainer.appendChild(noOrdersElement);
       }
     }
-
     function renderEditableUserDetails(userData) {
       const userDetailsContainer = document.getElementById("userDetails");
       userDetailsContainer.innerHTML = "";

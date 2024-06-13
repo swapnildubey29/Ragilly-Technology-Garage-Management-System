@@ -181,6 +181,11 @@ body {
     border-radius: 10px;
 }
 
+.profile-details strong,
+.current-order strong {
+    font-weight: bold;
+}
+
 #userDetails {
     margin-top: 50px;
     border-radius: 10px;
@@ -234,6 +239,10 @@ body {
     border-radius: 10px;
     margin-bottom: 10px;
 }
+
+.order h3 {
+    font-weight: bold;
+  }
 
 .pagination {
     text-align: center;
