@@ -256,6 +256,12 @@
         const orderDetailsDiv = document.createElement("div");
         orderDetailsDiv.classList.add("order-details");
 
+        // Add vehicle brand and model
+        const vehicleInfoDiv = document.createElement("div");
+        vehicleInfoDiv.classList.add("vehicle-info");
+        vehicleInfoDiv.innerHTML = `<strong>${toCapitalizedWords(orderData.vehicle_brand)} ${toCapitalizedWords(orderData.vehicle_model)}</strong> `;
+        orderDetailsDiv.appendChild(vehicleInfoDiv);
+
         // Add order details
         const fieldsToDisplay = ["name", "mobile", "location", "service_type", "service_date", "service_time"];
         fieldsToDisplay.forEach(key => {
@@ -277,12 +283,15 @@
         // Add additional details if status is "Offered"
         if (orderData.status === "Offered") {
           orderStatus.classList.add("offered-status");
-          const additionalDetails = ["quotation", "price", "discount", "payable_price"];
+          const additionalDetails = ["price", "discount", "payable_price", "quotation"];
+          const additionalDetailsDiv = document.createElement("div");
+          additionalDetailsDiv.classList.add("additional-details");
           additionalDetails.forEach(key => {
             const detailItem = document.createElement("div");
             detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace('_', ' '))}:</strong> ${orderData[key]}`;
-            orderDetailsDiv.appendChild(detailItem);
+            additionalDetailsDiv.appendChild(detailItem);
           });
+          orderDetailsDiv.appendChild(additionalDetailsDiv);
         }
 
         // Add progress bar
@@ -306,6 +315,9 @@
         progressBar.appendChild(progressBarBefore);
 
         orderDetailsDiv.appendChild(progressBar);
+
+        // Append the orderDetailsDiv to the orderDetailsContainer
+        orderDetailsContainer.appendChild(orderDetailsDiv);
 
         // Add lists of statuses with images
         const statusListContainer = document.createElement("div");
@@ -354,7 +366,6 @@
         orderDetailsContainer.appendChild(orderDetailsDiv);
       });
     }
-
 
     // Helper functions
     function formatDate(dateString) {
