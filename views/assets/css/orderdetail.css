@@ -269,7 +269,6 @@ form#editOrderForm button[type="submit"]:hover {
   border-radius: 3px;
   font-size: 12px;
   left: calc(94% - 20px);
-  /* Adjust this value based on your layout */
   transform: translateX(-100%);
 }
 

@@ -217,6 +217,27 @@
         });
     }
 
+    function fetchUserDetailsForEdit(mobile) {
+      fetch(`/userdetails?mobile=${mobile}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (!data || data.length === 0) {
+            alert("User not found");
+            return;
+          }
+          renderEditableUserDetails(data[0]);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("User not found");
+        });
+    }
+
     function fetchCurrentOrder(mobile) {
       fetch(`/currentorder?mobile=${mobile}`)
         .then((response) => {
@@ -270,11 +291,9 @@
     }
 
     function renderCurrentOrder(order) {
-      document.getElementById("currentOrderName").textContent =
-        order.vehicle_brand;
-      document.getElementById("currentOrdermodle").textContent =
-        order.vehicle_model;
-      document.getElementById("currentOrderId").textContent = order._Id;
+      document.getElementById("currentOrderName").textContent = order.vehicle_brand;
+      document.getElementById("currentOrdermodle").textContent = order.vehicle_model;
+      document.getElementById("currentOrderId").textContent = order._id;
       document.getElementById("currentOrderTime").textContent =
         order.service_time;
       document.getElementById("currentOrderStatus").textContent =
@@ -313,22 +332,13 @@
       }
     }
 
-    const editIcon = document.querySelector(".edit-button i.material-icons");
-    editIcon.addEventListener("click", function () {
-      // Fetch the user details again and then render editable details
-      fetchCookie().then((loggedInUserMobile) => {
-        if (loggedInUserMobile) {
-          fetchUserDetails(loggedInUserMobile);
-        }
-      });
-    });
-
     function renderEditableUserDetails(userData) {
       const userDetailsContainer = document.getElementById("userDetails");
       userDetailsContainer.innerHTML = "";
 
       const form = document.createElement("form");
       form.id = "editUserForm";
+      form.classList.add("my-4"); // Adding margin at the top for spacing
 
       // Define the fields you want to display and edit
       const allowedFields = ["name", "email", "mobile"];
@@ -339,8 +349,10 @@
           inputField.type = "text";
           inputField.name = key;
           inputField.value = userData[key];
+          inputField.classList.add("form-control"); // Bootstrap class for input styling
           const label = document.createElement("label");
           label.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+          label.classList.add("font-weight-bold"); // Bootstrap class for label styling
 
           const fieldDiv = document.createElement("div");
           fieldDiv.classList.add("form-group");
@@ -354,7 +366,7 @@
       const submitButton = document.createElement("button");
       submitButton.type = "submit";
       submitButton.textContent = "Save Changes";
-      submitButton.classList.add("btn", "btn-primary");
+      submitButton.classList.add("btn", "btn-primary", "mt-3"); // Bootstrap classes for button styling
 
       form.appendChild(submitButton);
 
@@ -382,7 +394,10 @@
             return response.json();
           })
           .then((data) => {
+            // Fetch updated user details and orders
             fetchUserDetails(editedUserData.mobile);
+            fetchCurrentOrder(editedUserData.mobile);
+            fetchAllOrders(editedUserData.mobile);
           })
           .catch((error) => {
             console.error("Error:", error);
@@ -390,6 +405,17 @@
           });
       });
     }
+
+    // Event listener for edit button
+    const editIcon = document.querySelector(".edit-button i.material-icons");
+    editIcon.addEventListener("click", function () {
+      // Fetch the user details again and then render editable details
+      fetchCookie().then((loggedInUserMobile) => {
+        if (loggedInUserMobile) {
+          fetchUserDetailsForEdit(loggedInUserMobile);
+        }
+      });
+    });
   </script>
 </body>
 
