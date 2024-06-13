@@ -17,11 +17,11 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="./assets/css/profile.css">
+  <link rel="stylesheet" href="./assets/css/profile.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body>
+<body style="font-weight: bold; color: black">
   <!-- Header -->
   <header class="header">
     <div class="container">
@@ -54,22 +54,31 @@
         <p id="Location"></p>
       </div>
       <div class="current-order">
-        <h3 id="currentOrderName"></h3>
-        <h3 id="currentOrdermodle"></h3>
-        <p id="currentOrderId"></p>
-        <p id="currentOrderTime"></p>
-        <span id="currentOrderStatus" class="status pending"></span>
+        <div style="display: flex; justify-content: center">
+          <span id="currentOrderName" style="margin-right: 1rem"></span>
+          <span id="currentOrdermodle"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <div style="display: flex; flex-direction: column">
+            Order Id:
+            <p id="currentOrderId"></p>
+            Order Time:
+            <p id="currentOrderTime"></p>
+          </div>
+          <div>
+            <span id="currentOrderStatus" class="status pending"></span>
+          </div>
+        </div>
       </div>
       <div class="edit-button">
         <i class="material-icons">edit</i>
       </div>
-
     </div>
     <div class="orders">
-      <h2>All Orders</h2>
-      <div id="userDetails" class="order">
-        <!-- Order details will be injected here by JavaScript -->
-      </div>
+      <h2 style="text-align: center; font-size: x-large; font-weight: bold">
+        All Orders
+      </h2>
+      <div id="userDetails" class="order"></div>
     </div>
   </div>
 
@@ -81,12 +90,20 @@
           <a href="#" class="logo">
             <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="Ragilly home" />
           </a>
-          <p class="footer-text">Rerum necessitatibus saepe eveniet aut et voluptates repudiandae sint et molestiae non
-            recusandae.</p>
+          <p class="footer-text">
+            Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
+            sint et molestiae non recusandae.
+          </p>
           <ul class="social-list">
-            <li><a href="#" class="social-link"><img src="./assets/images/facebook.svg" alt="facebook" /></a></li>
-            <li><a href="#" class="social-link"><img src="./assets/images/instagram.svg" alt="instagram" /></a></li>
-            <li><a href="#" class="social-link"><img src="./assets/images/twitter.svg" alt="twitter" /></a></li>
+            <li>
+              <a href="#" class="social-link"><img src="./assets/images/facebook.svg" alt="facebook" /></a>
+            </li>
+            <li>
+              <a href="#" class="social-link"><img src="./assets/images/instagram.svg" alt="instagram" /></a>
+            </li>
+            <li>
+              <a href="#" class="social-link"><img src="./assets/images/twitter.svg" alt="twitter" /></a>
+            </li>
           </ul>
         </div>
         <ul class="footer-list">
@@ -94,26 +111,35 @@
             <p class="h3">Opening Hours</p>
           </li>
           <li>
-            <p class="p">Monday – Saturday</p><span class="span">12.00 – 14.45</span>
+            <p class="p">Monday – Saturday</p>
+            <span class="span">12.00 – 14.45</span>
           </li>
           <li>
-            <p class="p">Sunday – Thursday</p><span class="span">17.30 – 00.00</span>
+            <p class="p">Sunday – Thursday</p>
+            <span class="span">17.30 – 00.00</span>
           </li>
           <li>
-            <p class="p">Friday – Saturday</p><span class="span">12.00 – 14.45</span>
+            <p class="p">Friday – Saturday</p>
+            <span class="span">12.00 – 14.45</span>
           </li>
         </ul>
         <ul class="footer-list">
           <li>
             <p class="h3">Contact Info</p>
           </li>
-          <li><a href="tel:+01234567890" class="footer-link"><span class="material-symbols-rounded">call</span><span
-                class="span">+01 2 3456 7890</span></a></li>
-          <li><a href="mailto:info@ragilly.com" class="footer-link"><span
-                class="material-symbols-rounded">mail</span><span class="span">info@Ragilly.com</span></a></li>
           <li>
-            <address class="footer-link address"><span class="material-symbols-rounded">location_on</span><span
-                class="span">21 King Street Melbourne, 3000, Australia</span></address>
+            <a href="tel:+01234567890" class="footer-link"><span class="material-symbols-rounded">call</span><span
+                class="span">+01 2 3456 7890</span></a>
+          </li>
+          <li>
+            <a href="mailto:info@ragilly.com" class="footer-link"><span
+                class="material-symbols-rounded">mail</span><span class="span">info@Ragilly.com</span></a>
+          </li>
+          <li>
+            <address class="footer-link address">
+              <span class="material-symbols-rounded">location_on</span><span class="span">21 King Street Melbourne,
+                3000, Australia</span>
+            </address>
           </li>
         </ul>
       </div>
@@ -136,7 +162,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      fetchCookie().then(loggedInUserMobile => {
+      fetchCookie().then((loggedInUserMobile) => {
         if (loggedInUserMobile) {
           fetchUserDetails(loggedInUserMobile);
           fetchCurrentOrder(loggedInUserMobile);
@@ -145,43 +171,47 @@
       });
     });
 
-
     async function fetchCookie() {
       try {
-        const response = await fetch('/getcookie');
+        const response = await fetch("/getcookie");
         const data = await response.json();
         if (data && Object.keys(data).length !== 0) {
           return parseJwt(data.jwt).mobile;
         }
       } catch (error) {
-        console.error('Error fetching cookie:', error);
+        console.error("Error fetching cookie:", error);
       }
       return null;
     }
 
     function parseJwt(token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+      const base64Url = token.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+          .join("")
+      );
       return JSON.parse(jsonPayload);
     }
 
     function fetchUserDetails(mobile) {
       fetch(`/userdetails?mobile=${mobile}`)
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           if (!data || data.length === 0) {
             alert("User not found");
             return;
           }
           renderUserDetails(data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Error:", error);
           alert("User not found");
         });
@@ -189,20 +219,20 @@
 
     function fetchCurrentOrder(mobile) {
       fetch(`/currentorder?mobile=${mobile}`)
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           if (!data) {
             alert("Current order not found");
             return;
           }
           renderCurrentOrder(data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Error:", error);
           alert("Current order not found");
         });
@@ -210,20 +240,20 @@
 
     function fetchAllOrders(mobile) {
       fetch(`/orderdetails?mobile=${mobile}`)
-        .then(response => {
+        .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           if (!data || data.length === 0) {
             alert("No orders found");
             return;
           }
           renderAllOrders(data);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Error:", error);
           alert("Error fetching orders");
         });
@@ -236,32 +266,43 @@
       document.getElementById("Location").textContent = user.email;
 
       const orderContainer = document.getElementById("userDetails");
-      orderContainer.innerHTML = '';
-
+      orderContainer.innerHTML = "";
     }
 
     function renderCurrentOrder(order) {
-      document.getElementById("currentOrderName").textContent = order.vehicle_brand;
-      document.getElementById("currentOrdermodle").textContent = order.vehicle_model;
+      document.getElementById("currentOrderName").textContent =
+        order.vehicle_brand;
+      document.getElementById("currentOrdermodle").textContent =
+        order.vehicle_model;
       document.getElementById("currentOrderId").textContent = order._Id;
-      document.getElementById("currentOrderTime").textContent = order.service_time;
-      document.getElementById("currentOrderStatus").textContent = order.status;
-      document.getElementById("currentOrderStatus").classList.add(order.status.toLowerCase());
+      document.getElementById("currentOrderTime").textContent =
+        order.service_time;
+      document.getElementById("currentOrderStatus").textContent =
+        order.status;
+      document
+        .getElementById("currentOrderStatus")
+        .classList.add(order.status.toLowerCase());
     }
 
     function renderAllOrders(orders) {
       const orderContainer = document.getElementById("userDetails");
-      orderContainer.innerHTML = '';
+      orderContainer.innerHTML = "";
 
       if (orders && orders.length > 0) {
-        orders.forEach(order => {
+        orders.forEach((order) => {
           const orderElement = document.createElement("div");
           orderElement.classList.add("order");
           orderElement.innerHTML = `
-            <h3>Order Name: ${order.vehicle_brand}  ${order.vehicle_model}</h3>
-            <p>Order ID: ${order._id}</p>
-            <p>Order Time: ${order.service_time}</p>
-            <p>Status: <span class="status ${order.status.toLowerCase()}">${order.status}</span></p>
+            <div style = "display:flex; justify-content: space-between;">
+            <div style = "display:flex; flex-direction: column;">
+              <h3>Order Name: ${order.vehicle_brand}  ${order.vehicle_model}</h3>
+              <p>Order ID: ${order._id}</p>
+              <p>Order Time: ${order.service_time}</p>
+              </div>
+            <div>
+            <span class="status ${order.status.toLowerCase()}">${order.status
+            }</span>
+            </div>
           `;
           orderContainer.appendChild(orderElement);
         });
@@ -275,13 +316,12 @@
     const editIcon = document.querySelector(".edit-button i.material-icons");
     editIcon.addEventListener("click", function () {
       // Fetch the user details again and then render editable details
-      fetchCookie().then(loggedInUserMobile => {
+      fetchCookie().then((loggedInUserMobile) => {
         if (loggedInUserMobile) {
           fetchUserDetails(loggedInUserMobile);
         }
       });
     });
-
 
     function renderEditableUserDetails(userData) {
       const userDetailsContainer = document.getElementById("userDetails");
@@ -293,7 +333,7 @@
       // Define the fields you want to display and edit
       const allowedFields = ["name", "email", "mobile"];
 
-      allowedFields.forEach(key => {
+      allowedFields.forEach((key) => {
         if (userData[key] !== undefined) {
           const inputField = document.createElement("input");
           inputField.type = "text";
@@ -310,7 +350,6 @@
           form.appendChild(fieldDiv);
         }
       });
-
 
       const submitButton = document.createElement("button");
       submitButton.type = "submit";
@@ -332,28 +371,26 @@
         fetch("/edituser", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(editedUserData)
+          body: JSON.stringify(editedUserData),
         })
-          .then(response => {
+          .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
             }
             return response.json();
           })
-          .then(data => {
+          .then((data) => {
             fetchUserDetails(editedUserData.mobile);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Error:", error);
             alert("An error occurred while saving changes");
           });
       });
     }
-
   </script>
-
 </body>
 
 </html>
