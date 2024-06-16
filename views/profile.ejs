@@ -294,13 +294,9 @@
       document.getElementById("currentOrderName").textContent = order.vehicle_brand;
       document.getElementById("currentOrdermodle").textContent = order.vehicle_model;
       document.getElementById("currentOrderId").textContent = order._id;
-      document.getElementById("currentOrderTime").textContent =
-        order.service_time;
-      document.getElementById("currentOrderStatus").textContent =
-        order.status;
-      document
-        .getElementById("currentOrderStatus")
-        .classList.add(order.status.toLowerCase());
+      document.getElementById("currentOrderTime").textContent = order.service_time;
+      document.getElementById("currentOrderStatus").textContent = order.status;
+      document.getElementById("currentOrderStatus").classList.add(order.status.toLowerCase());
     }
 
     function renderAllOrders(orders) {
@@ -314,7 +310,7 @@
           orderElement.innerHTML = `
         <div style="display: flex; justify-content: space-between;">
           <div style="display: flex; flex-direction: column;">
-            <h3><strong>Order Name:</strong> ${order.vehicle_brand} ${order.vehicle_model}</h3>
+            <h3><strong>Order Name:</strong> ${toCapitalizedWords(order.vehicle_brand)} ${toCapitalizedWords(order.vehicle_model)}</h3>
             <p><strong>Order ID:</strong> ${order._id}</p>
             <p><strong>Order Time:</strong> ${order.service_time}</p>
           </div>
@@ -331,6 +327,11 @@
         orderContainer.appendChild(noOrdersElement);
       }
     }
+    
+    function toCapitalizedWords(str) {
+      return str.replace(/\b\w/g, char => char.toUpperCase());
+    }
+
     function renderEditableUserDetails(userData) {
       const userDetailsContainer = document.getElementById("userDetails");
       userDetailsContainer.innerHTML = "";
