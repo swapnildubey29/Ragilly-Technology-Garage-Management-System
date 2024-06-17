@@ -48,9 +48,12 @@ router.post('/verify-login', async (req, res) => {
 
         if (user.Role === 'user') {
             res.status(201).json({ success: true, redirect: '/dashboard' });
-        } else {
+        }else if(user.Role === 'admin') {
             res.status(201).json({ success: true, redirect: '/admin' });
+        }else{
+            res.status(201).json({ success: true, redirect: '/mechanic' });
         }
+
     } catch (error) {
         console.error('Error verifying OTP:', error);
         res.status(500).json({ message: 'Internal server error' });

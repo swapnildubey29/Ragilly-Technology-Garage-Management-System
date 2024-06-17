@@ -20,6 +20,7 @@ const orderRouter = require('./routes/orderdetail')
 const profileRouter = require('./routes/profile')
 const homeRouter = require('./routes/home')
 const adminRouter = require('./routes/admin')
+const mechanicRouter = require('./routes/mechanic')
 const cookieParser = require('cookie-parser')
 
 app.use('/', indexRouter)
@@ -29,6 +30,7 @@ app.use('/',orderRouter)
 app.use('/',profileRouter)
 app.use('/',homeRouter)
 app.use('/', adminRouter)
+app.use('/',mechanicRouter)
 app.use(cookieParser())
 
 // cookie Configuration

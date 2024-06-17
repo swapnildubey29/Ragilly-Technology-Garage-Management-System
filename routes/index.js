@@ -37,4 +37,8 @@ router.get('/admin_order',(req,res) =>{
     res.render('admin_order')
 })
 
+router.get('mechanic',(req,res) => {
+    res.render('mechanic')
+})
+
 module.exports = router
