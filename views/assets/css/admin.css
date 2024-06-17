@@ -258,6 +258,7 @@ main {
 .page-content {
     padding: 1.3rem 1rem;
     background: #f1f4f9;
+    width: 100%;
 }
 
 .analytics {
