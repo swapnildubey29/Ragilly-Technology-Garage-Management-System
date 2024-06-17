@@ -1,278 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ragilly Technologies - Order Details</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <!--- favicon -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
 
-    <!--- google font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ragilly Technologies - Order Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!--- favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
 
-    <!--- material icon font -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0"
-    />
+  <!--- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mulish&display=swap"
+    rel="stylesheet" />
 
-    <!--- preload images-->
-    <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
-    <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
+  <!--- material icon font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/orderdetail.css" />
-  </head>
+  <!--- preload images-->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
 
-  <body>
-    <!-- - #HEADER -->
-    <header class="header">
-      <div class="container">
-        <a href="/dashboard" class="logo">
-          <img
-            src="./assets/images/ragilly-logo.png"
-            width="128"
-            height="63"
-            alt="autofix home"
-          />
-        </a>
 
-        <nav class="navbar" data-navbar>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/orderdetail.css" />
+</head>
+
+<body>
+  <!-- - #HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="/dashboard" class="logo">
+        <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <li>
+          <a href="/dashboard" class="navbar-link">Home</a>
+        </li>
+
+        <ul class="navbar-list">
           <li>
-            <a href="/dashboard" class="navbar-link">Home</a>
+            <a href="#" class="navbar-link">About</a>
           </li>
 
-          <ul class="navbar-list">
-            <li>
-              <a href="#" class="navbar-link">About</a>
-            </li>
+          <li>
+            <a href="#" class="navbar-link">Menu</a>
+          </li>
 
-            <li>
-              <a href="#" class="navbar-link">Menu</a>
-            </li>
+          <li>
+            <a href="/profile" class="navbar-link">Profile</a>
+          </li>
 
-            <li>
-              <a href="/profile" class="navbar-link">Profile</a>
-            </li>
+          <li>
+            <a href="/" class="navbar-link">Logout</a>
+          </li>
+        </ul>
+      </nav>
 
-            <li>
-              <a href="/" class="navbar-link">Logout</a>
-            </li>
-          </ul>
-        </nav>
+      <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+        <span class="nav-toggle-icon icon-1"></span>
+        <span class="nav-toggle-icon icon-2"></span>
+        <span class="nav-toggle-icon icon-3"></span>
+      </button>
+    </div>
+  </header>
 
-        <button
-          class="nav-toggle-btn"
-          aria-label="toggle menu"
-          data-nav-toggler
-        >
-          <span class="nav-toggle-icon icon-1"></span>
-          <span class="nav-toggle-icon icon-2"></span>
-          <span class="nav-toggle-icon icon-3"></span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Main content -->
-    <div class="container">
-      <h1
-        style="
+  <!-- Main content -->
+  <div class="container">
+    <h1 style="
           margin-top: 15rem;
           display: flex;
           text-align: center;
           justify-content: center;
-        "
-      >
-        Order details
-      </h1>
-      <div class="track">
-        <div id="orderDetails" class="container-pro" class="mt-4"></div>
+        ">
+      Order details
+    </h1>
+    <div class="track">
+      <div id="orderDetails" class="container-pro" class="mt-4"></div>
+    </div>
+  </div>
+
+  <!--- #FOOTER-->
+
+  <footer class="footer">
+    <div class="footer-top section">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/ragilly-logo.png" width="128" height="63" alt="autofix home" />
+          </a>
+
+          <p class="footer-text">
+            Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
+            sint et molestiae non recusandae.
+          </p>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/facebook.svg" alt="facebook" />
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/instagram.svg" alt="instagram" />
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <img src="./assets/images/twitter.svg" alt="twitter" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Opening Hours</p>
+          </li>
+
+          <li>
+            <p class="p">Monday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+
+          <li>
+            <p class="p">Sunday – Thursday</p>
+
+            <span class="span">17.30 – 00.00</span>
+          </li>
+
+          <li>
+            <p class="p">Friday – Saturday</p>
+
+            <span class="span">12.00 – 14.45</span>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="h3">Contact Info</p>
+          </li>
+
+          <li>
+            <a href="tel:+01234567890" class="footer-link">
+              <span class="material-symbols-rounded">call</span>
+
+              <span class="span">+01 2 3456 7890</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:info@autofix.com" class="footer-link">
+              <span class="material-symbols-rounded">mail</span>
+
+              <span class="span">info@Ragilly.com</span>
+            </a>
+          </li>
+
+          <li>
+            <address class="footer-link address">
+              <span class="material-symbols-rounded">location_on</span>
+
+              <span class="span">21 King Street Melbourne, 3000, Australia</span>
+            </address>
+          </li>
+        </ul>
       </div>
+
+      <img src="./assets/images/footer-shape-3.png" width="637" height="173" loading="lazy" alt="Shape"
+        class="shape shape-3 move-anim" />
     </div>
 
-    <!--- #FOOTER-->
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">Copyright 2024, Ragilly All Rights Reserved.</p>
 
-    <footer class="footer">
-      <div class="footer-top section">
-        <div class="container">
-          <div class="footer-brand">
-            <a href="#" class="logo">
-              <img
-                src="./assets/images/ragilly-logo.png"
-                width="128"
-                height="63"
-                alt="autofix home"
-              />
-            </a>
+        <img src="./assets/images/footer-shape-2.png" width="778" height="335" loading="lazy" alt="Shape"
+          class="shape shape-2" />
 
-            <p class="footer-text">
-              Rerum necessitatibus saepe eveniet aut et voluptates repudiandae
-              sint et molestiae non recusandae.
-            </p>
-
-            <ul class="social-list">
-              <li>
-                <a href="#" class="social-link">
-                  <img src="./assets/images/facebook.svg" alt="facebook" />
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <img src="./assets/images/instagram.svg" alt="instagram" />
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="social-link">
-                  <img src="./assets/images/twitter.svg" alt="twitter" />
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <ul class="footer-list">
-            <li>
-              <p class="h3">Opening Hours</p>
-            </li>
-
-            <li>
-              <p class="p">Monday – Saturday</p>
-
-              <span class="span">12.00 – 14.45</span>
-            </li>
-
-            <li>
-              <p class="p">Sunday – Thursday</p>
-
-              <span class="span">17.30 – 00.00</span>
-            </li>
-
-            <li>
-              <p class="p">Friday – Saturday</p>
-
-              <span class="span">12.00 – 14.45</span>
-            </li>
-          </ul>
-
-          <ul class="footer-list">
-            <li>
-              <p class="h3">Contact Info</p>
-            </li>
-
-            <li>
-              <a href="tel:+01234567890" class="footer-link">
-                <span class="material-symbols-rounded">call</span>
-
-                <span class="span">+01 2 3456 7890</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="mailto:info@autofix.com" class="footer-link">
-                <span class="material-symbols-rounded">mail</span>
-
-                <span class="span">info@Ragilly.com</span>
-              </a>
-            </li>
-
-            <li>
-              <address class="footer-link address">
-                <span class="material-symbols-rounded">location_on</span>
-
-                <span class="span"
-                  >21 King Street Melbourne, 3000, Australia</span
-                >
-              </address>
-            </li>
-          </ul>
-        </div>
-
-        <img
-          src="./assets/images/footer-shape-3.png"
-          width="637"
-          height="173"
-          loading="lazy"
-          alt="Shape"
-          class="shape shape-3 move-anim"
-        />
+        <img src="./assets/images/footer-shape-1.png" width="805" height="652" loading="lazy" alt="Red Car"
+          class="shape shape-1 move-anim" />
       </div>
+    </div>
+  </footer>
 
-      <div class="footer-bottom">
-        <div class="container">
-          <p class="copyright">Copyright 2024, Ragilly All Rights Reserved.</p>
-
-          <img
-            src="./assets/images/footer-shape-2.png"
-            width="778"
-            height="335"
-            loading="lazy"
-            alt="Shape"
-            class="shape shape-2"
-          />
-
-          <img
-            src="./assets/images/footer-shape-1.png"
-            width="805"
-            height="652"
-            loading="lazy"
-            alt="Red Car"
-            class="shape shape-1 move-anim"
-          />
-        </div>
-      </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Fetch the mobile number of the logged-in user
-        fetchCookie().then((loggedInUserMobile) => {
-          // Call fetchOrderDetails with the mobile number of the logged-in user
-          fetchOrderDetails(loggedInUserMobile);
-        });
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fetch the mobile number of the logged-in user
+      fetchCookie().then((loggedInUserMobile) => {
+        // Call fetchOrderDetails with the mobile number of the logged-in user
+        fetchOrderDetails(loggedInUserMobile);
       });
+    });
 
-      async function fetchCookie() {
-        try {
-          const response = await fetch("/getcookie");
-          const data = await response.json();
-          console.log("Cookie:", data);
-          if (data && Object.keys(data).length !== 0) {
-            return parseJwt(data.jwt).mobile;
+    async function fetchCookie() {
+      try {
+        const response = await fetch("/getcookie");
+        const data = await response.json();
+        console.log("Cookie:", data);
+        if (data && Object.keys(data).length !== 0) {
+          return parseJwt(data.jwt).mobile;
+        }
+      } catch (error) {
+        console.error("Error fetching cookie:", error);
+        return null;
+      }
+    }
+
+    function parseJwt(token) {
+      const base64Url = token.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+          .join("")
+      );
+
+      return JSON.parse(jsonPayload);
+    }
+
+    function fetchOrderDetails(mobile) {
+      fetch(`/orderdetails?mobile=${mobile}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
           }
-        } catch (error) {
-          console.error("Error fetching cookie:", error);
-          return null;
+          return response.json();
+        })
+        .then((data) => {
+          const orderDetailsContainer =
+            document.getElementById("orderDetails");
+          if (!data) {
+            alert("Data not found");
+          } else {
+            renderOrderDetails(data);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Order not found");
+        });
+    }
+
+    function renderOrderDetails(ordersData) {
+      const orderDetailsContainer = document.getElementById("orderDetails");
+      orderDetailsContainer.innerHTML = "";
+
+      if (ordersData.length === 0) {
+        alert("Orders not found");
+        return;
+      }
+
+      ordersData.forEach((orderData) => {
+        const orderDetailsDiv = document.createElement("div");
+        orderDetailsDiv.classList.add("order-details");
+
+        // Add vehicle brand and model
+        const vehicleInfoDiv = document.createElement("div");
+        vehicleInfoDiv.classList.add("vehicle-info");
+        vehicleInfoDiv.innerHTML = `<strong>${toCapitalizedWords(orderData.vehicle_brand)} ${toCapitalizedWords(orderData.vehicle_model)}</strong>`;
+        orderDetailsDiv.appendChild(vehicleInfoDiv);
+
+        // Add order details
+        const fieldsToDisplay = [
+          { key: "name", icon: "fa-user" },
+          { key: "mobile", icon: "fa-phone" },
+          { key: "location", icon: "fa-map-marker-alt" },
+          { key: "service_type", icon: "fa-wrench" },
+          { key: "service_date", icon: "fa-calendar" },
+          { key: "service_time", icon: "fa-clock" }
+        ];
+
+        fieldsToDisplay.forEach((field) => {
+          const detailItem = document.createElement("div");
+          detailItem.classList.add("detail-item");
+          let value = orderData[field.key];
+          if (field.key === "service_date") {
+            value = formatDate(value);
+          }
+          detailItem.innerHTML = `<i class="fas ${field.icon}"></i> <strong>:</strong> ${value}`;
+          orderDetailsDiv.appendChild(detailItem);
+        });
+
+        // Add order status
+        const orderStatus = document.createElement("div");
+        orderStatus.classList.add("order-status");
+        orderStatus.textContent = orderData.status;
+        orderDetailsDiv.appendChild(orderStatus);
+
+        // Add additional details if status is "Offered"
+        if (orderData.status === "Offered") {
+          orderStatus.classList.add("offered-status");
+          const additionalDetails = [
+            "price",
+            "discount",
+            "payable_price",
+            "quotation"
+          ];
+          const additionalDetailsDiv = document.createElement("div");
+          additionalDetailsDiv.classList.add("additional-details");
+
+          additionalDetails.forEach((key) => {
+            const detailItem = document.createElement("div");
+            if (key !== "quotation") {
+              detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace("_", " "))}:</strong> &#8377 ${orderData[key]}`;
+            } else {
+              detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace("_", " "))}:</strong> ${orderData[key]}`;
+            }
+            // Adding a unique class name based on the key
+            const className = key.replace("_", "-") + "-detail";
+            detailItem.classList.add(className);
+
+            additionalDetailsDiv.appendChild(detailItem);
+          });
+
+          orderDetailsDiv.appendChild(additionalDetailsDiv);
+        }
+
+        // Add progress bar
+        const progressBar = document.createElement("ul");
+        progressBar.classList.add("text-center", "progress");
+
+        const progressSteps = ["Requested", "Offered", "Accepted", "Payed"];
+        progressSteps.forEach((step) => {
+          const progressItem = document.createElement("li");
+          if (progressSteps.indexOf(step) <= progressSteps.indexOf(orderData.status)) {
+            progressItem.classList.add("active");
+          }
+          progressBar.appendChild(progressItem);
+        });
+
+        // Adjust width of the progress before element
+        const activeProgressIndex = progressSteps.indexOf(orderData.status);
+        const progressBarBefore = document.createElement("div");
+        progressBarBefore.style.width = `${(activeProgressIndex / (progressSteps.length - 1)) * 100}%`;
+        progressBarBefore.classList.add("progress-before");
+        progressBar.appendChild(progressBarBefore);
+
+        orderDetailsDiv.appendChild(progressBar);
+
+        // Append the orderDetailsDiv to the orderDetailsContainer
+        orderDetailsContainer.appendChild(orderDetailsDiv);
+
+        // Add lists of statuses with images
+        const statusListContainer = document.createElement("div");
+        statusListContainer.classList.add("lists");
+
+        const statusListItems = [
+          { src: "./assets/images/img/requested.png", text: "Order <br>Requested" },
+          { src: "./assets/images/img/offered.png", text: "Order <br>Offered" },
+          { src: "./assets/images/img/accept.png", text: "Order <br>Accepted" },
+          { src: "./assets/images/img/payed.png", text: "Order <br>Payed" }
+        ];
+
+        statusListItems.forEach((item) => {
+          const statusDiv = document.createElement("div");
+          statusDiv.classList.add("list");
+          statusDiv.innerHTML = `<img src="${item.src}" alt=""><p>${item.text}</p>`;
+          statusListContainer.appendChild(statusDiv);
+        });
+
+        orderDetailsDiv.appendChild(statusListContainer);
+
+        // Add button container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
+
+        const editIcon = document.createElement("span");
+        editIcon.classList.add("material-symbols-rounded", "edit-icon");
+        editIcon.textContent = "edit";
+        editIcon.addEventListener("click", function () {
+          renderEditableOrderDetails(orderData);
+        });
+
+        const deleteIcon = document.createElement("span");
+        deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
+        deleteIcon.textContent = "delete";
+        deleteIcon.addEventListener("click", function () {
+          deleteOrder(orderData.mobile);
+        });
+
+        buttonContainer.appendChild(editIcon);
+        buttonContainer.appendChild(deleteIcon);
+
+        orderDetailsDiv.appendChild(buttonContainer);
+
+        // Append the orderDetailsDiv to the orderDetailsContainer
+        orderDetailsContainer.appendChild(orderDetailsDiv);
+      });
+    }
+
+    // Helper functions
+    function formatDate(dateString) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+
+    function toCapitalizedWords(str) {
+      return str.replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    function renderEditableOrderDetails(orderData) {
+      const orderDetailsContainer = document.getElementById("orderDetails");
+      orderDetailsContainer.innerHTML = "";
+
+      const form = document.createElement("form");
+      form.id = "editOrderForm";
+
+      const excludedOptions = [
+        "_id",
+        "Pending",
+        "price",
+        "discount",
+        "payable_price",
+        "status",
+        "__v",
+        "quotation",
+      ];
+
+      for (const key in orderData) {
+        if (!excludedOptions.includes(key)) {
+          const inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.name = key;
+          inputField.value = orderData[key];
+          const label = document.createElement("label");
+          label.textContent = key;
+
+          const fieldDiv = document.createElement("div");
+          fieldDiv.classList.add("form-group");
+          fieldDiv.appendChild(label);
+          fieldDiv.appendChild(inputField);
+
+          form.appendChild(fieldDiv);
         }
       }
 
-      function parseJwt(token) {
-        const base64Url = token.split(".")[1];
-        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-        const jsonPayload = decodeURIComponent(
-          atob(base64)
-            .split("")
-            .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-            .join("")
-        );
+      const submitButton = document.createElement("button");
+      submitButton.type = "submit";
+      submitButton.textContent = "Save Changes";
+      submitButton.classList.add("btn", "btn-primary");
 
-        return JSON.parse(jsonPayload);
-      }
+      form.appendChild(submitButton);
 
-      function fetchOrderDetails(mobile) {
-        fetch(`/orderdetails?mobile=${mobile}`)
+      orderDetailsContainer.appendChild(form);
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const editedOrderData = {};
+        formData.forEach((value, key) => {
+          editedOrderData[key] = value;
+        });
+
+        fetch("/editorder", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editedOrderData),
+        })
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -280,295 +479,37 @@
             return response.json();
           })
           .then((data) => {
-            const orderDetailsContainer =
-              document.getElementById("orderDetails");
-            if (!data) {
-              alert("Data not found");
-            } else {
-              renderOrderDetails(data);
-            }
+            fetchOrderDetails(editedOrderData.mobile);
           })
           .catch((error) => {
             console.error("Error:", error);
-            alert("Order not found");
+            alert("An error occurred while saving changes");
           });
-      }
+      });
+    }
 
-      function renderOrderDetails(ordersData) {
-        const orderDetailsContainer = document.getElementById("orderDetails");
-        orderDetailsContainer.innerHTML = "";
-
-        if (ordersData.length === 0) {
-          alert("Orders not found");
-          return;
-        }
-
-        ordersData.forEach((orderData) => {
-          const orderDetailsDiv = document.createElement("div");
-          orderDetailsDiv.classList.add("order-details");
-
-          // Add vehicle brand and model
-          const vehicleInfoDiv = document.createElement("div");
-          vehicleInfoDiv.classList.add("vehicle-info");
-          vehicleInfoDiv.innerHTML = `<strong>${toCapitalizedWords(
-            orderData.vehicle_brand
-          )} ${toCapitalizedWords(orderData.vehicle_model)}</strong> `;
-          orderDetailsDiv.appendChild(vehicleInfoDiv);
-
-          // Add order details
-          const fieldsToDisplay = [
-            "name",
-            "mobile",
-            "location",
-            "service_type",
-            "service_date",
-            "service_time",
-          ];
-          fieldsToDisplay.forEach((key) => {
-            const detailItem = document.createElement("div");
-            let value = orderData[key];
-            if (key === "service_date") {
-              value = formatDate(value);
+    function deleteOrder(mobile) {
+      if (confirm("Are you sure you want to delete this order?")) {
+        fetch(`/deleteorder?mobile=${mobile}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
             }
-            detailItem.innerHTML = `<strong>${toCapitalizedWords(
-              key.replace("_", " ")
-            )}:</strong> ${value}`;
-            orderDetailsDiv.appendChild(detailItem);
-          });
-
-          // Add order status
-          const orderStatus = document.createElement("div");
-          orderStatus.classList.add("order-status");
-          orderStatus.textContent = orderData.status;
-          orderDetailsDiv.appendChild(orderStatus);
-
-          // Add additional details if status is "Offered"
-          if (orderData.status === "Offered") {
-            orderStatus.classList.add("offered-status");
-            const additionalDetails = [
-              "price",
-              "discount",
-              "payable_price",
-              "quotation",
-            ];
-            const additionalDetailsDiv = document.createElement("div");
-            additionalDetailsDiv.classList.add("additional-details");
-
-            additionalDetails.forEach((key) => {
-              const detailItem = document.createElement("div");
-              if (key !== "quotation") {
-                detailItem.innerHTML = `<strong>${toCapitalizedWords(
-                  key.replace("_", " ")
-                )}:</strong> &#8377 ${orderData[key]}`;
-              } else {
-                detailItem.innerHTML = `<strong>${toCapitalizedWords(
-                  key.replace("_", " ")
-                )}:</strong> ${orderData[key]}`;
-              }
-              // Adding a unique class name based on the key
-              const className = key.replace("_", "-") + "-detail";
-              detailItem.classList.add(className);
-
-              additionalDetailsDiv.appendChild(detailItem);
-            });
-
-            orderDetailsDiv.appendChild(additionalDetailsDiv);
-          }
-
-          // Add progress bar
-          const progressBar = document.createElement("ul");
-          progressBar.classList.add("text-center", "progress");
-
-          const progressSteps = ["Requested", "Offered", "Accepted", "Payed"];
-          progressSteps.forEach((step) => {
-            const progressItem = document.createElement("li");
-            if (
-              progressSteps.indexOf(step) <=
-              progressSteps.indexOf(orderData.status)
-            ) {
-              progressItem.classList.add("active");
-            }
-            progressBar.appendChild(progressItem);
-          });
-
-          // Adjust width of the progress before element
-          const activeProgressIndex = progressSteps.indexOf(orderData.status);
-          const progressBarBefore = document.createElement("div");
-          progressBarBefore.style.width = `${
-            (activeProgressIndex / (progressSteps.length - 1)) * 100
-          }%`;
-          progressBarBefore.classList.add("progress-before");
-          progressBar.appendChild(progressBarBefore);
-
-          orderDetailsDiv.appendChild(progressBar);
-
-          // Append the orderDetailsDiv to the orderDetailsContainer
-          orderDetailsContainer.appendChild(orderDetailsDiv);
-
-          // Add lists of statuses with images
-          const statusListContainer = document.createElement("div");
-          statusListContainer.classList.add("lists");
-
-          const statusListItems = [
-            {
-              src: "./assets/images/img/requested.png",
-              text: "Order <br>Requested",
-            },
-            {
-              src: "./assets/images/img/offered.png",
-              text: "Order <br>Offered",
-            },
-            {
-              src: "./assets/images/img/accept.png",
-              text: "Order <br>Accepted",
-            },
-            { src: "./assets/images/img/payed.png", text: "Order <br>Payed" },
-          ];
-
-          statusListItems.forEach((item) => {
-            const statusDiv = document.createElement("div");
-            statusDiv.classList.add("list");
-            statusDiv.innerHTML = `<img src="${item.src}" alt=""><p>${item.text}</p>`;
-            statusListContainer.appendChild(statusDiv);
-          });
-
-          orderDetailsDiv.appendChild(statusListContainer);
-
-          // Add button container
-          const buttonContainer = document.createElement("div");
-          buttonContainer.classList.add("button-container");
-
-          const editIcon = document.createElement("span");
-          editIcon.classList.add("material-symbols-rounded", "edit-icon");
-          editIcon.textContent = "edit";
-          editIcon.addEventListener("click", function () {
-            renderEditableOrderDetails(orderData);
-          });
-
-          const deleteIcon = document.createElement("span");
-          deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
-          deleteIcon.textContent = "delete";
-          deleteIcon.addEventListener("click", function () {
-            deleteOrder(orderData.mobile);
-          });
-
-          buttonContainer.appendChild(editIcon);
-          buttonContainer.appendChild(deleteIcon);
-
-          orderDetailsDiv.appendChild(buttonContainer);
-
-          // Append the orderDetailsDiv to the orderDetailsContainer
-          orderDetailsContainer.appendChild(orderDetailsDiv);
-        });
-      }
-
-      // Helper functions
-      function formatDate(dateString) {
-        const options = { year: "numeric", month: "long", day: "numeric" };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-      }
-
-      function toCapitalizedWords(str) {
-        return str.replace(/\b\w/g, (char) => char.toUpperCase());
-      }
-
-      function renderEditableOrderDetails(orderData) {
-        const orderDetailsContainer = document.getElementById("orderDetails");
-        orderDetailsContainer.innerHTML = "";
-
-        const form = document.createElement("form");
-        form.id = "editOrderForm";
-
-        const excludedOptions = [
-          "id",
-          "Pending",
-          "price",
-          "discount",
-          "payable_price",
-          "status",
-          "_v",
-          "quotation",
-        ];
-
-        for (const key in orderData) {
-          if (!excludedOptions.includes(key)) {
-            const inputField = document.createElement("input");
-            inputField.type = "text";
-            inputField.name = key;
-            inputField.value = orderData[key];
-            const label = document.createElement("label");
-            label.textContent = key;
-
-            const fieldDiv = document.createElement("div");
-            fieldDiv.classList.add("form-group");
-            fieldDiv.appendChild(label);
-            fieldDiv.appendChild(inputField);
-
-            form.appendChild(fieldDiv);
-          }
-        }
-
-        const submitButton = document.createElement("button");
-        submitButton.type = "submit";
-        submitButton.textContent = "Save Changes";
-        submitButton.classList.add("btn", "btn-primary");
-
-        form.appendChild(submitButton);
-
-        orderDetailsContainer.appendChild(form);
-
-        form.addEventListener("submit", function (event) {
-          event.preventDefault();
-          const formData = new FormData(form);
-          const editedOrderData = {};
-          formData.forEach((value, key) => {
-            editedOrderData[key] = value;
-          });
-
-          fetch("/editorder", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(editedOrderData),
+            return response.json();
           })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Network response was not ok");
-              }
-              return response.json();
-            })
-            .then((data) => {
-              fetchOrderDetails(editedOrderData.mobile);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("An error occurred while saving changes");
-            });
-        });
-      }
-
-      function deleteOrder(mobile) {
-        if (confirm("Are you sure you want to delete this order?")) {
-          fetch(`/deleteorder?mobile=${mobile}`, {
-            method: "DELETE",
+          .then((data) => {
+            alert(data.message);
+            fetchOrderDetails(mobile);
           })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Network response was not ok");
-              }
-              return response.json();
-            })
-            .then((data) => {
-              alert(data.message);
-              fetchOrderDetails(mobile);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("An error occurred while deleting order");
-            });
-        }
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting order");
+          });
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
