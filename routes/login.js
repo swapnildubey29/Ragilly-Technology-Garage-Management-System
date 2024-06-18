@@ -74,7 +74,9 @@ router.post('/verify-jwt', async (req, res) => {
         }
         if (user.Role === 'admin') {
             res.json({ success: true, redirect: '/admin' });
-        } else {
+        }else if (user.Role === 'mechanic') {
+            res.json({ success: true, redirect: '/mechanic' });
+        }else {
             res.json({ success: true, redirect: '/dashboard' });
         }
     } catch (error) {

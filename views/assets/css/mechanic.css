@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-    --main-color: #22BAA0;
-    --color-dark: #34425A;
-    --text-grey: #B0B0B0;
+    --main-color: #6D5A8D; 
+    --color-dark: #1A1A1D;
+    --text-grey: #999; 
+}
+
+body {
+    background-color: #f0f0f0; /* Light background */
+    color: #333; /* Main text color */
 }
 
 * {
@@ -161,7 +166,7 @@
 }
 
 .main-content {
-    margin-left: 165px;
+    /* margin-left: 165px; */
     width: calc(100% - 165px);
     transition: margin-left 300ms;
 }
@@ -289,6 +294,7 @@ main {
 .card-head {
     display: flex;
     justify-content: space-between;
+    color: var(--main-color);
     align-items: center;
 }
 
@@ -323,19 +329,19 @@ main {
 }
 
 .indicator.one {
-    background: #22baa0;
+    background: #8D6A6D; /* Custom color for indicator one */
 }
 
 .indicator.two {
-    background: #11a8c3;
+    background: #6D8D7A; /* Custom color for indicator two */
 }
 
 .indicator.three {
-    background: #f6d433;
+    background: #6D7A8D; /* Custom color for indicator three */
 }
 
 .indicator.four {
-    background: #f25656;
+    background: #8D6D7A; /* Custom color for indicator four */
 }
 
 .records {

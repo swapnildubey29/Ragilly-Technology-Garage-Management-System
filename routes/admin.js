@@ -15,7 +15,7 @@ router.get("/Allorder", async (req, res) => {
 router.get("/userorder", async (req, res) => {
   try {
     const orderId = req.query.order_id;
-    const order = await Order.findById(orderId); // Fetch order by ID
+    const order = await Order.findById(orderId); 
     if (!order) {
       return res.status(404).json({ error: "Order not found" });
     }

@@ -16,7 +16,8 @@
     rel="stylesheet" />
 
   <!--- material icon font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,600,0,0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <!--- preload images-->
@@ -311,13 +312,22 @@
           const additionalDetailsDiv = document.createElement("div");
           additionalDetailsDiv.classList.add("additional-details");
 
-          additionalDetails.forEach((key) => {
+          additionalDetails.forEach((key, index) => {
             const detailItem = document.createElement("div");
+            let value = orderData[key];
+
+            if (index === 0 || index === 2) {
+              value = `&#8377 ${value}`; // Adding ₹ symbol for 1st and 3rd items
+            } else if (index === 1) {
+              value = `${value} %`; // Adding % sign for 2nd item
+            }
+
             if (key !== "quotation") {
-              detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace("_", " "))}:</strong> &#8377 ${orderData[key]}`;
+              detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace("_", " "))}:</strong> ${value}`;
             } else {
               detailItem.innerHTML = `<strong>${toCapitalizedWords(key.replace("_", " "))}:</strong> ${orderData[key]}`;
             }
+
             // Adding a unique class name based on the key
             const className = key.replace("_", "-") + "-detail";
             detailItem.classList.add(className);

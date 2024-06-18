@@ -130,7 +130,7 @@
                     </div>
                 </div>
 
-                <div class="records table-responsive">
+                <!-- <div class="records table-responsive">
                     <div class="browse">
                         <select name="status-filter" id="status-filter">
                             <option value="">Status</option>
@@ -141,7 +141,7 @@
                             <option value="rejected">Rejected</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
 
                 <div>
                     <table width="100%">
@@ -177,11 +177,11 @@
                 updateTable(data);
 
                 const statusFilter = document.getElementById('status-filter');
-                statusFilter.addEventListener('change', () => {
-                    const selectedStatus = statusFilter.value;
-                    const filteredData = selectedStatus ? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
-                    updateTable(filteredData);
-                });
+                // statusFilter.addEventListener('change', () => {
+                //     const selectedStatus = statusFilter.value;
+                //     const filteredData = selectedStatus ? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
+                //     updateTable(filteredData);
+                // });
             } catch (error) {
                 console.error('Error fetching record data:', error);
             }
