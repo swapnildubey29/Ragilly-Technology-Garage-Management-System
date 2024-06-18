@@ -37,7 +37,7 @@ router.get('/admin_order',(req,res) =>{
     res.render('admin_order')
 })
 
-router.get('mechanic',(req,res) => {
+router.get('/mechanic',(req,res) => {
     res.render('mechanic')
 })
 
