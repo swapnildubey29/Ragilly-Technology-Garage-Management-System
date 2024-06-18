@@ -105,7 +105,7 @@
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>$6000</h2>
+                            <h2>$2000</h2>
                             <span class="las la-shopping-cart"></span>
                         </div>
                         <div class="card-progress">
@@ -196,27 +196,27 @@
         function updateTable(data) {
             const tableBody = document.getElementById('record-table-body');
             tableBody.innerHTML = '';
-            data.forEach((record, index) => {
+
+            // Filter out records with status 'Offered'
+            const filteredData = data.filter(record => record.status.toLowerCase() !== 'offered');
+
+            filteredData.forEach((record, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${record.name}</td>
-                    <td>${record.mobile}</td>
-                    <td>${formatDate(record.service_date)}</td>
-                    <td>${record.service_time}</td>
-                    <td>${record.status}</td>
-                    <td>
-                        <div class="actions">
-                            <button class="accept-btn" data-id="${record._id}">Accept</button>
-                            <button class="reject-btn" data-id="${record._id}">Reject</button>
-                        </div>
-                    </td>
-                `;
-                // row.addEventListener('click', (event) => {
-                //     if (!event.target.classList.contains('accept-btn') && !event.target.classList.contains('reject-btn')) {
-                //         window.location.href = `admin_order?mobile=${record.mobile}`;
-                //     }
-                // });
+            <td>${index + 1}</td>
+            <td>${record.name}</td>
+            <td>${record.mobile}</td>
+            <td>${formatDate(record.service_date)}</td>
+            <td>${record.service_time}</td>
+            <td>${record.status}</td>
+            <td>
+                <div class="actions">
+                    <button class="accept-btn" data-id="${record._id}">Accept</button>
+                    <button class="reject-btn" data-id="${record._id}">Reject</button>
+                </div>
+            </td>
+        `;
+
                 document.querySelectorAll('.accept-btn').forEach(button => {
                     button.addEventListener('click', (event) => {
                         const orderId = button.getAttribute('data-id');
@@ -224,13 +224,14 @@
                     });
                 });
 
-                tableBody.appendChild(row);
-            });
-
-            document.querySelectorAll('.reject-btn').forEach(button => {
-                button.addEventListener('click', (event) => {
-                     // Code
+                document.querySelectorAll('.reject-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const orderId = button.getAttribute('data-id');
+                        updateOrderStatus(orderId, 'Rejected');
+                    });
                 });
+
+                tableBody.appendChild(row);
             });
         }
 
