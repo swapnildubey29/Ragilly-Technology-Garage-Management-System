@@ -42,7 +42,8 @@
     align-items: center;
 }
 
-.side-header h3, .side-header span {
+.side-header h3,
+.side-header span {
     color: #fff;
     font-weight: 400;
 }
@@ -54,20 +55,24 @@
 }
 
 /* Scrollbar */
-.sidebar::-webkit-scrollbar, .side-content::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar,
+.side-content::-webkit-scrollbar {
     width: 10px;
 }
 
-.sidebar::-webkit-scrollbar-track, .side-content::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track,
+.side-content::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.sidebar::-webkit-scrollbar-thumb, .side-content::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb,
+.side-content::-webkit-scrollbar-thumb {
     background: #b0b0b0;
     border-radius: 5px;
 }
 
-.sidebar::-webkit-scrollbar-thumb:hover, .side-content::-webkit-scrollbar-thumb:hover {
+.sidebar::-webkit-scrollbar-thumb:hover,
+.side-content::-webkit-scrollbar-thumb:hover {
     background: #b30000;
 }
 
@@ -113,7 +118,8 @@
     background: #2B384E;
 }
 
-.side-menu a.active span, .side-menu a.active small {
+.side-menu a.active span,
+.side-menu a.active small {
     color: #fff;
 }
 
@@ -123,33 +129,34 @@
     font-size: 1.7rem;
 }
 
-.side-menu a span, .side-menu a small {
+.side-menu a span,
+.side-menu a small {
     color: #899DC1;
 }
 
-#menu-toggle:checked ~ .sidebar {
+#menu-toggle:checked~.sidebar {
     width: 60px;
 }
 
-#menu-toggle:checked ~ .sidebar .side-header span {
+#menu-toggle:checked~.sidebar .side-header span {
     display: none;
 }
 
-#menu-toggle:checked ~ .main-content {
+#menu-toggle:checked~.main-content {
     margin-left: 60px;
     width: calc(100% - 60px);
 }
 
-#menu-toggle:checked ~ .main-content header {
+#menu-toggle:checked~.main-content header {
     left: 60px;
 }
 
-#menu-toggle:checked ~ .sidebar .profile,
-#menu-toggle:checked ~ .sidebar .side-menu a small {
+#menu-toggle:checked~.sidebar .profile,
+#menu-toggle:checked~.sidebar .side-menu a small {
     display: none;
 }
 
-#menu-toggle:checked ~ .sidebar .side-menu a span {
+#menu-toggle:checked~.sidebar .side-menu a span {
     font-size: 1.3rem;
 }
 
@@ -171,7 +178,8 @@ header {
     transition: left 300ms;
 }
 
-.header-content, .header-menu {
+.header-content,
+.header-menu {
     display: flex;
     align-items: center;
 }
@@ -226,7 +234,8 @@ header {
     align-items: center;
 }
 
-.user div, .client-img {
+.user div,
+.client-img {
     height: 40px;
     width: 40px;
     margin-right: 1rem;
@@ -251,7 +260,8 @@ main {
     border-bottom: 1px solid #dee2e8;
 }
 
-.page-header h1, .page-header small {
+.page-header h1,
+.page-header small {
     color: #74767d;
 }
 
@@ -341,7 +351,8 @@ main {
     align-items: center;
 }
 
-.add, .browse {
+.add,
+.browse {
     display: flex;
     align-items: center;
 }
@@ -353,11 +364,15 @@ main {
     color: #666;
 }
 
-input, button, select {
+input,
+button,
+select {
     outline: none;
 }
 
-.add select, .browse input, .browse select {
+.add select,
+.browse input,
+.browse select {
     height: 35px;
     border: 1px solid #b0b0b0;
     border-radius: 3px;
@@ -490,28 +505,28 @@ table tbody tr {
         width: 100%;
     }
 
-    #menu-toggle:checked ~ .sidebar {
+    #menu-toggle:checked~.sidebar {
         left: 0;
     }
 
-    #menu-toggle:checked ~ .sidebar {
+    #menu-toggle:checked~.sidebar {
         width: 165px;
     }
 
-    #menu-toggle:checked ~ .sidebar .side-header span {
+    #menu-toggle:checked~.sidebar .side-header span {
         display: inline-block;
     }
 
-    #menu-toggle:checked ~ .sidebar .profile,
-    #menu-toggle:checked ~ .sidebar .side-menu a small {
+    #menu-toggle:checked~.sidebar .profile,
+    #menu-toggle:checked~.sidebar .side-menu a small {
         display: block;
     }
 
-    #menu-toggle:checked ~ .sidebar .side-menu a span {
+    #menu-toggle:checked~.sidebar .side-menu a span {
         font-size: 1.7rem;
     }
 
-    #menu-toggle:checked ~ .main-content header {
+    #menu-toggle:checked~.main-content header {
         left: 0px;
     }
 
@@ -557,12 +572,12 @@ table tbody tr {
 }
 
 .order-title {
-    font-size: 28px; 
+    font-size: 28px;
     color: #343a40;
-    font-weight: bold; 
-    text-align: center; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .order-details {
@@ -575,23 +590,50 @@ table tbody tr {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 80%; 
-    max-width: 600px; 
+    width: 80%;
+    max-width: 600px;
 }
 
 .order-details ul li {
     background-color: #fff;
-    margin-bottom: 20px; 
-    padding: 20px; 
-    border-radius: 10px; 
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
     border: 2px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .order-details ul li p {
-    margin: 10px 0; 
-    font-size: 16px; 
-    line-height: 1.6; 
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.actions button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.accept-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.accept-btn:hover {
+    background-color: #45a049;
+}
+
+.reject-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #d32f2f;
 }
 
 .quotation-form {
