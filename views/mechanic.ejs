@@ -162,8 +162,8 @@
                     </table>
                 </div>
             </div>
-            </div>
-        </main>
+    </div>
+    </main>
     </div>
 
     <script>
@@ -207,32 +207,29 @@
                     <td>${record.status}</td>
                     <td>
                         <div class="actions">
-                            <button class="accept-btn" data-id="${record.id}">Accept</button>
-                            <button class="reject-btn" data-id="${record.id}">Reject</button>
+                            <button class="accept-btn" data-id="${record._id}">Accept</button>
+                            <button class="reject-btn" data-id="${record._id}">Reject</button>
                         </div>
                     </td>
                 `;
-                row.addEventListener('click', (event) => {
-                    if (!event.target.classList.contains('accept-btn') && !event.target.classList.contains('reject-btn')) {
-                        window.location.href = `admin_order?mobile=${record.mobile}`;
-                    }
+                // row.addEventListener('click', (event) => {
+                //     if (!event.target.classList.contains('accept-btn') && !event.target.classList.contains('reject-btn')) {
+                //         window.location.href = `admin_order?mobile=${record.mobile}`;
+                //     }
+                // });
+                document.querySelectorAll('.accept-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const orderId = button.getAttribute('data-id');
+                        window.location.href = `admin_order?order_id=${orderId}`;
+                    });
                 });
-                tableBody.appendChild(row);
-            });
 
-            document.querySelectorAll('.accept-btn').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    const orderId = button.getAttribute('data-id');
-                    updateOrderStatus(orderId, 'accepted');
-                });
+                tableBody.appendChild(row);
             });
 
             document.querySelectorAll('.reject-btn').forEach(button => {
                 button.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    const orderId = button.getAttribute('data-id');
-                    updateOrderStatus(orderId, 'rejected');
+                     // Code
                 });
             });
         }

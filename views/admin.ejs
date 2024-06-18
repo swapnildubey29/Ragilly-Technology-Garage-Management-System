@@ -214,6 +214,7 @@
             tableBody.innerHTML = '';
             data.forEach((record, index) => {
                 const row = document.createElement('tr');
+                row.setAttribute('data-id', record._id);
                 row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>${record.name}</td>
@@ -230,8 +231,8 @@
                     </td>
                 `;
                 row.addEventListener('click', () => {
-                    // Navigate to admin_order page with mobile number as a query parameter
-                    window.location.href = `admin_order?mobile=${record.mobile}`;
+                    const orderId = row.getAttribute('data-id');
+                    window.location.href = `admin_order?order_id=${orderId}`;
                 });
                 tableBody.appendChild(row);
             });

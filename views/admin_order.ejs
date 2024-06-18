@@ -20,7 +20,7 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                        <a href="/admin" class="active">
+                        <a href="" class="active">
                             <span class="las la-home"></span>
                             <small>Dashboard</small>
                         </a>
@@ -119,11 +119,11 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const mobileQueryParam = new URLSearchParams(window.location.search).get('mobile');
-            if (mobileQueryParam) {
-                UserorderDetail(mobileQueryParam);
+            const orderIdQueryParam = new URLSearchParams(window.location.search).get('order_id');
+            if (orderIdQueryParam) {
+                UserorderDetail(orderIdQueryParam);
             } else {
-                console.error('Mobile number not provided in query parameter');
+                console.error('Order ID not provided in query parameter');
             }
 
             // Calculate payable price on input changes
@@ -158,7 +158,7 @@
 
                 const quotationData = {
                     mobile: mobileQueryParam,
-                    quotation: quotation, // Changed from "description" to "quotation"
+                    quotation: quotation,
                     price: price,
                     discount: discount,
                     payable_price: payablePrice,
@@ -190,8 +190,8 @@
             });
         });
 
-        function UserorderDetail(mobile) {
-            fetch(`/userorder?mobile=${mobile}`, {
+        function UserorderDetail(orderId) {
+            fetch(`/userorder?order_id=${orderId}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json'
@@ -211,34 +211,32 @@
                 });
         }
 
+
         function displayOrderDetails(orderData) {
             const orderDetailsDiv = document.getElementById('orderDetails');
-            // Create HTML structure for order details
-            let orderHTML = '<ul>';
-            orderData.forEach(order => {
-                orderHTML += `
+            let orderHTML = `
+        <ul>
             <li>
-                <p>Name: ${order.name}</p>
-                <p>Mobile: ${order.mobile}</p>
-                <p>Location: ${order.location}</p>
-                <p>Vehicle Type: ${order.vehicle_type}</p>
-                <p>Description: ${order.description}</p>
-                <p>Vehicle Brand: ${order.vehicle_brand}</p>
-                <p>Vehicle Model: ${order.vehicle_model}</p>
-                <p>Fuel Type: ${order.fuel_type}</p>
-                <p>Car Year: ${order.car_year}</p>
-                <p>Service Type: ${order.service_type}</p>
-                <p>Service Place Type: ${order.service_place_type}</p>
-                <p>Address: ${order.address}</p>
-                <p>Service Date: ${new Date(order.service_date).toLocaleDateString()}</p>
-                <p>Service Time: ${order.service_time}</p>
-                <p>Status: ${order.status}</p>
+                <p>Name: ${orderData.name}</p>
+                <p>Mobile: ${orderData.mobile}</p>
+                <p>Location: ${orderData.location}</p>
+                <p>Vehicle Type: ${orderData.vehicle_type}</p>
+                <p>Description: ${orderData.description}</p>
+                <p>Vehicle Brand: ${orderData.vehicle_brand}</p>
+                <p>Vehicle Model: ${orderData.vehicle_model}</p>
+                <p>Fuel Type: ${orderData.fuel_type}</p>
+                <p>Car Year: ${orderData.car_year}</p>
+                <p>Service Type: ${orderData.service_type}</p>
+                <p>Service Place Type: ${orderData.service_place_type}</p>
+                <p>Address: ${orderData.address}</p>
+                <p>Service Date: ${new Date(orderData.service_date).toLocaleDateString()}</p>
+                <p>Service Time: ${orderData.service_time}</p>
+                <p>Status: ${orderData.status}</p>
             </li>
-        `;
-            });
-            orderHTML += '</ul>';
+        </ul>`;
             orderDetailsDiv.innerHTML = orderHTML;
         }
+
     </script>
 </body>
 
