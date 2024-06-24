@@ -41,4 +41,11 @@ router.get('/mechanic',(req,res) => {
     res.render('mechanic')
 })
 
+router.get('/mechanic_order',(req,res)=>{
+    res.render('mechanic_order')
+})
+
+router.get('/mechanic_allorder',(req,res)=>{
+    res.render('mechanic_allorder')
+})
 module.exports = router

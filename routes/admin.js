@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
+const mongoose = require("mongoose");
 
 router.get("/Allorder", async (req, res) => {
   try {
@@ -15,7 +16,7 @@ router.get("/Allorder", async (req, res) => {
 router.get("/userorder", async (req, res) => {
   try {
     const orderId = req.query.order_id;
-    const order = await Order.findById(orderId); 
+    const order = await Order.findById(orderId);
     if (!order) {
       return res.status(404).json({ error: "Order not found" });
     }
@@ -28,10 +29,12 @@ router.get("/userorder", async (req, res) => {
 
 router.post("/addquotation", async (req, res) => {
   const qoutationdata = req.body;
-  const mobile = req.query.mobile;
-  Order.findOneAndUpdate({ mobile: qoutationdata.mobile }, qoutationdata, {
-    new: true,
-  })
+
+  Order.findByIdAndUpdate(
+    qoutationdata.order_id,
+    qoutationdata, // Update with the new data
+    { new: true } // Return the updated document
+  )
     .then((qoutationdata) => {
       if (!qoutationdata) {
         return res.status(404).json({ error: "Order not found" });
