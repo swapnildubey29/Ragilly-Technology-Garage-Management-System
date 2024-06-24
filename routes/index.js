@@ -48,4 +48,8 @@ router.get('/mechanic_order',(req,res)=>{
 router.get('/mechanic_allorder',(req,res)=>{
     res.render('mechanic_allorder')
 })
+
+router.get('/mechanic_userOrder',(req,res)=>{
+    res.render('mechanic_userOrder')
+})
 module.exports = router

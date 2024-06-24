@@ -30,10 +30,8 @@ router.get("/userorder", async (req, res) => {
 router.post("/addquotation", async (req, res) => {
   const qoutationdata = req.body;
 
-  Order.findByIdAndUpdate(
-    qoutationdata.order_id,
-    qoutationdata, // Update with the new data
-    { new: true } // Return the updated document
+  Order.findByIdAndUpdate(qoutationdata.order_id,qoutationdata, 
+    { new: true } 
   )
     .then((qoutationdata) => {
       if (!qoutationdata) {

@@ -90,29 +90,7 @@
             <div class="containerr">
                 <h2 class="order-title text-center mb-4">Order Details</h2>
                 <div id="orderDetails" class="order-details mt-4"></div>
-                <!-- Form to add quotation details -->
-                <div class="mt-5">
-                    <h2 class="order-title text-center">Add Quotation</h2>
-                    <form id="quotationForm" class="quotation-form">
-                        <div class="form-group">
-                            <label for="quotation">Quotation:</label> <!-- Changed from "description" to "quotation" -->
-                            <textarea id="description" class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="number" id="price" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="discount">Discount (%):</label>
-                            <input type="number" id="discount" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="payablePrice">Payable Price:</label>
-                            <input type="number" id="payablePrice" class="form-control" readonly>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit Quotation</button>
-                    </form>
-                </div>
+                <!-- Form to add quotation details -->  
             </div>
         </main>
     </div>
@@ -126,70 +104,6 @@
                 console.error('Order ID not provided in query parameter');
             }
 
-            // Calculate payable price on input changes
-            const priceInput = document.getElementById('price');
-            const discountInput = document.getElementById('discount');
-            const payablePriceInput = document.getElementById('payablePrice');
-
-            function calculatePayablePrice() {
-                const price = parseFloat(priceInput.value) || 0;
-                const discount = parseFloat(discountInput.value) || 0;
-                const payablePrice = price - (price * (discount / 100));
-                payablePriceInput.value = payablePrice.toFixed(2);
-            }
-
-            priceInput.addEventListener('input', calculatePayablePrice);
-            discountInput.addEventListener('input', calculatePayablePrice);
-
-            // Handle quotation form submission
-            const quotationForm = document.getElementById('quotationForm');
-            quotationForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const quotation = document.getElementById('description').value;
-                const price = parseFloat(priceInput.value);
-                const discount = parseFloat(discountInput.value);
-                const payablePrice = parseFloat(payablePriceInput.value);
-
-                if (!quotation || isNaN(price) || isNaN(discount) || isNaN(payablePrice)) {
-                    alert('Please fill in all fields correctly.');
-                    return;
-                }
-
-                const quotationData = {
-                    order_id: orderIdQueryParam,
-                    quotation: quotation,
-                    price: price,
-                    discount: discount,
-                    payable_price: payablePrice,
-                    status: "Offered"
-                };
-
-                console.log('', quotationData)
-
-                fetch('/addquotation', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(quotationData)
-                })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok ' + response.statusText);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        alert('Quotation added successfully!')
-                        quotationForm.reset();
-                        calculatePayablePrice();
-                        location.reload();
-                    })
-                    .catch(error => {
-                        console.error('There was a problem with the fetch operation:', error);
-                    });
-            });
         });
 
         function UserorderDetail(orderId) {
@@ -233,6 +147,10 @@
                 <p>Address: ${orderData.address}</p>
                 <p>Service Date: ${new Date(orderData.service_date).toLocaleDateString()}</p>
                 <p>Service Time: ${orderData.service_time}</p>
+                <p>quotation: ${orderData.quotation}</p>
+                <p>price: ${orderData.price}</p>
+                <p>discount: ${orderData.discount}</p>
+                <p>payable_price: ${orderData.payable_price}</p>
                 <p>Status: ${orderData.status}</p>
             </li>
         </ul>`;
