@@ -724,10 +724,8 @@
 
         <img src="./assets/images/footer-shape-1.png" width="805" height="652" loading="lazy" alt="Red Car"
           class="shape shape-1 move-anim">
-
       </div>
     </div>
-
   </footer>
 
   <script>
@@ -802,9 +800,7 @@
           // Event listener for brand input field
           document.getElementById('vehicle-brand-input').addEventListener('input', function () {
             const filter = this.value.toLowerCase();
-            console.log("Brand filter:", filter); // Log the filter value
             const filteredBrands = vehicleBrands.filter(brand => brand.includes(filter));
-            console.log("Filtered brands:", filteredBrands); // Log the filtered brands
             updateDatalist('vehicle-brands-datalist', filteredBrands); // Update datalist options
           });
 

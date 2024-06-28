@@ -169,7 +169,7 @@
     <script>
         async function fetchRecordData() {
             try {
-                const response = await fetch('/Allorder');
+                const response = await fetch('/Allorder-location');
                 if (!response.ok) {
                     throw new Error(`An error occurred: ${response.statusText}`);
                 }

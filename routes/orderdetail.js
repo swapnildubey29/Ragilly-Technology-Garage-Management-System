@@ -17,46 +17,27 @@ AWS.config.update({
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Getting vehicle Data from Json file
-router.get("/vehicleData", (req, res) => {
-  fs.readFile("vehicleData.json", (err, data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Error loading JSON data");
-    } else {
-      try {
-        const jsonData = JSON.parse(data);
-        res.json(jsonData);
-      } catch (err) {
-        console.error("Error parsing JSON data:", err);
-        res.status(500).send("Error parsing JSON data");
-      }
-    }
-  });
-});
-
 // Post request to Save Data Into Database
 router.post("/order", upload.single("vehicle_image"), async (req, res) => {
   try {
-    const file = req.file;
-    if (!file) {
-      return res.status(400).json({ error: "No file uploaded" });
+    let vehicleImageUrl = "";
+    if (req.file) {
+      const file = req.file;
+      const params = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: `${uuidv4()}-${file.originalname}`,
+        Body: file.buffer,
+        ContentType: file.mimetype,
+      };
+
+      // Upload file to S3
+      const data = await s3.upload(params).promise();
+      vehicleImageUrl = data.Location;
     }
-
-    const params = {
-      Bucket: process.env.AWS_BUCKET_NAME,
-      Key: `${uuidv4()}-${file.originalname}`,
-      Body: file.buffer,
-      ContentType: file.mimetype,
-    };
-
-    // Upload file to S3
-    const data = await s3.upload(params).promise();
-
-    // Create new order with the image URL
+    // Create new order with or without the image URL
     const orderData = {
       ...req.body,
-      vehicle_image: data.Location,
+      vehicle_image: vehicleImageUrl,
     };
 
     const newOrder = new Order(orderData);
@@ -71,6 +52,7 @@ router.post("/order", upload.single("vehicle_image"), async (req, res) => {
   }
 });
 
+// Getting all order of the user
 router.get("/orderdetails", (req, res) => {
   const mobile = req.query.mobile;
   const page = parseInt(req.query.page) || 1;
@@ -93,7 +75,7 @@ router.get("/orderdetails", (req, res) => {
     });
 });
 
-//latest order
+//latest order in profile section
 router.get("/currentorder", (req, res) => {
   const mobile = req.query.mobile;
   Order.find({ mobile: mobile })

@@ -22,6 +22,25 @@ router.post("/job", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+// Getting vehicle Data from Json file
+router.get("/vehicleData", (req, res) => {
+  fs.readFile("vehicleData.json", (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error loading JSON data");
+    } else {
+      try {
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
+      } catch (err) {
+        console.error("Error parsing JSON data:", err);
+        res.status(500).send("Error parsing JSON data");
+      }
+    }
+  });
+});
+
 // Logout
 router.post("/logout", (req, res) => {
   res.clearCookie("token");

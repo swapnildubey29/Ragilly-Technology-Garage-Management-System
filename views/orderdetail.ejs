@@ -208,7 +208,6 @@
       try {
         const response = await fetch("/getcookie");
         const data = await response.json();
-        console.log("Cookie:", data);
         if (data && Object.keys(data).length !== 0) {
           return parseJwt(data.jwt).mobile;
         }
@@ -227,7 +226,6 @@
           .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
           .join("")
       );
-
       return JSON.parse(jsonPayload);
     }
 
