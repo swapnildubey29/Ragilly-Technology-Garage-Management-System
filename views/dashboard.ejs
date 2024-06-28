@@ -857,9 +857,6 @@
           payable_price: "",
           status: "Requested",
         };
-
-        console.log(formData)
-
         const formDataForFetch = new FormData();
         Object.keys(formData).forEach(key => {
           formDataForFetch.append(key, formData[key]);

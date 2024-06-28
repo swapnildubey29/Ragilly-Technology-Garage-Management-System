@@ -203,35 +203,31 @@
             filteredData.forEach((record, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${record.name}</td>
-            <td>${record.mobile}</td>
-            <td>${formatDate(record.service_date)}</td>
-            <td>${record.service_time}</td>
-            <td>${record.status}</td>
-            <td>
-                <div class="actions">
-                    <button class="accept-btn" data-id="${record._id}">Accept</button>
-                    <button class="reject-btn" data-id="${record._id}">Reject</button>
-                </div>
-            </td>
-        `;
-
-                document.querySelectorAll('.accept-btn').forEach(button => {
-                    button.addEventListener('click', (event) => {
-                        const orderId = button.getAttribute('data-id');
-                        window.location.href = `mechanic_order?order_id=${orderId}`;
-                    });
-                });
-
-                document.querySelectorAll('.reject-btn').forEach(button => {
-                    button.addEventListener('click', (event) => {
-                        const orderId = button.getAttribute('data-id');
-                        updateOrderStatus(orderId, 'Rejected');
-                    });
-                });
+                    <td>${index + 1}</td>
+                    <td>${record.name}</td>
+                    <td>${record.mobile}</td>
+                    <td>${formatDate(record.service_date)}</td>
+                    <td>${record.service_time}</td>
+                    <td>${record.status}</td>
+                    <td>
+                        <div class="actions">
+                            <button class="accept-btn" data-id="${record._id}">Accept</button>
+                            <button class="reject-btn" data-id="${record._id}">Reject</button>
+                        </div>
+                    </td>
+                `;
 
                 tableBody.appendChild(row);
+
+                row.querySelector('.accept-btn').addEventListener('click', (event) => {
+                    const orderId = event.target.getAttribute('data-id');
+                    window.location.href = `mechanic_order?order_id=${orderId}`;
+                });
+
+                row.querySelector('.reject-btn').addEventListener('click', (event) => {
+                    const orderId = event.target.getAttribute('data-id');
+                    updateOrderStatus(orderId, 'Rejected');
+                });
             });
         }
 
@@ -257,6 +253,7 @@
 
         window.onload = fetchRecordData;
     </script>
+
 </body>
 
 </html>
