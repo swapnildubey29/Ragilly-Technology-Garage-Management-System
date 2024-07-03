@@ -24,6 +24,7 @@ const orderSchema = new mongoose.Schema({
     discount: Number,
     payable_price: Number,
     status: String,
+    mechanic: String,
 });
 
 orderSchema.virtual('formattedServiceDate').get(function() {

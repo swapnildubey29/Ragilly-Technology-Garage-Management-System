@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     email: String,
     mobile: String, 
     location: String,
-    Role: {
+    role: {
         type: String,
         default: 'user',
     }

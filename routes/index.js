@@ -33,10 +33,6 @@ router.get('/admin', (req,res) => {
     res.render('admin')
 })
 
-router.get('/admin_order',(req,res) =>{
-    res.render('admin_order')
-})
-
 router.get('/mechanic',(req,res) => {
     res.render('mechanic')
 })
