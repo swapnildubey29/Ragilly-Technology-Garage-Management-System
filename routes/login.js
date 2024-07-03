@@ -46,9 +46,9 @@ router.post('/verify-login', async (req, res) => {
         const token = jwt.sign({ mobile }, process.env.SECRET_KEY, { expiresIn: '5d' });
         res.cookie('jwt', token, { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
 
-        if (user.Role === 'user') {
+        if (user.role === 'user') {
             res.status(201).json({ success: true, redirect: '/dashboard' });
-        }else if(user.Role === 'admin') {
+        }else if(user.role === 'admin') {
             res.status(201).json({ success: true, redirect: '/admin' });
         }else{
             res.status(201).json({ success: true, redirect: '/mechanic' });
@@ -72,9 +72,9 @@ router.post('/verify-jwt', async (req, res) => {
         if (!user) {
             return res.status(404).json({ success: false, error: 'User not found' });
         }
-        if (user.Role === 'admin') {
+        if (user.role === 'admin') {
             res.json({ success: true, redirect: '/admin' });
-        }else if (user.Role === 'mechanic') {
+        }else if (user.role === 'mechanic') {
             res.json({ success: true, redirect: '/mechanic' });
         }else {
             res.json({ success: true, redirect: '/dashboard' });

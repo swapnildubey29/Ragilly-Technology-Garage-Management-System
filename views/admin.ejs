@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Admin Dashboard</title>
+    <title>Garage Dashboard</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -14,7 +14,7 @@
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <h3>A<span>DMIN</span></h3>
+            <h3>G<span>ARAGE</span></h3>
         </div>
         <div class="side-content">
             <div class="side-menu">
@@ -170,6 +170,7 @@
                             <th><span class="las la-sort"></span> Time</th>
                             <th><span class="las la-sort"></span> Status</th>
                             <th><span class="las la-sort"></span> ACTIONS</th>
+                            <th><span class="las la-sort"></span> SUBMIT</th>
                         </tr>
                     </thead>
                     <tbody id="record-table-body">
@@ -239,10 +240,48 @@
                     </select>
                 </div>
                     </td>
+                      <td><div class="actions">
+                            <button class="save-btn" data-id="${record._id}">Save</button>
+                        </div> </td>
                 `;
                 tableBody.appendChild(row);
             });
+
+            row.querySelector('.save-btn').addEventListener('click', async (event) => {
+                const mechanicSelect = row.querySelector('.mechanic-select');
+                const selectedMechanicId = mechanicSelect.value;
+                const recordId = event.target.getAttribute('data-id');
+
+                if (selectedMechanicId) {
+                    try {
+                        await saveMechanicAssignment(recordId, selectedMechanicId);
+                        alert('Mechanic assignment saved successfully.');
+                    } catch (error) {
+                        console.error('Error saving mechanic assignment:', error);
+                        alert('Failed to save mechanic assignment.');
+                    }
+                } else {
+                    alert('Please select a mechanic.');
+                }
+            });
         }
+
+        async function saveMechanicAssignment(recordId, mechanicId) {
+            const response = await fetch('/Select-mechanic', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ recordId, mechanicId }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            return response.json();
+        }
+
 
         document.getElementById('logout').addEventListener('click', () => {
             logoutUser();

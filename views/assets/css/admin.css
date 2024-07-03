@@ -670,6 +670,24 @@ table tbody tr {
     width: 100vw;
 }
 
+.actions button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
 #logout {
     cursor: pointer;
     color: #000;

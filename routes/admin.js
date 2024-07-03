@@ -24,4 +24,16 @@ router.get("/mechanics", async (req, res) => {
   }
 });
 
+//Route to Select Mechanic for the order.
+router.post("/Select-mechanic", async (req,res) =>{
+  try{
+    const { recordId, mechanicId } = req.body;
+    
+  }catch(error){
+    console.error("Error Selecting Mechanics:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+})
+
+
 module.exports = router;
