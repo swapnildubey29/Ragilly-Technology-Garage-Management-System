@@ -44,7 +44,7 @@ router.get("/vehicleData", (req, res) => {
 
 // Logout
 router.post("/logout", (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("jwt");
   res.status(200).json({ success: true, message: "Logout successful" });
 });
 

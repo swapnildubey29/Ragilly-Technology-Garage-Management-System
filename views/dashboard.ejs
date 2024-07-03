@@ -149,7 +149,7 @@
           </li>
 
           <li>
-            <button href="/" id="logout" class="navbar-link">Logout</button>
+            <button id="logout" class="navbar-link">Logout</button>
           </li>
 
         </ul>
@@ -886,26 +886,31 @@
           });
       });
     });
+       
+    document.getElementById('logout').addEventListener('click',()=>{
+           logOutUser();
+    })
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const logoutButton = document.getElementById("logout");
-      logoutButton.addEventListener("click", async () => {
-        try {
-          const response = await fetch("/logout", {
-            method: "POST"
-          });
+    async function logOutUser(){
+      try{
+          const response = await fetch('/logout',{
+            method: 'POST',
+            header:{
+              'content-type': 'application/json'
+            }
+          })
+          if(!response.ok){
+                    throw new Error(`An error occurred: ${response.statusText}`)
+                 }
 
-          if (response.ok) {
-            window.location.href = "/";
-          } else {
-            console.error("Error during logout:", response.statusText);
-          }
-        } catch (error) {
-          console.error("Error during logout:", error);
-        }
-      });
-    });
+                 document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
+                 window.location.href = '/';
+      }catch(error){
+        console.error('Error logging Out:', error);
+      }
+    }
+   
   </script>
   <script src="https://code.jquery.com/jquery-3
 </body>

@@ -687,3 +687,13 @@ table tbody tr {
 .containerr {
     width: 100vw;
 }
+
+#logout {
+    cursor: pointer; 
+    color: #000; 
+    transition: color 0.3s; 
+}
+
+#logout:hover {
+    color: #ff0000; 
+}

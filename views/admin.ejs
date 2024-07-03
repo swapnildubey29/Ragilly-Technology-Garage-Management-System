@@ -82,7 +82,7 @@
                     <span class="las la-bell"></span>
                     <span class="notify">3</span>
                 </div>
-                <span>Logout</span>
+                <span id="logout">Logout</span>
             </div>
     </div>
     </div>
@@ -236,6 +236,30 @@
                 });
                 tableBody.appendChild(row);
             });
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            logoutUser();
+        })
+
+        async function logoutUser() {
+            try {
+                const response = await fetch('/logout', {
+                    method: "POST",
+                    header: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (!response.ok) {
+                    throw new Error(`An error occurred: ${response.statusText}`)
+                }
+
+                document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Error logging Out:', error);
+            }
         }
 
         window.onload = fetchRecordData;
