@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/admin_mechanics" >
+                        <a href="/admin_mechanics">
                             <span class="las la-user-alt"></span>
                             <small>Mechanics</small>
                         </a>
@@ -234,11 +234,11 @@
       <td>${record.status}</td>
       <td>
         <div class="mechanics">
-          <select name="status-filter" id="status-filter">
-            <option value="">Mechanics</option>
-            ${mechanics.map(mechanic => `<option value="${mechanic.id}">${mechanic.name}</option>`).join('')}
-          </select>
-        </div>
+  <select name="status-filter" id="status-filter">
+    <option value="" disabled selected>Mechanic</option>
+    ${mechanics.map(mechanic => `<option value="${mechanic.id}">${mechanic.name}</option>`).join('')}
+  </select>
+</div>
       </td>
       <td><div class="actions">
         <button class="save-btn" data-id="${record._id}">Save</button>
@@ -252,8 +252,6 @@
                     const selectedOption = mechanicSelect.options[mechanicSelect.selectedIndex];
                     const selectedMechanicName = selectedOption.textContent;
                     const recordId = event.target.getAttribute('data-id');
-
-                    console.log(selectedMechanicName, "");
                     if (selectedMechanicName) {
                         try {
                             await assignMechanic(recordId, selectedMechanicName);
