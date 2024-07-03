@@ -226,48 +226,52 @@
                 const row = document.createElement('tr');
                 row.setAttribute('data-id', record._id);
                 row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${record.name}</td>
-                    <td>${record.mobile}</td>
-                    <td>${formatDate(record.service_date)}</td>
-                    <td>${record.service_time}</td>
-                    <td>${record.status}</td>
-                    <td>
-                        <div class="mechanics">
-                    <select name="status-filter" id="status-filter">
-                        <option value="">Mechanics</option>
-                        ${mechanics.map(mechanic => `<option value="${mechanic.id}">${mechanic.name}</option>`).join('')}
-                    </select>
-                </div>
-                    </td>
-                      <td><div class="actions">
-                            <button class="save-btn" data-id="${record._id}">Save</button>
-                        </div> </td>
-                `;
+      <td>${index + 1}</td>
+      <td>${record.name}</td>
+      <td>${record.mobile}</td>
+      <td>${formatDate(record.service_date)}</td>
+      <td>${record.service_time}</td>
+      <td>${record.status}</td>
+      <td>
+        <div class="mechanics">
+          <select name="status-filter" id="status-filter">
+            <option value="">Mechanics</option>
+            ${mechanics.map(mechanic => `<option value="${mechanic.id}">${mechanic.name}</option>`).join('')}
+          </select>
+        </div>
+      </td>
+      <td><div class="actions">
+        <button class="save-btn" data-id="${record._id}">Save</button>
+      </div></td>
+    `;
                 tableBody.appendChild(row);
-            });
 
-            row.querySelector('.save-btn').addEventListener('click', async (event) => {
-                const mechanicSelect = row.querySelector('.mechanic-select');
-                const selectedMechanicId = mechanicSelect.value;
-                const recordId = event.target.getAttribute('data-id');
+                const saveButton = row.querySelector('.save-btn');
+                saveButton.addEventListener('click', async (event) => {
+                    const mechanicSelect = row.querySelector('select');
+                    const selectedOption = mechanicSelect.options[mechanicSelect.selectedIndex];
+                    const selectedMechanicName = selectedOption.textContent;
+                    const recordId = event.target.getAttribute('data-id');
 
-                if (selectedMechanicId) {
-                    try {
-                        await saveMechanicAssignment(recordId, selectedMechanicId);
-                        alert('Mechanic assignment saved successfully.');
-                    } catch (error) {
-                        console.error('Error saving mechanic assignment:', error);
-                        alert('Failed to save mechanic assignment.');
+                    console.log(selectedMechanicName, "");
+                    if (selectedMechanicName) {
+                        try {
+                            await assignMechanic(recordId, selectedMechanicName);
+                            alert('Mechanic Selected successfully.');
+                            location.reload();
+                        } catch (error) {
+                            console.error('Error saving mechanic:', error);
+                            alert('Failed to Select mechanic.');
+                        }
+                    } else {
+                        alert('Please select a mechanic.');
                     }
-                } else {
-                    alert('Please select a mechanic.');
-                }
+                });
             });
         }
 
-        async function saveMechanicAssignment(recordId, mechanicId) {
-            const response = await fetch('/Select-mechanic', {
+        async function assignMechanic(recordId, mechanicId) {
+            const response = await fetch('/assign-mechanic', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -281,7 +285,6 @@
 
             return response.json();
         }
-
 
         document.getElementById('logout').addEventListener('click', () => {
             logoutUser();

@@ -1,16 +1,19 @@
 const express = require('express')
 const router = express.Router()
 const Order = require('../models/Order')
+const {User} = require('../models/User')
 
-router.get("/Allorder-location", async (req, res) => {
-    try {
-        const userLocation = "Chandigarh"; 
-        const allOrders = await Order.find({ location: userLocation }); 
-        res.json(allOrders);
-    } catch (error) {
-        console.log("Error Fetching all Orders", error);
-        res.status(500).json({ error: "Internal Server Error" });
-    }
+router.get('/All-Assigned-orders', async (req, res) => {
+  try {
+    const mobile = req.query.mobile;
+    const user = await User.findOne({ mobile: mobile }); 
+    const mechanicName = user.name;
+    const allOrders = await Order.find({ mechanic: mechanicName });
+    res.json(allOrders);
+  } catch (error) {
+    console.log("Error Fetching all Orders", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 //Route to Add Quotation

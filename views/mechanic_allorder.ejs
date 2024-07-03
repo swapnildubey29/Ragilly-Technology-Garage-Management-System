@@ -146,7 +146,7 @@
     <script>
         async function fetchRecordData() {
             try {
-                const response = await fetch('/Allorder-location');
+                const response = await fetch('/All-Assigned-orders');
                 if (!response.ok) {
                     throw new Error(`An error occurred: ${response.statusText}`);
                 }

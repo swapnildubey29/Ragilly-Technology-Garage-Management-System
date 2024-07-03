@@ -166,27 +166,81 @@
     </main>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
     <script>
-        async function fetchRecordData() {
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchCookie().then((loggedInUserMobile) => {
+                console.log(loggedInUserMobile, " ");
+                if (loggedInUserMobile) {
+                    fetchRecordData(loggedInUserMobile);
+                }
+            });
+        });
+
+        async function fetchCookie() {
             try {
-                const response = await fetch('/Allorder-location');
+                const response = await fetch("/getcookie");
+                const data = await response.json();
+                if (data && Object.keys(data).length !== 0) {
+                    const jwt = data.jwt;
+                    const decoded = parseJwt(jwt);
+                    console.log(decoded, "decoded");
+                    if (decoded && decoded.mobile) {
+                        return decoded.mobile.toString(); // Ensure mobile number is a string
+                    } else {
+                        return null;
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching cookie:", error);
+            }
+            return null;
+        }
+
+        function parseJwt(token) {
+            const base64Url = token.split(".")[1];
+            const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+            const jsonPayload = decodeURIComponent(
+                atob(base64)
+                    .split("")
+                    .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+                    .join("")
+            );
+            return JSON.parse(jsonPayload);
+        }
+
+
+        async function fetchRecordData(loggedInUserMobile) {
+            if (!loggedInUserMobile) {
+                console.error("Error: No mobile number found");
+                return;
+            }
+            try {
+                const response = await fetch(`/All-Assigned-orders?mobile=${loggedInUserMobile}`);
                 if (!response.ok) {
                     throw new Error(`An error occurred: ${response.statusText}`);
                 }
                 const data = await response.json();
                 updateTable(data);
 
-                const statusFilter = document.getElementById('status-filter');
-                // statusFilter.addEventListener('change', () => {
-                //     const selectedStatus = statusFilter.value;
-                //     const filteredData = selectedStatus ? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
-                //     updateTable(filteredData);
-                // });
+                // Ensure the DOM has finished loading before trying to access elements
+                document.addEventListener("DOMContentLoaded", function () {
+                    const statusFilter = document.getElementById('status-filter');
+                    if (statusFilter) {
+                        statusFilter.addEventListener('change', () => {
+                            const selectedStatus = statusFilter.value;
+                            const filteredData = selectedStatus ? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
+                            updateTable(filteredData);
+                        });
+                    } else {
+                        console.error("Error: status-filter element not found in DOM");
+                    }
+                });
             } catch (error) {
                 console.error('Error fetching record data:', error);
             }
         }
-
         function formatDate(dateString) {
             const date = new Date(dateString);
             const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
@@ -275,7 +329,6 @@
             }
         }
 
-        window.onload = fetchRecordData;
     </script>
 
 </body>

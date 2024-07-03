@@ -35,7 +35,6 @@ app.use(cookieParser())
 
 // cookie Configuration
 app.get('/getcookie', async function (req, res) {
-    console.log(await req.cookies)
     res.send(await req.cookies);
 })
 
