@@ -171,7 +171,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             fetchCookie().then((loggedInUserMobile) => {
-                console.log(loggedInUserMobile, " ");
                 if (loggedInUserMobile) {
                     fetchRecordData(loggedInUserMobile);
                 }
@@ -185,7 +184,6 @@
                 if (data && Object.keys(data).length !== 0) {
                     const jwt = data.jwt;
                     const decoded = parseJwt(jwt);
-                    console.log(decoded, "decoded");
                     if (decoded && decoded.mobile) {
                         return decoded.mobile.toString(); // Ensure mobile number is a string
                     } else {

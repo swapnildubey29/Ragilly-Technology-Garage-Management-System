@@ -143,26 +143,68 @@
     </main>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/3.1.2/jwt-decode.min.js"></script>
     <script>
-        async function fetchRecordData() {
-            try {
-                const response = await fetch('/All-Assigned-orders');
-                if (!response.ok) {
-                    throw new Error(`An error occurred: ${response.statusText}`);
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchCookie().then((loggedInUserMobile) => {
+                console.log(loggedInUserMobile, " ");
+                if (loggedInUserMobile) {
+                    fetchRecordData(loggedInUserMobile);
                 }
-                const data = await response.json();
-                updateTable(data);
+            });
+        });
 
-                const statusFilter = document.getElementById('status-filter');
-                statusFilter.addEventListener('change', () => {
-                    const selectedStatus = statusFilter.value;
-                    const filteredData = selectedStatus ? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
-                    updateTable(filteredData);
-                });
+        async function fetchCookie() {
+            try {
+                const response = await fetch("/getcookie");
+                const data = await response.json();
+                if (data && Object.keys(data).length !== 0) {
+                    const jwt = data.jwt;
+                    const decoded = parseJwt(jwt);
+                    if (decoded && decoded.mobile) {
+                        return decoded.mobile.toString(); 
+                    } else {
+                        return null;
+                    }
+                }
             } catch (error) {
-                console.error('Error fetching record data:', error);
+                console.error("Error fetching cookie:", error);
             }
+            return null;
         }
+
+        function parseJwt(token) {
+            const base64Url = token.split(".")[1];
+            const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+            const jsonPayload = decodeURIComponent(
+                atob(base64)
+                    .split("")
+                    .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+                    .join("")
+            );
+            return JSON.parse(jsonPayload);
+        }
+
+        async function fetchRecordData(loggedInUserMobile) {
+    try {
+        const response = await fetch(`/All-Assigned-orders?mobile=${loggedInUserMobile}`);
+        if (!response.ok) {
+            throw new Error(`An error occurred: ${response.statusText}`);
+        }
+        const data = await response.json();
+        updateTable(data);
+
+        const statusFilter = document.getElementById('status-filter');
+        statusFilter.addEventListener('change', () => {
+            const selectedStatus = statusFilter.value;
+            const filteredData = selectedStatus? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
+            updateTable(filteredData);
+        });
+    } catch (error) {
+        console.error('Error fetching record data:', error);
+    }
+}
 
         function formatDate(dateString) {
             const date = new Date(dateString);
@@ -198,7 +240,6 @@
                 tableBody.appendChild(row);
             });
         }
-        window.onload = fetchRecordData;
     </script>
 </body>
 

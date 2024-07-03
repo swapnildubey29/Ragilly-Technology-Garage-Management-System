@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>All Mechanics</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <style>
+        /* Style the page content */
+        .page-content {
+            padding: 0px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Style the table header */
+        thead th {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Style the table body */
+        tbody td {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Add some space between table rows */
+        tbody tr {
+            margin-bottom: 10px;
+        }
+
+        /* Style the mechanics list */
+        #record-table-body tr td:nth-child(2) {
+            font-weight: bold;
+            color: #337ab7;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>G<span>ARAGE</span></h3>
+        </div>
+        <div class="side-content">
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="/admin" class="active">
+                            <span class="las la-home"></span>
+                            <small>Dashboard</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-user-alt"></span>
+                            <small>Profile</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-shopping-cart"></span>
+                            <small>Orders</small>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="/admin_mechanics" >
+                            <span class="las la-user-alt"></span>
+                            <small>Mechanics</small>
+                        </a> -->
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-clipboard-list"></span>
+                            <small>Projects</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="las la-tasks"></span>
+                            <small>Tasks</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+
+            <!-- <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label> -->
+
+            <div class="header-menu">
+                <label for="">
+                    <span class="las la-search"></span>
+                </label>
+
+                <div class="notify-icon">
+                    <span class="las la-envelope"></span>
+                    <span class="notify">4</span>
+                </div>
+
+                <div class="notify-icon">
+                    <span class="las la-bell"></span>
+                    <span class="notify">3</span>
+                </div>
+                <span id="logout">Logout</span>
+            </div>
+    </div>
+    </div>
+    </header>
+
+    <main>
+        <div class="page-content">
+            <div>
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><span class="las la-sort"></span> ALL MECHANICS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="record-table-body">
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </main>
+    </div>
+
+    <script>
+        async function fetchMechanics() {
+            try {
+                const response = await fetch('/mechanics');
+                const mechanics = await response.json();
+                const tableBody = document.getElementById('record-table-body');
+                tableBody.innerHTML = '';
+
+                mechanics.forEach((mechanic, index) => {
+                    const row = `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td>${mechanic.name}</td>
+                </tr>
+              `;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching mechanics:', error);
+            }
+        }
+
+        fetchMechanics(); // call the function to fetch mechanics
+    </script>
+</body>
+
+</html>
