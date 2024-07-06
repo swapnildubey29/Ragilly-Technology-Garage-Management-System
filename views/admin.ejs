@@ -149,7 +149,7 @@
                 <div class="browse">
                     <input type="search" placeholder="Search" class="record-search">
                     <select name="status-filter" id="status-filter">
-                        <option value="">Status</option>
+                        <option value="" disabled selected>Status</option>
                         <option value="Requested">Pending</option>
                         <option value="accepted">Accepted</option>
                         <option value="paid">Paid</option>
@@ -226,45 +226,48 @@
                 const row = document.createElement('tr');
                 row.setAttribute('data-id', record._id);
                 row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${record.name}</td>
-      <td>${record.mobile}</td>
-      <td>${formatDate(record.service_date)}</td>
-      <td>${record.service_time}</td>
-      <td>${record.status}</td>
-      <td>
-        <div class="mechanics">
-  <select name="status-filter" id="status-filter">
-    <option value="" disabled selected>Mechanic</option>
-    ${mechanics.map(mechanic => `<option value="${mechanic.id}">${mechanic.name}</option>`).join('')}
-  </select>
-</div>
-      </td>
-      <td><div class="actions">
-        <button class="save-btn" data-id="${record._id}">Save</button>
-      </div></td>
-    `;
+                    <td>${index + 1}</td>
+                    <td>${record.name}</td>
+                    <td>${record.mobile}</td>
+                    <td>${formatDate(record.service_date)}</td>
+                    <td>${record.service_time}</td>
+                    <td>${record.status}</td>
+                    <td>
+                        ${record.mechanic ? record.mechanic : `
+                        <div class="mechanics">
+                            <select name="mechanic-select" id="mechanic-select">
+                                <option value="" disabled selected>Mechanic</option>
+                                ${mechanics.map(mechanic => `<option value="${mechanic.id}">${mechanic.name}</option>`).join('')}
+                            </select>
+                        </div>`}
+                    </td>
+                    <td>
+                        ${record.mechanic ? '' : `<div class="actions"><button class="save-btn" data-id="${record._id}">Save</button></div>`}
+                    </td>
+                `;
                 tableBody.appendChild(row);
 
                 const saveButton = row.querySelector('.save-btn');
-                saveButton.addEventListener('click', async (event) => {
-                    const mechanicSelect = row.querySelector('select');
-                    const selectedOption = mechanicSelect.options[mechanicSelect.selectedIndex];
-                    const selectedMechanicName = selectedOption.textContent;
-                    const recordId = event.target.getAttribute('data-id');
-                    if (selectedMechanicName) {
-                        try {
-                            await assignMechanic(recordId, selectedMechanicName);
-                            alert('Mechanic Selected successfully.');
-                            location.reload();
-                        } catch (error) {
-                            console.error('Error saving mechanic:', error);
-                            alert('Failed to Select mechanic.');
+                if (saveButton) {
+                    saveButton.addEventListener('click', async (event) => {
+                        const mechanicSelect = row.querySelector('select');
+                        const selectedOption = mechanicSelect.options[mechanicSelect.selectedIndex];
+                        const selectedMechanicName = selectedOption.textContent;
+                        const recordId = event.target.getAttribute('data-id');
+                        if (selectedMechanicName) {
+                            try {
+                                await assignMechanic(recordId, selectedMechanicName);
+                                alert('Mechanic Selected successfully.');
+                                location.reload();
+                            } catch (error) {
+                                console.error('Error saving mechanic:', error);
+                                alert('Failed to Select mechanic.');
+                            }
+                        } else {
+                            alert('Please select a mechanic.');
                         }
-                    } else {
-                        alert('Please select a mechanic.');
-                    }
-                });
+                    });
+                }
             });
         }
 

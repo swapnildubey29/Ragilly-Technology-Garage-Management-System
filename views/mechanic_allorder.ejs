@@ -54,11 +54,11 @@
             <div class="analytics">
                 <div class="card">
                     <div class="card-head">
-                        <h2>1000</h2>
+                        <h2>275</h2>
                         <span class="las la-user-friends"></span>
                     </div>
                     <div class="card-progress">
-                        <small>User activity this month</small>
+                        <small>Total Orders</small>
                         <div class="card-indicator">
                             <div class="indicator one" style="width: 60%"></div>
                         </div>
@@ -67,11 +67,11 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2>35000</h2>
+                        <h2>23</h2>
                         <span class="las la-eye"></span>
                     </div>
                     <div class="card-progress">
-                        <small>Page views</small>
+                        <small>Pending Orders</small>
                         <div class="card-indicator">
                             <div class="indicator two" style="width: 80%"></div>
                         </div>
@@ -80,11 +80,11 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2>$60000</h2>
+                        <h2>$2000</h2>
                         <span class="las la-shopping-cart"></span>
                     </div>
                     <div class="card-progress">
-                        <small>Monthly revenue growth</small>
+                        <small>Monthly revenue</small>
                         <div class="card-indicator">
                             <div class="indicator three" style="width: 65%"></div>
                         </div>
@@ -93,11 +93,11 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2>4000</h2>
+                        <h2>400</h2>
                         <span class="las la-envelope"></span>
                     </div>
                     <div class="card-progress">
-                        <small>New E-mails received</small>
+                        <small>Reviews</small>
                         <div class="card-indicator">
                             <div class="indicator four" style="width: 90%"></div>
                         </div>
@@ -163,7 +163,7 @@
                     const jwt = data.jwt;
                     const decoded = parseJwt(jwt);
                     if (decoded && decoded.mobile) {
-                        return decoded.mobile.toString(); 
+                        return decoded.mobile.toString();
                     } else {
                         return null;
                     }
@@ -187,24 +187,24 @@
         }
 
         async function fetchRecordData(loggedInUserMobile) {
-    try {
-        const response = await fetch(`/All-Assigned-orders?mobile=${loggedInUserMobile}`);
-        if (!response.ok) {
-            throw new Error(`An error occurred: ${response.statusText}`);
-        }
-        const data = await response.json();
-        updateTable(data);
+            try {
+                const response = await fetch(`/All-Assigned-orders?mobile=${loggedInUserMobile}`);
+                if (!response.ok) {
+                    throw new Error(`An error occurred: ${response.statusText}`);
+                }
+                const data = await response.json();
+                updateTable(data);
 
-        const statusFilter = document.getElementById('status-filter');
-        statusFilter.addEventListener('change', () => {
-            const selectedStatus = statusFilter.value;
-            const filteredData = selectedStatus? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
-            updateTable(filteredData);
-        });
-    } catch (error) {
-        console.error('Error fetching record data:', error);
-    }
-}
+                const statusFilter = document.getElementById('status-filter');
+                statusFilter.addEventListener('change', () => {
+                    const selectedStatus = statusFilter.value;
+                    const filteredData = selectedStatus ? data.filter(record => record.status.toLowerCase() === selectedStatus.toLowerCase()) : data;
+                    updateTable(filteredData);
+                });
+            } catch (error) {
+                console.error('Error fetching record data:', error);
+            }
+        }
 
         function formatDate(dateString) {
             const date = new Date(dateString);
