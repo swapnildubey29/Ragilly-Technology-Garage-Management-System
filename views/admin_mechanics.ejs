@@ -3,45 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>All Mechanics</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <style>
-        /* Style the page content */
-        .page-content {
-            padding: 0px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Style the table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f0f0f0;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #f2f2f2;
+        /* Add some space between table rows */
+        tbody tr {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
 
         /* Style the table header */
@@ -49,23 +20,73 @@
             font-weight: bold;
             font-size: 16px;
             color: #333;
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            /* Add text alignment to left */
         }
 
         /* Style the table body */
         tbody td {
             font-size: 14px;
             color: #666;
-        }
-
-        /* Add some space between table rows */
-        tbody tr {
-            margin-bottom: 10px;
+            padding: 10px;
+            vertical-align: middle;
+            /* Add vertical alignment to middle */
         }
 
         /* Style the mechanics list */
-        #record-table-body tr td:nth-child(2) {
+        #record-table-body tr td:nth-child(3) {
             font-weight: bold;
             color: #337ab7;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style the image holder */
+        .mechanic-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #337ab7;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+        }
+
+        .mechanic-info {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mechanic-info span {
+            font-weight: bold;
+            color: #337ab7;
+        }
+
+        /* Add hover effect to table rows */
+        tbody tr:hover {
+            background-color: #f2f2f2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            /* Add a pointer cursor on hover */
+        }
+
+        /* Add some padding to the page content */
+        .page-content {
+            padding: 20px;
+            margin-right: 150px;
+            background-color: #f9f9f9;
+            /* Add a light gray background */
+            border: 1px solid #ddd;
+            /* Add a border around the page content */
+            border-radius: 10px;
+            /* Add a rounded corner to the page content */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
         }
     </style>
 </head>
@@ -98,7 +119,7 @@
                         </a>
                     </li>
                     <!-- <li>
-                        <a href="/admin_mechanics" >
+                        <a href="/admin_mechanics">
                             <span class="las la-user-alt"></span>
                             <small>Mechanics</small>
                         </a> -->
@@ -122,49 +143,40 @@
 
     <div class="main-content">
         <header>
-
-            <!-- <div class="header-content">
-                <label for="menu-toggle">
-                    <span class="las la-bars"></span>
-                </label> -->
-
             <div class="header-menu">
                 <label for="">
                     <span class="las la-search"></span>
                 </label>
-
                 <div class="notify-icon">
                     <span class="las la-envelope"></span>
                     <span class="notify">4</span>
                 </div>
-
                 <div class="notify-icon">
                     <span class="las la-bell"></span>
                     <span class="notify">3</span>
                 </div>
                 <span id="logout">Logout</span>
             </div>
-    </div>
-    </div>
-    </header>
+        </header>
 
-    <main>
-        <div class="page-content">
-            <div>
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th><span class="las la-sort"></span> ALL MECHANICS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="record-table-body">
-                        <!-- Rows will be dynamically inserted here -->
-                    </tbody>
-                </table>
+        <main>
+            <div class="page-content">
+                <div>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>IMAGE</th>
+                                <th><span class="las la-sort"></span> ALL MECHANICS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="record-table-body">
+                            <!-- Rows will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        </div>
+    </div>
     </main>
     </div>
 
@@ -178,11 +190,14 @@
 
                 mechanics.forEach((mechanic, index) => {
                     const row = `
-                <tr>
-                  <td>${index + 1}</td>
-                  <td>${mechanic.name}</td>
-                </tr>
-              `;
+                            <tr>
+                                <td>${index + 1}</td>
+                               <td><div class="mechanic-image"></div></td>
+                                <td class="mechanic-info">
+                                    <span>${mechanic.name}</span>
+                                </td>
+                            </tr>
+                        `;
                     tableBody.innerHTML += row;
                 });
             } catch (error) {
