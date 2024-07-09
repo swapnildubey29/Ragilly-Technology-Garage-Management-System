@@ -145,7 +145,7 @@
             const quotationForm = document.getElementById('quotationForm');
             quotationForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-
+            
                 const quotation = document.getElementById('description').value;
                 const price = parseFloat(priceInput.value);
                 const discount = parseFloat(discountInput.value);
@@ -162,10 +162,10 @@
                     price: price,
                     discount: discount,
                     payable_price: payablePrice,
-                    status: "Offered"
+                    status: "Offered" 
                 };
 
-                console.log('', quotationData)
+                console.log('Quotation Data:', quotationData);
 
                 fetch('/addquotation', {
                     method: 'POST',
@@ -181,7 +181,7 @@
                         return response.json();
                     })
                     .then(data => {
-                        alert('Quotation added successfully!')
+                        alert('Quotation added successfully!');
                         quotationForm.reset();
                         calculatePayablePrice();
                         location.reload();
@@ -213,32 +213,30 @@
                 });
         }
 
-
         function displayOrderDetails(orderData) {
             const orderDetailsDiv = document.getElementById('orderDetails');
             let orderHTML = `
-        <ul>
-            <li>
-                <p>Name: ${orderData.name}</p>
-                <p>Mobile: ${orderData.mobile}</p>
-                <p>Location: ${orderData.location}</p>
-                <p>Vehicle Type: ${orderData.vehicle_type}</p>
-                <p>Description: ${orderData.description}</p>
-                <p>Vehicle Brand: ${orderData.vehicle_brand}</p>
-                <p>Vehicle Model: ${orderData.vehicle_model}</p>
-                <p>Fuel Type: ${orderData.fuel_type}</p>
-                <p>Car Year: ${orderData.car_year}</p>
-                <p>Service Type: ${orderData.service_type}</p>
-                <p>Service Place Type: ${orderData.service_place_type}</p>
-                <p>Address: ${orderData.address}</p>
-                <p>Service Date: ${new Date(orderData.service_date).toLocaleDateString()}</p>
-                <p>Service Time: ${orderData.service_time}</p>
-                <p>Status: ${orderData.status}</p>
-            </li>
-        </ul>`;
+                <ul>
+                    <li>
+                        <p>Name: ${orderData.name}</p>
+                        <p>Mobile: ${orderData.mobile}</p>
+                        <p>Location: ${orderData.location}</p>
+                        <p>Vehicle Type: ${orderData.vehicle_type}</p>
+                        <p>Description: ${orderData.description}</p>
+                        <p>Vehicle Brand: ${orderData.vehicle_brand}</p>
+                        <p>Vehicle Model: ${orderData.vehicle_model}</p>
+                        <p>Fuel Type: ${orderData.fuel_type}</p>
+                        <p>Car Year: ${orderData.car_year}</p>
+                        <p>Service Type: ${orderData.service_type}</p>
+                        <p>Service Place Type: ${orderData.service_place_type}</p>
+                        <p>Address: ${orderData.address}</p>
+                        <p>Service Date: ${new Date(orderData.service_date).toLocaleDateString()}</p>
+                        <p>Service Time: ${orderData.service_time}</p>
+                        <p>Status: ${orderData.status}</p>
+                    </li>
+                </ul>`;
             orderDetailsDiv.innerHTML = orderHTML;
         }
-
     </script>
 </body>
 
