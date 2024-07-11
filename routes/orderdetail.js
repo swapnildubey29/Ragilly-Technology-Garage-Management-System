@@ -1,38 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
-const fs = require("fs");
+const path = require("path");
 const multer = require("multer");
-const AWS = require("aws-sdk");
 const { v4: uuidv4 } = require("uuid");
 
-//Configuring Aws S3 Bucket
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION,
+// Set up storage engine
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "uploads"));
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${uuidv4()}-${file.originalname}`);
+  },
 });
 
-// Setting up Multer for file upload
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
-// Post request to Save Data Into Database
 router.post("/order", upload.single("vehicle_image"), async (req, res) => {
   try {
     let vehicleImageUrl = "";
     if (req.file) {
-      const file = req.file;
-      const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: `${uuidv4()}-${file.originalname}`,
-        Body: file.buffer,
-        ContentType: file.mimetype,
-      };
-
-      // Upload file to S3
-      const data = await s3.upload(params).promise();
-      vehicleImageUrl = data.Location;
+      vehicleImageUrl = `/uploads/${req.file.filename}`;
     }
     // Create new order with or without the image URL
     const orderData = {

@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const path = require("path")
 
 // Files Configuration
 app.set('view engine', 'ejs')
@@ -10,6 +11,7 @@ app.set('views', __dirname + '/views')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use('/assets', express.static(__dirname + '/views/assets'));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 // Routes
