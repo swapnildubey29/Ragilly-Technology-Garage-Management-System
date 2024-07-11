@@ -281,6 +281,10 @@
           { key: "service_time", icon: "fa-clock" }
         ];
 
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
         fieldsToDisplay.forEach((field) => {
           const detailItem = document.createElement("div");
           detailItem.classList.add("detail-item");
@@ -288,7 +292,8 @@
           if (field.key === "service_date") {
             value = formatDate(value);
           }
-          detailItem.innerHTML = `<i class="fas ${field.icon}"></i> <strong>:</strong> ${value}`;
+          const displayKey = capitalizeFirstLetter(field.key.replace('_', ' ')); // Capitalize key and replace underscores with spaces
+          detailItem.innerHTML = `<i class="fas ${field.icon}"></i> <strong>${displayKey}:</strong> ${value}`;
           orderDetailsDiv.appendChild(detailItem);
         });
 

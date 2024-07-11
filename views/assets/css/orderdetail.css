@@ -474,3 +474,17 @@ form#editOrderForm button[type="submit"]:hover {
   max-width: 100%;
   padding: 40px;
 }
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.detail-item i {
+  margin-right: 10px;
+}
+
+.detail-item strong {
+  margin-right: 5px;
+}
