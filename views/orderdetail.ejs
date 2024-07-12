@@ -424,6 +424,7 @@
       return str.replace(/\b\w/g, (char) => char.toUpperCase());
     }
 
+    // Render Editable Order Details
     function renderEditableOrderDetails(orderData) {
       const orderDetailsContainer = document.getElementById("orderDetails");
       orderDetailsContainer.innerHTML = "";
@@ -448,8 +449,10 @@
           inputField.type = "text";
           inputField.name = key;
           inputField.value = orderData[key];
+
+          // Capitalize the label
           const label = document.createElement("label");
-          label.textContent = key;
+          label.textContent = toCapitalizedWords(key);
 
           const fieldDiv = document.createElement("div");
           fieldDiv.classList.add("form-group");
@@ -459,7 +462,6 @@
           form.appendChild(fieldDiv);
         }
       }
-
       const submitButton = document.createElement("button");
       submitButton.type = "submit";
       submitButton.textContent = "Save Changes";

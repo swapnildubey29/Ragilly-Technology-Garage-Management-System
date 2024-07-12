@@ -131,20 +131,31 @@ router.post("/editorder", (req, res) => {
     });
 });
 
-router.delete("/deleteorder", (req, res) => {
+router.delete("/deleteorder", async (req, res) => {
   const mobile = req.query.mobile;
+  const vehicle_image = req.query.mobile;
+  try {
+    const order = await Order.findOneAndDelete({ mobile: mobile });
 
-  Order.findOneAndDelete({ mobile: mobile })
-    .then((order) => {
-      if (!order) {
-        return res.status(404).json({ error: "Order not found" });
-      }
-      res.json({ message: "Order data deleted successfully" });
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).json({ error: "Failed to delete order data" });
+    if (!order) {
+      return res.status(404).json({ error: "Order not found" });
+    }
+
+    // Delete image file or record here (assuming imagePath is the field)
+    const imagePath = Order.find({ vehicle_image: vehicle_image });
+    if (imagePath) {
+      fs.unlinkSync(imagePath);
+    }
+
+    res.json({
+      message: "Order data and associated image deleted successfully",
     });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ error: "Failed to delete order data and associated image" });
+  }
 });
 
 module.exports = router;
