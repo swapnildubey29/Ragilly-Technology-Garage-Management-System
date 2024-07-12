@@ -152,14 +152,46 @@
     border: 1px solid #ccc;
 }
 
-.order-details {
-    border: 1px solid #ddd;
+/* Styles for the vehicle image */
+.vehicle-image {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    width: 100px;
+    /* Set a fixed width for square shape */
+    height: 100px;
+    /* Set a fixed height for square shape */
+    overflow: hidden;
+    /* Ensure image doesn't overflow beyond its container */
     border-radius: 8px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin-bottom: 20px;
+    /* Add border radius for rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+.vehicle-image img {
+    width: 100%;
+    /* Ensure the image takes full width of its container */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Cover ensures the image covers the entire container */
+}
+
+/* Additional styles for order details */
+#orderDetails {
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    min-height: 80vh;
     position: relative;
+    font-size: 1.2rem;
+    color: #333;
+    border: 1px solid #ccc;
+    position: relative;
+    /* Ensure proper stacking context */
 }
 
 .order-details:last-child {
@@ -169,4 +201,74 @@
 .order-title {
     margin-top: 10rem;
     color: black;
+}
+
+/* Ensure the icons are positioned correctly */
+.edit-icon,
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    /* Adjust top position as needed */
+    right: 10px;
+    /* Adjust right position as needed */
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+    color: #007bff;
+    /* Change color on hover as needed */
+}
+
+/* Basic styling for the form */
+#editOrderForm {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.vehicle-image {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.vehicle-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }

@@ -210,45 +210,88 @@
         const address = params.get('address');
         const serviceDate = params.get('service_date');
         const serviceTime = params.get('service_time');
+        const vehicleImage = params.get('vehicle_image');
+
+        const orderData = {
+          name,
+          mobile,
+          location,
+          vehicleType,
+          description,
+          vehicleBrand,
+          vehicleModel,
+          fuelType,
+          carYear,
+          serviceType,
+          servicePlaceType,
+          address,
+          serviceDate,
+          serviceTime,
+          vehicleImage
+        };
+
+        console.log("Order Data:", orderData);
 
         const editIcon = document.createElement("span");
         editIcon.classList.add("material-symbols-rounded", "edit-icon");
         editIcon.textContent = "edit";
         editIcon.addEventListener("click", function () {
-          renderEditableOrderDetails(orderData);
+          renderEditableOrderDetails(orderData); // Pass orderData to the function
         });
 
         const deleteIcon = document.createElement("span");
         deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
         deleteIcon.textContent = "delete";
         deleteIcon.addEventListener("click", function () {
-          deleteOrder(orderData.mobile);
+          deleteOrder(orderData.mobile); // Pass mobile from orderData to the function
         });
+
+        // Display form data
+        orderDetailsDiv.innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Mobile:</strong> ${mobile}</p>
+                <p><strong>Location:</strong> ${location}</p>
+                <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
+                <p><strong>Description:</strong> ${description}</p>
+                <p><strong>Vehicle Brand:</strong> ${vehicleBrand}</p>
+                <p><strong>Vehicle Model:</strong> ${vehicleModel}</p>
+                <p><strong>Fuel Type:</strong> ${fuelType}</p>
+                <p><strong>Car Year:</strong> ${carYear}</p>
+                <p><strong>Service Type:</strong> ${serviceType}</p>
+                <p><strong>Service Place Type:</strong> ${servicePlaceType}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Service Date:</strong> ${new Date(serviceDate).toLocaleDateString()}</p>
+                <p><strong>Service Time:</strong> ${serviceTime}</p>
+                <!-- Add more fields as needed -->
+            `;
+
+        if (vehicleImage) {
+          const imageContainer = document.createElement("div");
+          imageContainer.classList.add("vehicle-image");
+          const image = document.createElement("img");
+          image.src = vehicleImage; // Set the image source
+          image.alt = "Vehicle Image"; // Add alt text for accessibility
+          image.classList.add("vehicle-img"); // Optional: Add a class for styling
+          imageContainer.appendChild(image);
+          orderDetailsDiv.appendChild(imageContainer);
+        }
 
         // Append the icons to the order details div
         orderDetailsDiv.appendChild(editIcon);
         orderDetailsDiv.appendChild(deleteIcon);
 
-        // Display form data
-        orderDetailsDiv.innerHTML = `
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Mobile:</strong> ${mobile}</p>
-                    <p><strong>Location:</strong> ${location}</p>
-                    <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
-                    <p><strong>Description:</strong> ${description}</p>
-                    <p><strong>Vehicle Brand:</strong> ${vehicleBrand}</p>
-                    <p><strong>Vehicle Model:</strong> ${vehicleModel}</p>
-                    <p><strong>Fuel Type:</strong> ${fuelType}</p>
-                    <p><strong>Car Year:</strong> ${carYear}</p>
-                    <p><strong>Service Type:</strong> ${serviceType}</p>
-                    <p><strong>Service Place Type:</strong> ${servicePlaceType}</p>
-                    <p><strong>Address:</strong> ${address}</p>
-                    <p><strong>Service Date:</strong> ${new Date(serviceDate).toLocaleDateString()}</p>
-                    <p><strong>Service Time:</strong> ${serviceTime}</p>
-                    <!-- Add more fields as needed -->
-                `;
+        // Position icons on top right
+        editIcon.style.position = "absolute";
+        editIcon.style.top = "10px";
+        editIcon.style.right = "10px";
+
+        deleteIcon.style.position = "absolute";
+        deleteIcon.style.top = "10px";
+        deleteIcon.style.right = "40px";
+
       } else {
-        orderDetailsDiv.textContent = "No order details found.";
+        // Handle case where parameters are missing
+        orderDetailsDiv.textContent = "Order details not found.";
       }
     });
 
@@ -342,6 +385,8 @@
     }
 
   </script>
+
+
 </body>
 
 </html>

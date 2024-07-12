@@ -833,59 +833,51 @@
         })
         .catch(error => console.error('Error fetching JSON data:', error));
 
-      document.getElementById("createOrderForm").addEventListener("submit", function (event){
-        event.preventDefault();
+        document.getElementById("createOrderForm").addEventListener("submit", function (event){
+  event.preventDefault();
 
-        const formData = {
-          name: document.querySelector('input[name="name"]').value,
-          mobile: document.querySelector('input[name="mobile"]').value,
-          location: document.querySelector('input[name="location"]').value,
-          vehicle_type: document.querySelector('select[name="vehicle_type"]').value,
-          description: document.querySelector('textarea[name="description"]').value,
-          vehicle_brand: document.getElementById("vehicle-brand-input").value,
-          vehicle_model: document.getElementById("vehicle-model-input").value,
-          vehicle_image: document.querySelector('input[name="vehicle_image"]').files[0], 
-          fuel_type: document.querySelector('select[name="fuel_type"]').value,
-          service_type: document.querySelector('select[name="service_type"]').value,
-          service_place_type: document.querySelector('select[name="service_place_type"]').value,
-          address: document.querySelector('input[name="address"]').value,
-          service_date: document.querySelector('input[name="service_date"]').value,
-          service_time: document.querySelector('input[name="service_time"]').value,
-          quotation: "Pending",
-          vehicle_image:"",
-          price: "",
-          discount: "",
-          payable_price: "",
-          status: "Requested",
-        };
-        const formDataForFetch = new FormData();
-        Object.keys(formData).forEach(key => {
-          formDataForFetch.append(key, formData[key]);
-        });
+  const formData = new FormData();
+  formData.append("name", document.querySelector('input[name="name"]').value);
+  formData.append("mobile", document.querySelector('input[name="mobile"]').value);
+  formData.append("location", document.querySelector('input[name="location"]').value);
+  formData.append("vehicle_type", document.querySelector('select[name="vehicle_type"]').value);
+  formData.append("description", document.querySelector('textarea[name="description"]').value);
+  formData.append("vehicle_brand", document.getElementById("vehicle-brand-input").value);
+  formData.append("vehicle_model", document.getElementById("vehicle-model-input").value);
+  formData.append("vehicle_image", document.querySelector('input[name="vehicle_image"]').files[0]); 
+  formData.append("fuel_type", document.querySelector('select[name="fuel_type"]').value);
+  formData.append("service_type", document.querySelector('select[name="service_type"]').value);
+  formData.append("service_place_type", document.querySelector('select[name="service_place_type"]').value);
+  formData.append("address", document.querySelector('input[name="address"]').value);
+  formData.append("service_date", document.querySelector('input[name="service_date"]').value);
+  formData.append("service_time", document.querySelector('input[name="service_time"]').value);
+  formData.append("quotation", "Pending");
+  formData.append("price", "");
+  formData.append("discount", "");
+  formData.append("payable_price", "");
+  formData.append("status", "Requested");
 
-        fetch("/order", {
-          method: "POST",
-          body: formDataForFetch,
-          headers: {
-            // Do not set Content-Type when sending FormData; browser will automatically set it
-          }
-        })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok")
-            }
-            return response.json()
-          })
-          .then(data => {
-            alert("Order created successfully")
-            const orderQueryString = new URLSearchParams(formData).toString()
-            window.location.href = "/order?" + orderQueryString;
-          })
-          .catch(error => {
-            console.error("Error:", error)
-            alert("An error occurred while creating the order")
-          });
-      });
+  fetch("/order", {
+    method: "POST",
+    body: formData
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok")
+      }
+      return response.json()
+    })
+    .then(data => {
+      alert("Order created successfully")
+      const orderQueryString = new URLSearchParams(formData).toString()
+      window.location.href = "/order?" + orderQueryString;
+    })
+    .catch(error => {
+      console.error("Error:", error)
+      alert("An error occurred while creating the order")
+    });
+});
+
     });
        
     document.getElementById('logout').addEventListener('click',()=>{
