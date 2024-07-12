@@ -1,13 +1,13 @@
-const express = require("express")
-const router = express.Router()
-const Order = require("../models/Order")
-const path = require("path")
-const multer = require("multer")
-const { v4: uuidv4 } = require("uuid")
+const express = require("express");
+const router = express.Router();
+const Order = require("../models/Order");
+const path = require("path");
+const multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, 'uploads');
+    const uploadPath = path.join(__dirname, "uploads");
     cb(null, uploadPath);
   },
   filename: (req, file, cb) => {
@@ -19,13 +19,10 @@ const upload = multer({ storage });
 
 router.post("/order", upload.single("vehicle_image"), async (req, res) => {
   try {
-    console.log('File:', req.file);
-    console.log('Body:', req.body);
-
+    console.log("File:", req.file);
     let vehicleImageUrl = "";
     if (req.file) {
-      const uploadPath = path.join(__dirname, 'uploads', req.file.filename);
-      console.log('File saved at:', uploadPath);
+      const uploadPath = path.join(__dirname, "uploads", req.file.filename);
       vehicleImageUrl = `/uploads/${req.file.filename}`;
     }
 
@@ -37,35 +34,36 @@ router.post("/order", upload.single("vehicle_image"), async (req, res) => {
     const newOrder = new Order(orderData);
     await newOrder.save();
 
-    res.status(201).json({ message: "Order created successfully", order: newOrder });
+    res
+      .status(201)
+      .json({ message: "Order created successfully", order: newOrder });
   } catch (error) {
     console.error("Error creating order:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
 
+router.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Route to get vehicle_image URL by order ID
-router.get("/order/:orderId/vehicle_image", async (req, res) => {
+router.get("/order/image", async (req, res) => {
   try {
-    const orderId = req.params.orderId;
-    const order = await Order.findById(orderId);
+    const { mobile, service_date, service_time } = req.query;
+
+    if (!mobile || !service_date || !service_time) {
+      return res.status(400).json({ error: "Missing query parameters" });
+    }
+
+    const order = await Order.findOne(
+      { mobile, service_date, service_time },
+      "vehicle_image"
+    );
 
     if (!order) {
       return res.status(404).json({ error: "Order not found" });
     }
 
-    // Extract vehicle_image URL from order
-    const vehicleImageUrl = order.vehicle_image;
-
-    if (!vehicleImageUrl) {
-      return res
-        .status(404)
-        .json({ error: "Vehicle image not found for this order" });
-    }
-
-    // Assuming vehicle_image is stored as a relative URL, send it back
-    res.json({ vehicle_image: vehicleImageUrl });
+    res.json({ vehicle_image: order.vehicle_image || "" });
   } catch (error) {
     console.error("Error retrieving vehicle image:", error);
     res.status(500).json({ error: "Internal Server Error" });

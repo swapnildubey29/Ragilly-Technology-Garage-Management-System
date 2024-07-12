@@ -210,7 +210,6 @@
         const address = params.get('address');
         const serviceDate = params.get('service_date');
         const serviceTime = params.get('service_time');
-        const vehicleImage = params.get('vehicle_image');
 
         const orderData = {
           name,
@@ -226,11 +225,8 @@
           servicePlaceType,
           address,
           serviceDate,
-          serviceTime,
-          vehicleImage
+          serviceTime
         };
-
-        console.log("Order Data:", orderData);
 
         const editIcon = document.createElement("span");
         editIcon.classList.add("material-symbols-rounded", "edit-icon");
@@ -248,33 +244,41 @@
 
         // Display form data
         orderDetailsDiv.innerHTML = `
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Mobile:</strong> ${mobile}</p>
-                <p><strong>Location:</strong> ${location}</p>
-                <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
-                <p><strong>Description:</strong> ${description}</p>
-                <p><strong>Vehicle Brand:</strong> ${vehicleBrand}</p>
-                <p><strong>Vehicle Model:</strong> ${vehicleModel}</p>
-                <p><strong>Fuel Type:</strong> ${fuelType}</p>
-                <p><strong>Car Year:</strong> ${carYear}</p>
-                <p><strong>Service Type:</strong> ${serviceType}</p>
-                <p><strong>Service Place Type:</strong> ${servicePlaceType}</p>
-                <p><strong>Address:</strong> ${address}</p>
-                <p><strong>Service Date:</strong> ${new Date(serviceDate).toLocaleDateString()}</p>
-                <p><strong>Service Time:</strong> ${serviceTime}</p>
-                <!-- Add more fields as needed -->
-            `;
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Mobile:</strong> ${mobile}</p>
+            <p><strong>Location:</strong> ${location}</p>
+            <p><strong>Vehicle Type:</strong> ${vehicleType}</p>
+            <p><strong>Description:</strong> ${description}</p>
+            <p><strong>Vehicle Brand:</strong> ${vehicleBrand}</p>
+            <p><strong>Vehicle Model:</strong> ${vehicleModel}</p>
+            <p><strong>Fuel Type:</strong> ${fuelType}</p>
+            <p><strong>Car Year:</strong> ${carYear}</p>
+            <p><strong>Service Type:</strong> ${serviceType}</p>
+            <p><strong>Service Place Type:</strong> ${servicePlaceType}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <p><strong>Service Date:</strong> ${new Date(serviceDate).toLocaleDateString()}</p>
+            <p><strong>Service Time:</strong> ${serviceTime}</p>
+            <!-- Add more fields as needed -->
+        `;
 
-        if (vehicleImage) {
-          const imageContainer = document.createElement("div");
-          imageContainer.classList.add("vehicle-image");
-          const image = document.createElement("img");
-          image.src = vehicleImage; // Set the image source
-          image.alt = "Vehicle Image"; // Add alt text for accessibility
-          image.classList.add("vehicle-img"); // Optional: Add a class for styling
-          imageContainer.appendChild(image);
-          orderDetailsDiv.appendChild(imageContainer);
-        }
+        // Fetch vehicle image separately
+        fetch(`/order/image?mobile=${mobile}&service_date=${serviceDate}&service_time=${serviceTime}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.vehicle_image) {
+              const imageContainer = document.createElement("div");
+              imageContainer.classList.add("vehicle-image");
+              const image = document.createElement("img");
+              image.src = data.vehicle_image; // Set the image source
+              image.alt = "Vehicle Image"; // Add alt text for accessibility
+              image.classList.add("vehicle-img"); // Optional: Add a class for styling
+              imageContainer.appendChild(image);
+              orderDetailsDiv.appendChild(imageContainer);
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching vehicle image:", error);
+          });
 
         // Append the icons to the order details div
         orderDetailsDiv.appendChild(editIcon);
@@ -311,7 +315,7 @@
           inputField.name = key;
           inputField.value = orderData[key];
           const label = document.createElement("label");
-          label.textContent = key;
+          label.textContent = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize first letter
 
           const fieldDiv = document.createElement("div");
           fieldDiv.classList.add("form-group");
@@ -353,7 +357,8 @@
             return response.json();
           })
           .then(data => {
-            fetchOrderDetails(editedOrderData.mobile);
+            // Reload the page after saving changes
+            location.reload();
           })
           .catch(error => {
             console.error("Error:", error);
@@ -375,7 +380,7 @@
           })
           .then(data => {
             alert(data.message);
-            fetchOrderDetails(mobile);
+            window.location.href = '/'
           })
           .catch(error => {
             console.error("Error:", error);
@@ -384,8 +389,81 @@
       }
     }
 
-  </script>
+    function fetchOrderDetails(mobile) {
+      const orderDetailsDiv = document.getElementById("orderDetails");
 
+      fetch(`/order/details?mobile=${mobile}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(orderData => {
+          orderDetailsDiv.innerHTML = `
+        <p><strong>Name:</strong> ${orderData.name}</p>
+        <p><strong>Mobile:</strong> ${orderData.mobile}</p>
+        <p><strong>Location:</strong> ${orderData.location}</p>
+        <p><strong>Vehicle Type:</strong> ${orderData.vehicleType}</p>
+        <p><strong>Description:</strong> ${orderData.description}</p>
+        <p><strong>Vehicle Brand:</strong> ${orderData.vehicleBrand}</p>
+        <p><strong>Vehicle Model:</strong> ${orderData.vehicleModel}</p>
+        <p><strong>Fuel Type:</strong> ${orderData.fuelType}</p>
+        <p><strong>Car Year:</strong> ${orderData.carYear}</p>
+        <p><strong>Service Type:</strong> ${orderData.serviceType}</p>
+        <p><strong>Service Place Type:</strong> ${orderData.servicePlaceType}</p>
+        <p><strong>Address:</strong> ${orderData.address}</p>
+        <p><strong>Service Date:</strong> ${new Date(orderData.serviceDate).toLocaleDateString()}</p>
+        <p><strong>Service Time:</strong> ${orderData.serviceTime}</p>
+        <!-- Add more fields as needed -->
+      `;
+
+          // Fetch and display vehicle image
+          if (orderData.vehicleImage) {
+            const imageContainer = document.createElement("div");
+            imageContainer.classList.add("vehicle-image");
+            const image = document.createElement("img");
+            image.src = orderData.vehicleImage;
+            image.alt = "Vehicle Image";
+            image.classList.add("vehicle-img");
+            imageContainer.appendChild(image);
+            orderDetailsDiv.appendChild(imageContainer);
+          }
+
+          // Add edit and delete icons
+          const editIcon = document.createElement("span");
+          editIcon.classList.add("material-symbols-rounded", "edit-icon");
+          editIcon.textContent = "edit";
+          editIcon.addEventListener("click", function () {
+            renderEditableOrderDetails(orderData);
+          });
+
+          const deleteIcon = document.createElement("span");
+          deleteIcon.classList.add("material-symbols-rounded", "delete-icon");
+          deleteIcon.textContent = "delete";
+          deleteIcon.addEventListener("click", function () {
+            deleteOrder(orderData.mobile);
+          });
+
+          orderDetailsDiv.appendChild(editIcon);
+          orderDetailsDiv.appendChild(deleteIcon);
+
+          // Position icons on top right
+          editIcon.style.position = "absolute";
+          editIcon.style.top = "10px";
+          editIcon.style.right = "10px";
+
+          deleteIcon.style.position = "absolute";
+          deleteIcon.style.top = "10px";
+          deleteIcon.style.right = "40px";
+
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          orderDetailsDiv.textContent = "Error fetching order details.";
+        });
+    }
+  </script>
 
 </body>
 
