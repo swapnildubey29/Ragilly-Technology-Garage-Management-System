@@ -664,17 +664,11 @@
       const prevButtons = document.querySelectorAll(".prev");
       const steps = document.querySelectorAll(".step");
 
-      console.log("Next buttons found:", nextButtons.length);
-      console.log("Previous buttons found:", prevButtons.length);
-      console.log("Steps found:", steps.length);
 
       nextButtons.forEach((button) => {
-        console.log("Attaching event listener to Next button");
         button.addEventListener("click", function () {
-          console.log("Next button clicked");
           const currentStep = this.closest(".step");
           const nextStep = currentStep.nextElementSibling;
-          console.log("Hiding current step and showing next step",nextStep);
           if (nextStep !== null) {
             currentStep.style.display = "none";
             nextStep.style.display = "block"; // Ensure that the next step is displayed
@@ -683,9 +677,7 @@
       });
 
       prevButtons.forEach((button) => {
-        console.log("Attaching event listener to Previous button");
         button.addEventListener("click", function () {
-          console.log("Previous button clicked");
           const currentStep = this.closest(".step");
           const prevStep = currentStep.previousElementSibling;
           if (prevStep !== null) {
@@ -751,18 +743,14 @@
           // Event listener for brand input field
           document.getElementById('vehicle-brand-input').addEventListener('input', function () {
             const filter = this.value.toLowerCase();
-            console.log("Brand filter:", filter); // Log the filter value
             const filteredBrands = vehicleBrands.filter(brand => brand.includes(filter));
-            console.log("Filtered brands:", filteredBrands); // Log the filtered brands
             updateDatalist('vehicle-brands-datalist', filteredBrands); // Update datalist options
           });
 
           // Event listener for model input field
           document.getElementById('vehicle-model-input').addEventListener('input', function () {
             const filter = this.value.toLowerCase();
-            console.log("Model filter:", filter); // Log the filter value
             const filteredModels = vehicleModels.filter(model => model.includes(filter));
-            console.log("Filtered models:", filteredModels); // Log the filtered models
             updateDatalist('vehicle-models-datalist', filteredModels); // Update datalist options
           });
 
@@ -774,7 +762,6 @@
               inputField.value = event.target.value; // Update the input field value with the clicked option's value
               this.innerHTML = ''; // Remove all other options from the datalist
             }
-            console.log("== ",inputField.value)
           });
 
           document.getElementById('vehicle-models-datalist').addEventListener('mousedown', function (event) {
@@ -818,7 +805,7 @@
           vehicle_model:document.getElementById("vehicle-model-input").value,
           fuel_type: document.querySelector('select[name="fuel_type"]')
             .value,
-          // car_year: document.querySelector('input[name="car_year"]').value,
+          //car_year: document.querySelector('input[name="car_year"]').value,
           service_type: document.querySelector(
             'select[name="service_type"]'
           ).value,

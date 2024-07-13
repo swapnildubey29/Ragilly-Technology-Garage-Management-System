@@ -34,9 +34,7 @@ router.post("/order", upload.single("vehicle_image"), async (req, res) => {
     const newOrder = new Order(orderData);
     await newOrder.save();
 
-    res
-      .status(201)
-      .json({ message: "Order created successfully", order: newOrder });
+    res.status(201).json({ message: "Order created successfully", order: newOrder });
   } catch (error) {
     console.error("Error creating order:", error);
     res.status(500).json({ error: "Internal server error" });

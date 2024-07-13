@@ -116,7 +116,32 @@
     .step:first-child {
       display: block;
     }
+
+    /* Vehicle type buttons */
+    .vehicle-type-btn-container {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .vehicle-type-btn {
+      flex: 1;
+      background-color: #ffffff;
+      color: #333333;
+      border: 1px solid #cccccc;
+      padding: 10px 20px;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .vehicle-type-btn.active {
+      background-color: #007bff;
+      color: #ffffff;
+      border-color: #007bff;
+    }
   </style>
+
 </head>
 
 <body>
@@ -228,23 +253,26 @@
               </div>
               <button type="button" class="btn btn-primary next">Next</button>
             </div>
+
             <!-- Step 2: Vehicle Information -->
             <div class="step">
               <h2 class="mb-4 text-center">Vehicle Information</h2>
               <div class="form-row">
+
                 <div class="form-group">
-                  <select class="form-control" name="vehicle_type" required aria-label="Vehicle Type">
-                    <option value="" disabled selected>
-                      Select Vehicle Type
-                    </option>
-                    <option type_id="1" value="Two-whiller">Two Wheeler</option>
-                    <option type_id="2" value="four-whiller">four Wheeler</option>
-                  </select>
+                  <label for="vehicle-type">Vehicle Type</label>
+                  <form id="orderForm">
+                    <div class="vehicle-type-btn-container">
+                      <button type="button" class="btn vehicle-type-btn" data-type="Two-wheeler">Two Wheeler</button>
+                      <button type="button" class="btn vehicle-type-btn" data-type="Four-wheeler">Four Wheeler</button>
+                      <input type="hidden" name="vehicle_type" id="vehicle-type-input" value="" required>
+                    </div>
                 </div>
+
                 <div class="form-group">
                   <input id="vehicle-brand-input" type="text" name="vehicle_brand" aria-label="Vehicle Brand"
                     placeholder="Search Vehicle Brand">
-                  <datalist id="vehicle-brands-datalist" name="vehicle-brands-datalist"></datalist>
+                  <datalist id="vehicle-brands-datalist"></datalist>
                 </div>
 
                 <div class="form-group">
@@ -258,7 +286,6 @@
                   <input id="vehicle_image" type="file" name="vehicle_image" aria-label="vehicle_image"
                     accept="image/*">
                 </div>
-
 
                 <div class="form-group">
                   <select class="form-control" name="fuel_type" required aria-label="fuel_type">
@@ -282,22 +309,23 @@
                 </div>
               </div>
             </div>
+
             <!-- Step 3: Service Information -->
             <div class="step">
               <h2 class="mb-4 text-center">Service Information</h2>
               <div class="form-row">
+
                 <div class="form-group">
                   <select class="form-control" name="service_type" required aria-label="Service Type">
                     <option value="" disabled selected>
                       Select Service Type
                     </option>
-                    <option value="Regular Maintenance">
-                      Regular Maintenance
-                    </option>
+                    <option value="Regular Maintenance">Regular Maintenance</option>
                     <option value="Repair">Repair</option>
                     <option value="Inspection">Inspection</option>
                   </select>
                 </div>
+                
                 <div class="form-row">
                   <div class="form-group">
                     <textarea class="form-control" name="description" rows="3" placeholder="Description"
@@ -733,18 +761,23 @@
       const nextButtons = document.querySelectorAll(".next");
       const prevButtons = document.querySelectorAll(".prev");
       const steps = document.querySelectorAll(".step");
+      const vehicleTypeButtons = document.querySelectorAll('.vehicle-type-btn');
 
-      console.log("Next buttons found:", nextButtons.length);
-      console.log("Previous buttons found:", prevButtons.length);
-      console.log("Steps found:", steps.length);
+      vehicleTypeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          // Remove active class from all buttons
+          vehicleTypeButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to the clicked button
+          this.classList.add('active');
+          // Set the hidden input value to the selected type
+          document.getElementById('vehicle-type-input').value = this.getAttribute('data-type');
+        });
+      });
 
       nextButtons.forEach((button) => {
-        console.log("Attaching event listener to Next button");
         button.addEventListener("click", function () {
-          console.log("Next button clicked");
           const currentStep = this.closest(".step");
           const nextStep = currentStep.nextElementSibling;
-          console.log("Hiding current step and showing next step", nextStep);
           if (nextStep !== null) {
             currentStep.style.display = "none";
             nextStep.style.display = "block"; // Ensure that the next step is displayed
@@ -753,9 +786,7 @@
       });
 
       prevButtons.forEach((button) => {
-        console.log("Attaching event listener to Previous button");
         button.addEventListener("click", function () {
-          console.log("Previous button clicked");
           const currentStep = this.closest(".step");
           const prevStep = currentStep.previousElementSibling;
           if (prevStep !== null) {
@@ -833,6 +864,7 @@
         })
         .catch(error => console.error('Error fetching JSON data:', error));
 
+      //Order Form Submition.
       document.getElementById("createOrderForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -840,7 +872,7 @@
         formData.append("name", document.querySelector('input[name="name"]').value);
         formData.append("mobile", document.querySelector('input[name="mobile"]').value);
         formData.append("location", document.querySelector('input[name="location"]').value);
-        formData.append("vehicle_type", document.querySelector('select[name="vehicle_type"]').value);
+        formData.append("vehicle_type", document.getElementById('vehicle-type-input').value); 
         formData.append("description", document.querySelector('textarea[name="description"]').value);
         formData.append("vehicle_brand", document.getElementById("vehicle-brand-input").value);
         formData.append("vehicle_model", document.getElementById("vehicle-model-input").value);
@@ -877,7 +909,6 @@
             alert("An error occurred while creating the order")
           });
       });
-
     });
 
     document.getElementById('logout').addEventListener('click', () => {

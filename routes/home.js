@@ -8,7 +8,6 @@ const { User } = require("../models/User");
 router.post("/job", async (req, res) => {
   try {
     const orderData = req.body;
-    console.log(orderData);
     const { mobile } = orderData;
     const newOrder = new Order(orderData);
     await newOrder.save();
