@@ -30,93 +30,7 @@
   <!-- Preload Images -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.png" />
   <link rel="preload" as="image" href="./assets/images/hero-bg.jpg" />
-
-  <style>
-    /* Form container */
-    .form-container {
-      max-width: 500px;
-      margin: auto;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    /* Center the form content */
-    #orderForm {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Adjust form fields */
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    /* Style for the datalist */
-    datalist {
-      display: block;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Style for the options */
-    datalist option {
-      padding: 5px;
-      cursor: pointer;
-      background-color: #ffffff;
-      color: #000000;
-      /* Update text color for better visibility */
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-
-    /* Placeholder text color */
-    ::placeholder {
-      color: #666;
-    }
-
-    /* Hover effect for options */
-    datalist option:hover {
-      background-color: #f0f0f0;
-    }
-
-
-    .btn {
-      padding: 12px 24px;
-    }
-
-    .btn-block {
-      width: 100%;
-      background-color: #981717;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-block:hover {
-      background-color: #743131;
-    }
-
-    .step {
-      display: none;
-      flex-direction: row;
-    }
-
-    .step:first-child {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="./assets/css/dashboard.css">
 </head>
 
 <body>
@@ -200,15 +114,17 @@
             <div class="step">
               <h2 class="mb-4 text-center">Vehicle Information</h2>
               <div class="form-row">
+
                 <div class="form-group">
-                  <select class="form-control" name="vehicle_type" required aria-label="Vehicle Type">
-                    <option value="" disabled selected>
-                      Select Vehicle Type
-                    </option>
-                    <option type_id="1" value="Two-whiller">Two Wheeler</option>
-                    <option type_id="2" value="four-whiller">four Wheeler</option>
-                  </select>
+                  <label for="vehicle-type">Vehicle Type</label>
+                  <form id="orderForm">
+                    <div class="vehicle-type-btn-container">
+                      <button type="button" class="btn vehicle-type-btn" data-type="Two-wheeler">Two Wheeler</button>
+                      <button type="button" class="btn vehicle-type-btn" data-type="Four-wheeler">Four Wheeler</button>
+                      <input type="hidden" name="vehicle_type" id="vehicle-type-input" value="" required>
+                    </div>
                 </div>
+
                 <div class="form-group">
                   <input id="vehicle-brand-input" type="text" name="vehicle_brand" aria-label="Vehicle Brand"
                     placeholder="Search Vehicle Brand">
@@ -243,66 +159,66 @@
                 </div>
               </div>
             </div>
-              <!-- Step 3: Service Information -->
-              <div class="step">
-                <h2 class="mb-4 text-center">Service Information</h2>
-                <div class="form-row">
-                  <div class="form-group">
-                    <select class="form-control" name="service_type" required aria-label="Service Type">
-                      <option value="" disabled selected>
-                        Select Service Type
-                      </option>
-                      <option value="Regular Maintenance">
-                        Regular Maintenance
-                      </option>
-                      <option value="Repair">Repair</option>
-                      <option value="Inspection">Inspection</option>
-                    </select>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <textarea class="form-control" name="description" rows="3" placeholder="Description"
-                        aria-label="Description"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <select class="form-control" name="service_place_type" required aria-label="Service Place Type">
-                      <option value="" disabled selected>
-                        Select Service Place Type
-                      </option>
-                      <option value="Home Service">Home Service</option>
-                      <option value="Workshop Service">Workshop Service</option>
-                    </select>
-                  </div>
+            <!-- Step 3: Service Information -->
+            <div class="step">
+              <h2 class="mb-4 text-center">Service Information</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <select class="form-control" name="service_type" required aria-label="Service Type">
+                    <option value="" disabled selected>
+                      Select Service Type
+                    </option>
+                    <option value="Regular Maintenance">
+                      Regular Maintenance
+                    </option>
+                    <option value="Repair">Repair</option>
+                    <option value="Inspection">Inspection</option>
+                  </select>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="address" placeholder="Address" required
-                      aria-label="Address" />
-                  </div>
-                  <div class="form-group">
-                    <input type="date" class="form-control" name="service_date" required aria-label="Service Date" />
+                    <textarea class="form-control" name="description" rows="3" placeholder="Description"
+                      aria-label="Description"></textarea>
                   </div>
                 </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <input type="time" class="form-control" name="service_time" required aria-label="Service Time" />
-                  </div>
-                </div>
-                <input type="hidden" name="quotation" value="Pending" />
-                <input type="hidden" name="price" />
-                <input type="hidden" name="discount" />
-                <input type="hidden" name="payable_price" />
-                <input type="hidden" name="status" value="Pending" />
-                <div style="display: flex; gap: 2">
-                  <button type="button" class="btn btn-primary prev">
-                    Previous
-                  </button>
-                  <button type="submit" class="btn btn-primary">
-                    Submit Order
-                  </button>
+                <div class="form-group">
+                  <select class="form-control" name="service_place_type" required aria-label="Service Place Type">
+                    <option value="" disabled selected>
+                      Select Service Place Type
+                    </option>
+                    <option value="Home Service">Home Service</option>
+                    <option value="Workshop Service">Workshop Service</option>
+                  </select>
                 </div>
               </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="address" placeholder="Address" required
+                    aria-label="Address" />
+                </div>
+                <div class="form-group">
+                  <input type="date" class="form-control" name="service_date" required aria-label="Service Date" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="time" class="form-control" name="service_time" required aria-label="Service Time" />
+                </div>
+              </div>
+              <input type="hidden" name="quotation" value="Pending" />
+              <input type="hidden" name="price" />
+              <input type="hidden" name="discount" />
+              <input type="hidden" name="payable_price" />
+              <input type="hidden" name="status" value="Pending" />
+              <div style="display: flex; gap: 2">
+                <button type="button" class="btn btn-primary prev">
+                  Previous
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Submit Order
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -663,7 +579,18 @@
       const nextButtons = document.querySelectorAll(".next");
       const prevButtons = document.querySelectorAll(".prev");
       const steps = document.querySelectorAll(".step");
+      const vehicleTypeButtons = document.querySelectorAll('.vehicle-type-btn');
 
+      vehicleTypeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          // Remove active class from all buttons
+          vehicleTypeButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to the clicked button
+          this.classList.add('active');
+          // Set the hidden input value to the selected type
+          document.getElementById('vehicle-type-input').value = this.getAttribute('data-type');
+        });
+      });
 
       nextButtons.forEach((button) => {
         button.addEventListener("click", function () {
@@ -673,6 +600,7 @@
             currentStep.style.display = "none";
             nextStep.style.display = "block"; // Ensure that the next step is displayed
           }
+
         });
       });
 
@@ -703,8 +631,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-
-      // Function to update the datalist options
       function updateDatalist(datalistId, options) {
         const datalist = document.getElementById(datalistId);
         datalist.innerHTML = '';
@@ -773,7 +699,7 @@
           });
 
         })
-        .catch(error => console.error('Error fetching JSON data:', error)); // Log any errors that occur during fetching
+        .catch(error => console.error('Error fetching JSON data:', error));
     });
 
     window.addEventListener("load", function () {
@@ -794,35 +720,24 @@
           name: document.querySelector('input[name="name"]').value,
           mobile: document.querySelector('input[name="mobile"]').value,
           location: document.querySelector('input[name="location"]').value,
-          vehicle_type: document.querySelector(
-            'select[name="vehicle_type"]'
-          ).value,
-          description: document.querySelector(
-            'textarea[name="description"]'
-          ).value,
+          vehicle_type: document.getElementById('vehicle-type-input').value,
+          description: document.querySelector('textarea[name="description"]').value,
           vehicle_brand: document.getElementById("vehicle-brand-input").value,
-          vehicle_model:document.getElementById("vehicle-model-input").value,
-          fuel_type: document.querySelector('select[name="fuel_type"]')
-            .value,
-          //car_year: document.querySelector('input[name="car_year"]').value,
-          service_type: document.querySelector(
-            'select[name="service_type"]'
-          ).value,
-          service_place_type: document.querySelector(
-            'select[name="service_place_type"]'
-          ).value,
+          vehicle_model: document.getElementById("vehicle-model-input").value,
+          fuel_type: document.querySelector('select[name="fuel_type"]').value,
+          // car_year: document.querySelector('input[name="car_year"]').value,
+          service_type: document.querySelector('select[name="service_type"]').value,
+          service_place_type: document.querySelector('select[name="service_place_type"]').value,
           address: document.querySelector('input[name="address"]').value,
-          service_date: document.querySelector('input[name="service_date"]')
-            .value,
-          service_time: document.querySelector('input[name="service_time"]')
-            .value,
+          service_date: document.querySelector('input[name="service_date"]').value,
+          service_time: document.querySelector('input[name="service_time"]').value,
           quotation: "Pending",
           price: "",
           discount: "",
           payable_price: "",
           status: "Requested",
         };
-          console.log(formData)
+        console.log(formData)
 
         fetch("/job", {
           method: "POST",
