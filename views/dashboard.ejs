@@ -215,7 +215,7 @@
                     <option value="Inspection">Inspection</option>
                   </select>
                 </div>
-                
+
                 <div class="form-row">
                   <div class="form-group">
                     <textarea class="form-control" name="description" rows="3" placeholder="Description"
@@ -655,11 +655,8 @@
 
       vehicleTypeButtons.forEach(button => {
         button.addEventListener('click', function () {
-          // Remove active class from all buttons
           vehicleTypeButtons.forEach(btn => btn.classList.remove('active'));
-          // Add active class to the clicked button
           this.classList.add('active');
-          // Set the hidden input value to the selected type
           document.getElementById('vehicle-type-input').value = this.getAttribute('data-type');
         });
       });
@@ -762,7 +759,7 @@
         formData.append("name", document.querySelector('input[name="name"]').value);
         formData.append("mobile", document.querySelector('input[name="mobile"]').value);
         formData.append("location", document.querySelector('input[name="location"]').value);
-        formData.append("vehicle_type", document.getElementById('vehicle-type-input').value); 
+        formData.append("vehicle_type", document.getElementById('vehicle-type-input').value);
         formData.append("description", document.querySelector('textarea[name="description"]').value);
         formData.append("vehicle_brand", document.getElementById("vehicle-brand-input").value);
         formData.append("vehicle_model", document.getElementById("vehicle-model-input").value);
@@ -778,6 +775,7 @@
         formData.append("discount", "");
         formData.append("payable_price", "");
         formData.append("status", "Requested");
+        // car_year: document.querySelector('input[name="car_year"]').value,
 
         fetch("/order", {
           method: "POST",

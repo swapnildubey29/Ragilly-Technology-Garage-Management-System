@@ -1,16 +1,46 @@
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
-const fs = require("fs");
 const { User } = require("../models/User");
+const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
 
-// Route to create a new order
-router.post("/job", async (req, res) => {
+// Multer storage configuration
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "uploads");
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${uuidv4()}-${file.originalname}`);
+  },
+});
+
+// Multer upload middleware
+const upload = multer({ storage });
+
+router.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Route to create a new job
+router.post("/job", upload.single("vehicle_image"), async (req, res) => {
   try {
-    const orderData = req.body;
-    const { mobile } = orderData;
+    console.log("File:", req.file);
+    let vehicleImageUrl = "";
+    if (req.file) {
+      const uploadPath = path.join(__dirname, "uploads", req.file.filename);
+      vehicleImageUrl = `/uploads/${req.file.filename}`;    }
+
+    const orderData = {
+      ...req.body,
+      vehicle_image: vehicleImageUrl,
+    };
+
     const newOrder = new Order(orderData);
     await newOrder.save();
+
+    const { mobile } = orderData;
     const existingUser = await User.findOne({ mobile });
     if (existingUser) {
       res.status(201).json({ success: true, redirect: "/login" });
