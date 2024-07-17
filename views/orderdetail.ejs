@@ -341,6 +341,15 @@
           orderDetailsDiv.appendChild(additionalDetailsDiv);
         }
 
+        // Add vehicle image
+        const vehicleImageDiv = document.createElement("div");
+        vehicleImageDiv.classList.add("vehicle-image");
+        const vehicleImage = document.createElement("img");
+        vehicleImage.src = orderData.vehicle_image || "default-image-url"; //Use a default image URL if no image found
+        vehicleImage.alt = "Vehicle Image";
+        vehicleImageDiv.appendChild(vehicleImage);
+        orderDetailsDiv.appendChild(vehicleImageDiv);
+
         // Add progress bar
         const progressBar = document.createElement("ul");
         progressBar.classList.add("text-center", "progress");

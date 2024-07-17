@@ -43,7 +43,7 @@ router.post("/order", upload.single("vehicle_image"), async (req, res) => {
 
 router.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Route to get vehicle_image URL by order ID
+// Route to get vehicle_image URL by order
 router.get("/order/image", async (req, res) => {
   try {
     const { mobile, service_date, service_time } = req.query;
