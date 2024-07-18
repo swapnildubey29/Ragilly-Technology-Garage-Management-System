@@ -29,8 +29,8 @@ router.post("/job", upload.single("vehicle_image"), async (req, res) => {
     console.log("File:", req.file);
     let vehicleImageUrl = "";
     if (req.file) {
-      const uploadPath = path.join(__dirname, "uploads", req.file.filename);
-      vehicleImageUrl = `/uploads/${req.file.filename}`;    }
+      vehicleImageUrl = `/uploads/${req.file.filename}`;
+    }
 
     const orderData = {
       ...req.body,
