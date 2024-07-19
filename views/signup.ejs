@@ -144,6 +144,9 @@
             const otp = document.getElementById("otp").value
             const otpId = document.getElementById("otpId").value
             const mobile = document.getElementById("mobile").value
+            const name = document.getElementById("name").value
+            const email = document.getElementById("email").value
+
             if (!otp) {
                 document.getElementById("errorMessage").innerText = "Please enter OTP!"
                 return;
@@ -153,7 +156,7 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ mobile: mobile, otpId: otpId, otp: otp }),
+                body: JSON.stringify({ mobile: mobile, otpId: otpId, otp: otp, name: name, email: email }),
             })
                 .then(response => response.json())
                 .then(data => {

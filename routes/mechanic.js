@@ -1,114 +1,118 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const Order = require("../models/Order");
-const { User } = require("../models/User");
-const twilio = require("twilio");
-const { parsePhoneNumberFromString } = require("libphonenumber-js");
+const jwt = require('jsonwebtoken');
+const { User } = require('../models/User');
+const LoginOTP = require('../models/LoginOTP');
+const twilio = require('twilio');
+const { parsePhoneNumberFromString } = require('libphonenumber-js');
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
+const accountSid = process.env.TWILIO_ACCOUNT_SID; 
+const authToken = process.env.TWILIO_AUTH_TOKEN;   
+const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER; 
+
 const client = twilio(accountSid, authToken);
 
-router.get("/All-Assigned-orders", async (req, res) => {
-  try {
-    const mobile = req.query.mobile;
-    const user = await User.findOne({ mobile: mobile });
-    const mechanicName = user.name;
-    const allOrders = await Order.find({ mechanic: mechanicName });
-    res.json(allOrders);
-  } catch (error) {
-    console.log("Error Fetching all Orders", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-//Route to Add Quotation
-// router.post("/addquotation", async (req, res) => {
-//   const qoutationdata = req.body;
-
-//   Order.findByIdAndUpdate(qoutationdata.order_id, qoutationdata, { new: true })
-//     .then((qoutationdata) => {
-//       if (!qoutationdata) {
-//         return res.status(404).json({ error: "Order not found" });
-//       }
-//       res.json(qoutationdata);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//       res.status(500).json({ error: "Internal Server Error" });
-//     });
-// });
-
-// Function to format phone number to E.164 format
 function formatPhoneNumber(phoneNumber, countryCode = "IN") {
-  try {
-    const number = parsePhoneNumberFromString(phoneNumber, countryCode);
-    if (!number || !number.isValid()) {
-      throw new Error("Invalid phone number");
+    try {
+        const number = parsePhoneNumberFromString(phoneNumber, countryCode);
+        if (!number || !number.isValid()) {
+            throw new Error("Invalid phone number");
+        }
+        return number.formatInternational();
+    } catch (error) {
+        console.error("Error formatting phone number:", error.message);
+        throw error;
     }
-    return number.formatInternational();
-  } catch (error) {
-    console.error("Error formatting phone number:", error.message);
-    throw error;
-  }
 }
 
-router.post("/addquotation", async (req, res) => {
-  const quotationData = req.body;
+router.post('/login', async (req, res) => {
+    const { mobile } = req.body;
+    try {
+        const formattedMobile = formatPhoneNumber(mobile);
+        const user = await User.findOne({ mobile: formattedMobile });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
 
-  try {
-    const updatedOrder = await Order.findByIdAndUpdate(
-      quotationData.order_id,
-      quotationData,
-      { new: true }
-    );
-    if (!updatedOrder) {
-      return res.status(404).json({ error: "Order not found" });
+        let otpRecord = await LoginOTP.findOne({ mobile: formattedMobile });
+        const otp = Math.floor(1000 + Math.random() * 9000).toString();
+        if (otpRecord) {
+            otpRecord.otp = otp;
+            await otpRecord.save();
+        } else {
+            otpRecord = await LoginOTP.create({ mobile: formattedMobile, otp });
+        }
+
+        // Send OTP via Twilio
+        await client.messages.create({
+            body: `Your OTP for login is: ${otp}`,
+            from: twilioPhoneNumber,
+            to: formattedMobile
+        });
+
+        // Generate JWT token
+        res.cookie('jwt', token, { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
+        res.json({ success: true, token });
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-
-    // Formating the user's mobile number to E.164 format
-    const formattedPhoneNumber = formatPhoneNumber(updatedOrder.mobile, "IN");
-
-    // Preparing SMS message content
-    const messageContent = `
-      Dear User,
-      Your Order quotation has been updated:
-      Quotation: ${quotationData.quotation}
-      Price: ${quotationData.price}
-      Discount: ${quotationData.discount}%
-      Payable Price: ${quotationData.payable_price}
-      Status: ${quotationData.status}
-    `;
-
-    //Sending SMS using Twilio
-    const message = await client.messages.create({
-      body: messageContent,
-      from: process.env.TWILIO_PHONE_NUMBER,
-      to: formattedPhoneNumber,
-    });
-
-    console.log(`SMS sent successfully: ${message.sid}`);
-
-    res.json(updatedOrder);
-  } catch (error) {
-    console.error("Error adding quotation and sending SMS:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
 });
 
-//On Clicking on the order Getting particular Order Details
-router.get("/userorder", async (req, res) => {
-  try {
-    const orderId = req.query.order_id;
-    const order = await Order.findById(orderId);
-    if (!order) {
-      return res.status(404).json({ error: "Order not found" });
+router.post('/verify-login', async (req, res) => {
+    const { mobile, otp } = req.body;
+    try {
+        const formattedMobile = formatPhoneNumber(mobile);
+        const otpRecord = await LoginOTP.findOne({ mobile: formattedMobile, otp });
+        if (!otpRecord) {
+            return res.status(400).json({ message: 'Invalid OTP' });
+        }
+        // If OTP verification successful, fetch the user to check their role
+        const user = await User.findOne({ mobile: formattedMobile });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        // Generate JWT token
+        const token = jwt.sign({ mobile: formattedMobile }, process.env.SECRET_KEY, { expiresIn: '5d' });
+        res.cookie('jwt', token, { maxAge: 5 * 24 * 60 * 60 * 1000, httpOnly: true });
+
+        if (user.role === 'user') {
+            res.status(201).json({ success: true, redirect: '/dashboard' });
+        } else if (user.role === 'admin') {
+            res.status(201).json({ success: true, redirect: '/admin' });
+        } else {
+            res.status(201).json({ success: true, redirect: '/mechanic' });
+        }
+
+    } catch (error) {
+        console.error('Error verifying OTP:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-    res.json(order);
-  } catch (error) {
-    console.error("Error fetching user orders:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
+});
+
+router.post('/verify-jwt', async (req, res) => {
+    const { token } = req.body;
+    try {
+        if (!token) {
+            return res.status(401).json({ success: false, error: 'JWT token not provided' });
+        }
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        // Fetch the user using the mobile number from the decoded token
+        const user = await User.findOne({ mobile: decoded.mobile });
+        if (!user) {
+            return res.status(404).json({ success: false, error: 'User not found' });
+        }
+        if (user.role === 'admin') {
+            res.json({ success: true, redirect: '/admin' });
+        } else if (user.role === 'mechanic') {
+            res.json({ success: true, redirect: '/mechanic' });
+        } else {
+            res.json({ success: true, redirect: '/dashboard' });
+        }
+    } catch (error) {
+        console.error('Error verifying JWT token:', error);
+        res.status(401).json({ success: false, error: error.message });
+    }
 });
 
 module.exports = router;
