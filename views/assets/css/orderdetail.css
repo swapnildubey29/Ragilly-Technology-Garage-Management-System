@@ -443,6 +443,14 @@ form#editOrderForm button[type="submit"]:hover {
   width: 50px;
 }
 
+.vehicle-image {
+  display: flex;
+  width: 20%;
+}
+
+.vecimg {
+  height: 150px;
+}
 
 .container-pro {
   display: flex;
@@ -479,6 +487,17 @@ form#editOrderForm button[type="submit"]:hover {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  width: fit-content;
+}
+
+.vechicle-info-outer {
+  display: flex;
+}
+
+.vechicle-info-details {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }
 
 .detail-item i {

@@ -271,6 +271,23 @@
         vehicleInfoDiv.innerHTML = `<strong>${toCapitalizedWords(orderData.vehicle_brand)} ${toCapitalizedWords(orderData.vehicle_model)}</strong>`;
         orderDetailsDiv.appendChild(vehicleInfoDiv);
 
+        const OuterDiv = document.createElement("div");
+        OuterDiv.classList.add("vechicle-info-outer");
+        orderDetailsDiv.appendChild(OuterDiv);
+
+        const vehicleImageDiv = document.createElement("div");
+        vehicleImageDiv.classList.add("vehicle-image");
+        const vehicleImage = document.createElement("img");
+        vehicleImage.src = orderData.vehicle_image || "default-image-url";
+        vehicleImage.alt = "Vehicle Image";
+        vehicleImage.className = "vecimg"
+        vehicleImageDiv.appendChild(vehicleImage);
+        OuterDiv.appendChild(vehicleImageDiv);
+
+        const OuterDetailsDiv = document.createElement("div");
+        OuterDetailsDiv.classList.add("vechicle-info-details");
+        OuterDiv.appendChild(OuterDetailsDiv);
+
         // Add order details
         const fieldsToDisplay = [
           { key: "name", icon: "fa-user" },
@@ -294,7 +311,7 @@
           }
           const displayKey = capitalizeFirstLetter(field.key.replace('_', ' ')); // Capitalize key and replace underscores with spaces
           detailItem.innerHTML = `<i class="fas ${field.icon}"></i> <strong>${displayKey}:</strong> ${value}`;
-          orderDetailsDiv.appendChild(detailItem);
+          OuterDetailsDiv.appendChild(detailItem);
         });
 
         // Add order status
@@ -320,9 +337,9 @@
             let value = orderData[key];
 
             if (index === 0 || index === 2) {
-              value = `&#8377 ${value}`; // Adding ₹ symbol for 1st and 3rd items
+              value = `&#8377 ${value}`;
             } else if (index === 1) {
-              value = `${value} %`; // Adding % sign for 2nd item
+              value = `${value} %`;
             }
 
             if (key !== "quotation") {
@@ -342,13 +359,14 @@
         }
 
         // Add vehicle image
-        const vehicleImageDiv = document.createElement("div");
-        vehicleImageDiv.classList.add("vehicle-image");
-        const vehicleImage = document.createElement("img");
-        vehicleImage.src = orderData.vehicle_image || "default-image-url"; //Use a default image URL if no image found
-        vehicleImage.alt = "Vehicle Image";
-        vehicleImageDiv.appendChild(vehicleImage);
-        orderDetailsDiv.appendChild(vehicleImageDiv);
+        // const vehicleImageDiv = document.createElement("div");
+        // vehicleImageDiv.classList.add("vehicle-image");
+        // const vehicleImage = document.createElement("img");
+        // vehicleImage.src = orderData.vehicle_image || "default-image-url"; 
+        // vehicleImage.alt = "Vehicle Image";
+        // vehicleImage.className = "vecimg"
+        // vehicleImageDiv.appendChild(vehicleImage);
+        // orderDetailsDiv.appendChild(vehicleImageDiv);
 
         // Add progress bar
         const progressBar = document.createElement("ul");
