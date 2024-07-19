@@ -19,6 +19,7 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-ejs-layouts": "^2.5.1",
+    "gitignore": "^0.7.0",
     "jsonwebtoken": "^9.0.2",
     "libphonenumber-js": "^1.11.4",
     "mongoose": "^8.3.3",
