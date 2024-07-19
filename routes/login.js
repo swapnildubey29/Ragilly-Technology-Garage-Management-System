@@ -43,12 +43,12 @@ router.post('/login', async (req, res) => {
             otpRecord = await LoginOTP.create({ mobile: mobile, otp });
         }
 
-        // Send OTP via Twilio
-        // await client.messages.create({
-        //     body: `Your OTP for login is: ${otp}`,
-        //     from: twilioPhoneNumber,
-        //     to: formattedMobile
-        // });
+        Send OTP via Twilio
+        await client.messages.create({
+            body: `Your OTP for login is: ${otp}`,
+            from: twilioPhoneNumber,
+            to: formattedMobile
+        });
 
         res.json({ success: true });
     } catch (error) {
