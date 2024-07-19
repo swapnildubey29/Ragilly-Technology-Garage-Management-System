@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: url('./assets/images/hero-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
             font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
 
         .container {
@@ -65,10 +71,24 @@
             font-size: 14px;
             margin-top: 5px;
         }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
     </style>
 </head>
 
 <body>
+    <div class="logo-container">
+        <img src="./assets/images/ragilly-logo.png" alt="Logo">
+    </div>
     <div class="container">
         <h1 class="mb-4 text-center">Registration Form</h1>
         <form id="registrationForm" method="post" action="/signup" onsubmit="return validateForm()">
