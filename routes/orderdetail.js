@@ -98,8 +98,8 @@ router.get("/orderdetails", (req, res) => {
 router.get("/currentorder", (req, res) => {
   const mobile = req.query.mobile;
   Order.find({ mobile: mobile })
-    .sort({ createdAt: -1 }) // Sort by creation date in descending order
-    .limit(1) // Limit to the most recent order
+    .sort({ createdAt: -1 })
+    .limit(1) // Limit to the most recent order  // Sort by creation date in descending order
     .then((orders) => {
       if (orders.length === 0) {
         return res.status(404).json({ error: "Order not found" });
@@ -134,7 +134,6 @@ router.post("/editorder", (req, res) => {
 
 router.delete("/deleteorder", async (req, res) => {
   const mobile = req.query.mobile;
-
   try {
     const order = await Order.findOneAndDelete({ mobile: mobile });
 
@@ -147,14 +146,12 @@ router.delete("/deleteorder", async (req, res) => {
       const imagePath = path.resolve(order.vehicle_image);
       console.log("imagepath:", imagePath);
 
-      // Check if the file exists before attempting to delete it
       if (fs.existsSync(imagePath)) {
         fs.unlinkSync(imagePath);
       } else {
         console.warn(`Image file not found: ${imagePath}`);
       }
     }
-
     res.json({
       message: "Order data and associated image deleted successfully",
     });
