@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/Order");
-const fs = require('fs')
+const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
@@ -35,7 +35,9 @@ router.post("/order", upload.single("vehicle_image"), async (req, res) => {
     const newOrder = new Order(orderData);
     await newOrder.save();
 
-    res.status(201).json({ message: "Order created successfully", order: newOrder });
+    res
+      .status(201)
+      .json({ message: "Order created successfully", order: newOrder });
   } catch (error) {
     console.error("Error creating order:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -132,7 +134,7 @@ router.post("/editorder", (req, res) => {
 
 router.delete("/deleteorder", async (req, res) => {
   const mobile = req.query.mobile;
-  const vehicle_image = req.query.mobile;
+
   try {
     const order = await Order.findOneAndDelete({ mobile: mobile });
 
@@ -140,10 +142,17 @@ router.delete("/deleteorder", async (req, res) => {
       return res.status(404).json({ error: "Order not found" });
     }
 
-    // Delete image file or record here (assuming imagePath is the field)
-    const imagePath = Order.find({ vehicle_image: vehicle_image });
-    if (imagePath) {
-      fs.unlinkSync(imagePath);
+    // If the order has a vehicle_image field, delete the associated image
+    if (order.vehicle_image) {
+      const imagePath = path.resolve(order.vehicle_image);
+      console.log("imagepath:", imagePath);
+
+      // Check if the file exists before attempting to delete it
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      } else {
+        console.warn(`Image file not found: ${imagePath}`);
+      }
     }
 
     res.json({
