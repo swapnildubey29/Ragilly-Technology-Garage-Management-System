@@ -449,7 +449,8 @@ form#editOrderForm button[type="submit"]:hover {
 }
 
 .vecimg {
-  height: 150px;
+  height: 140px;
+  width: 170px;
 }
 
 .container-pro {
