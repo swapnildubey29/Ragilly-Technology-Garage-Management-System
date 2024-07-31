@@ -7,7 +7,7 @@ const { User, OTP } = require("../models/User");
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID; // Add this line
 
 const client = twilio(accountSid, authToken);
 
@@ -49,7 +49,7 @@ router.post("/signup", async (req, res) => {
 
     await client.messages.create({
       body: `Your OTP for Registering Account is: ${otpRecord.otp}`,
-      from: twilioPhoneNumber,
+      messagingServiceSid: messagingServiceSid, // Use Messaging Service SID here
       to: formattedMobile,
     });
 
@@ -109,6 +109,7 @@ router.post("/verify-otp", async (req, res) => {
       error: error.message,
     });
   }
+
 });
 
 module.exports = router;
