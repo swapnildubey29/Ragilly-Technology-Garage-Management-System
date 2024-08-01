@@ -4,7 +4,10 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     mobile: String, 
-    location: String,
+    location: {
+        type: String,
+        default: '',
+    },
     role: {
         type: String,
         default: 'user',
