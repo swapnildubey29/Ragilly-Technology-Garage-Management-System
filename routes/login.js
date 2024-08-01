@@ -8,7 +8,7 @@ const LoginOTP = require("../models/LoginOTP");
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID; // Add this line
 
 const client = twilio(accountSid, authToken);
 
@@ -44,11 +44,11 @@ router.post("/login", async (req, res) => {
     }
 
        //Send OTP via Twilio
-        await client.messages.create({
-            body: `Your OTP for login is: ${otp}`,
-            from: twilioPhoneNumber,
-            to: formattedMobile
-        });
+       await client.messages.create({
+        body: `Your OTP for Registering Account is: ${otpRecord.otp}`,
+        messagingServiceSid: messagingServiceSid, // Use Messaging Service SID here
+        to: formattedMobile,
+      });
 
     res.json({ success: true });
   } catch (error) {

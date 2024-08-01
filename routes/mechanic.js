@@ -8,6 +8,7 @@ const { parsePhoneNumberFromString } = require("libphonenumber-js");
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = twilio(accountSid, authToken);
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID; 
 
 router.get("/All-Assigned-orders", async (req, res) => {
   try {
@@ -83,7 +84,7 @@ router.post("/addquotation", async (req, res) => {
     //Sending SMS using Twilio
     const message = await client.messages.create({
       body: messageContent,
-      from: process.env.TWILIO_PHONE_NUMBER,
+      messagingServiceSid: messagingServiceSid, 
       to: formattedPhoneNumber,
     });
 
